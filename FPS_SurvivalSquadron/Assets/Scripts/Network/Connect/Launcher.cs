@@ -8,30 +8,42 @@ namespace Com.MyGame
 {
     public class Launcher : MonoBehaviourPunCallbacks
     {
+        [SerializeField]
+        float timeWaintConnect = 5;
         string gameVersion = "1";
         [SerializeField]
         private byte maxPlayersPerRoom = 4;
         void Awake()
         {
-            
-            Connect();
+            StartCoroutine(Connect());
         }
         private void Start()
         {
             
         }
         #region Connect and disconnect
-        public void Connect()
+        public IEnumerator Connect()
         {
-            if(!PhotonNetwork.IsConnected)
+            for (int i = 0; i < 15; i++)
             {
-                PhotonNetwork.GameVersion = gameVersion;
-                PhotonNetwork.AutomaticallySyncScene = true;
-                PhotonNetwork.SerializationRate = 5;
-                PhotonNetwork.ConnectUsingSettings();
+                if (!PhotonNetwork.IsConnected)
+                {
+                    PhotonNetwork.GameVersion = gameVersion;
+                    PhotonNetwork.AutomaticallySyncScene = true;
+                    PhotonNetwork.SerializationRate = 5;
+                    PhotonNetwork.ConnectUsingSettings();
+                    yield return new WaitForSeconds(timeWaintConnect);
+                }
+                else
+                {
+
+                    break;
+                }
             }
+            
         }
         #endregion
+
         public override void OnConnectedToMaster()
         {
             if(!PhotonNetwork.InLobby)
@@ -43,7 +55,7 @@ namespace Com.MyGame
         }
         public override void OnDisconnected(DisconnectCause cause)
         {
-            Debug.Log("Da nga ket noi: " + cause);
+            Debug.Log("Khong the ket noi thanh cong: " + cause);
         }
         public override void OnJoinedLobby()
         {

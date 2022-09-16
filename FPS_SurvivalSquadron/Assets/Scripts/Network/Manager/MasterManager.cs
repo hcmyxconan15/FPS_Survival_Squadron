@@ -31,12 +31,12 @@ public class MasterManager : SingletonScriptableObject<MasterManager>
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void PopulateNetworkPrefab()
     {
-#if  UNITY_EDITOR
-        
+#if UNITY_EDITOR
+
+        if (Instance == null) return;
         Instance.networkPrefabs.Clear();
         GameObject[] results = Resources.LoadAll<GameObject>("");
         MasterManager[] rresult1 = Resources.FindObjectsOfTypeAll<MasterManager>();
-        Debug.Log(rresult1.Length);
         for(int i = 0; i < results.Length; i++)
         {
             if(results[i].GetComponent<PhotonView>() != null)
