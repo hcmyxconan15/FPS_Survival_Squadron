@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8839505134851836397}
   - component: {fileID: 8839505134851836396}
   m_Layer: 0
-  m_Name: CM FreeLook1
+  m_Name: CM FreeLook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
