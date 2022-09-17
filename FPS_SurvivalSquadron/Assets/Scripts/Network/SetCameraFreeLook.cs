@@ -12,7 +12,7 @@ public class SetCameraFreeLook : MonoBehaviour
     private Transform lookAt;
 
     private CinemachineFreeLook cameraFreeLook;
-    private void Awake()
+    private void OnEnable()
     {
         SetCamera();
     }
