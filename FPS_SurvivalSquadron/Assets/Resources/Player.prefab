@@ -3406,6 +3406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow: {fileID: 3052526208033931715}
   lookAt: {fileID: 3049986624851932706}
+  pv: {fileID: -495666309804899457}
 --- !u!1 &3050676614894280563
 GameObject:
   m_ObjectHideFlags: 0
