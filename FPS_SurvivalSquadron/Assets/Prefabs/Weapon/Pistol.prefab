@@ -49,8 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c3efa6a30564549bac42231a4eae7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponslot: 1
   isFiring: 0
-  FireRate: 25
+  fireRate: 25
   bulletSpeed: 1000
   bulletDrop: 300
   muzzleFlash:
@@ -58,10 +59,9 @@ MonoBehaviour:
   - {fileID: 1171246157683467975}
   hitEffect: {fileID: 1172049560952021651}
   tracerEffect: {fileID: 2745021422244975422, guid: 683b10f27e5fbff4299ed880fdabea0a, type: 3}
-  weaponName: Pistol
   raycastOrigin: {fileID: 1333451667866099958}
   raycastDestination: {fileID: 0}
-  maxLifeTime: 3
+  weaponName: Pistol
 --- !u!1 &1333451667866099959
 GameObject:
   m_ObjectHideFlags: 0
