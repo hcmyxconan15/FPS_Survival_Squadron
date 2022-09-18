@@ -9,8 +9,8 @@ public class PlayerAiming : MonoBehaviour
     public float aimDuration = 0.3f;
  
 
-    Camera mainCamera;
-    RayCastWeapon weapon;
+    protected Camera mainCamera;
+    protected RayCastWeapon weapon;
    
     private void Start()
     {
@@ -20,12 +20,24 @@ public class PlayerAiming : MonoBehaviour
         weapon = GetComponentInChildren<RayCastWeapon>();
        
     }
+
     private void FixedUpdate()
+    {
+        CameraUpdatePosition();
+    }
+
+    private void Update()
+    {
+        UseWeapon();
+
+    }
+    protected virtual void CameraUpdatePosition()
     {
         float yawCamera = mainCamera.transform.rotation.eulerAngles.y;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, yawCamera, 0), turnSpeed * Time.fixedDeltaTime);
     }
-    private void Update()
+
+    protected virtual void UseWeapon()
     {
         if (weapon)
         {
@@ -49,8 +61,5 @@ public class PlayerAiming : MonoBehaviour
 
             }
         }
-
-
     }
-
 }

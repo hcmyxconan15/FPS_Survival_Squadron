@@ -3068,6 +3068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33dec58499f96dd4aa184dc1a9185272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeWaintConnect: 5
   maxPlayersPerRoom: 4
 --- !u!4 &992039227
 Transform:

@@ -15,16 +15,16 @@ public class PlayerLocomotion : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        input.x = Input.GetAxis("Horizontal") ;
-        input.y = Input.GetAxis("Vertical") ;
+        Move();
+    }
+    virtual protected void Move()
+    {
+        input.x = Input.GetAxis("Horizontal");
+        input.y = Input.GetAxis("Vertical");
 
         animator.SetFloat("InputX", input.x);
         animator.SetFloat("InputY", input.y);
-        
     }
-
-
-
 
 
 }
