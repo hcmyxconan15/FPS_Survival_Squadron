@@ -10,6 +10,7 @@ public class RayCastWeapon : MonoBehaviour
         public Vector3 initialPosition;
         public Vector3 initialVelocity;
         public TrailRenderer tracer;
+        public int bounce;
     }
 
     public ActiveWeapon.WeaponSlot weaponslot;
@@ -18,6 +19,7 @@ public class RayCastWeapon : MonoBehaviour
     public int fireRate = 25;
     public float bulletSpeed = 1000f;
     public float bulletDrop = 0f;
+    public int maxBounces = 0;
     public ParticleSystem[] muzzleFlash;
     public ParticleSystem hitEffect;
     public TrailRenderer tracerEffect;
@@ -47,8 +49,14 @@ public class RayCastWeapon : MonoBehaviour
         bullet.time = 0.0f;
         bullet.tracer = Instantiate(tracerEffect, postion, Quaternion.identity);
         bullet.tracer.AddPosition(postion);
+        bullet.bounce = maxBounces;
+        //Color color = Random(color.r * intensity, color.g * intensity, color.b * intensity, color.a * intensity);
+        //bullet.tracer.material.SetColor("_EmissionColor", rgb);
         return bullet;
     }
+
+
+
 
     public void StartFiring()
     {
@@ -56,6 +64,25 @@ public class RayCastWeapon : MonoBehaviour
         accumulatedTime = 0.0f;
         FireBullet();
     }
+
+    public void UpdateWeapon(float deltaTime)
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            StartFiring();
+        }
+        if (isFiring)
+        {
+            UpdateFiring(deltaTime);
+        }
+        UpdateBullet(deltaTime);
+        if (Input.GetButtonUp("Fire1"))
+        {
+            StopFiring();
+        }
+
+    }
+
 
     public void UpdateFiring(float deltaTime)
     {
@@ -94,6 +121,9 @@ public class RayCastWeapon : MonoBehaviour
         Vector3 direction = end - start;
         float distance = direction.magnitude;
         ray.origin = start;
+
+        Color debugColor = Color.green;
+
         ray.direction = direction;
         if (Physics.Raycast(ray, out hitInfo, distance))
         {
@@ -103,11 +133,29 @@ public class RayCastWeapon : MonoBehaviour
 
             bullet.tracer.transform.position = hitInfo.point;
             bullet.time = maxLifeTime;
+            debugColor = Color.red;
+
+            //bullet ricochet
+            if(bullet.bounce > 0)
+            {
+                bullet.time = 0;
+                bullet.initialPosition = hitInfo.point;
+                bullet.initialVelocity = Vector3.Reflect(bullet.initialVelocity, hitInfo.normal);
+                bullet.bounce--;
+            }
+
+            // collision impulse
+            var rb2d = hitInfo.collider.GetComponent<Rigidbody>();
+            if (rb2d)
+            {
+                rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
+            }
         }
-        else
-        {
-            bullet.tracer.transform.position = end;
-        }
+        bullet.tracer.transform.position = end;
+        //if (debug)
+        //{
+        //    Debug.DrawLine(start, end, debugColor, 1.0f);
+        //}       
     }
 
     private void FireBullet()
