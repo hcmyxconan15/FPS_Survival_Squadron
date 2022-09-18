@@ -28,7 +28,7 @@ public class MasterManager : SingletonScriptableObject<MasterManager>
     private static void PopulateNetworkPrefab()
     {
 #if UNITY_EDITOR
-
+        if (Instance == null) return;
         Instance.networkPrefabs.Clear();
         GameObject[] results = Resources.LoadAll<GameObject>("");
         MasterManager[] rresult1 = Resources.FindObjectsOfTypeAll<MasterManager>();
