@@ -50,9 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFiring: 0
-  FireRate: 1
-  bulletSpeed: 20
-  bulletDrop: 1
+  FireRate: 25
+  bulletSpeed: 1000
+  bulletDrop: 300
   muzzleFlash:
   - {fileID: 1170966664602527329}
   - {fileID: 1171246157683467975}

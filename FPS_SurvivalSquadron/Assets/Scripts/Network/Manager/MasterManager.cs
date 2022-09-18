@@ -13,18 +13,14 @@ public class MasterManager : SingletonScriptableObject<MasterManager>
 
     public static GameObject NetworkInstantiate(GameObject obj, Vector3 position, Quaternion rotation)
     {
-        if(Instance.networkPrefabs != null)
+        foreach (NetworkPrefab networkPrefab in Instance.networkPrefabs)
         {
-            foreach (NetworkPrefab networkPrefab in Instance.networkPrefabs)
+            if (networkPrefab.Prefab == obj)
             {
-                if (networkPrefab.Prefab == obj)
-                {
-                    GameObject result = PhotonNetwork.Instantiate("Player", position, rotation);
-                    return result;
-                }
+                GameObject result = PhotonNetwork.Instantiate("Player", position, rotation);
+                return result;
             }
         }
-        
         return null;
     }
 
@@ -32,7 +28,6 @@ public class MasterManager : SingletonScriptableObject<MasterManager>
     private static void PopulateNetworkPrefab()
     {
 #if UNITY_EDITOR
-
         if (Instance == null) return;
         Instance.networkPrefabs.Clear();
         GameObject[] results = Resources.LoadAll<GameObject>("");

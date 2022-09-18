@@ -7,7 +7,7 @@ public class CrossHairTarget : MonoBehaviour
     Camera mainCamera;
     Ray ray;
     RaycastHit hitInfo;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +21,7 @@ public class CrossHairTarget : MonoBehaviour
         ray.direction = mainCamera.transform.forward;
         if (Physics.Raycast(ray, out hitInfo))
         {
+           
             transform.position = hitInfo.point;
         }
         else
