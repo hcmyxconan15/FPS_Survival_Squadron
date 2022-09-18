@@ -150,6 +150,13 @@ public class RayCastWeapon : MonoBehaviour
             {
                 rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
             }
+
+            var hitBox = hitInfo.collider.GetComponent<HitBox>();
+            if (hitBox)
+            {
+                rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
+            }
+
         }
         bullet.tracer.transform.position = end;
         //if (debug)

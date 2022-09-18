@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &11800634
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1395,8 +1395,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.13550666, y: 0.0123238, z: -0.0016856362, w: 0.99069834}
-  m_LocalPosition: {x: -0.8893625, y: 2.2915792, z: 0.0568918}
+  m_LocalRotation: {x: 0.13550664, y: 0.012323733, z: -0.0016856269, w: 0.99069834}
+  m_LocalPosition: {x: -0.8893625, y: 2.2915792, z: 0.05689183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1508,7 +1508,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029782769}
-  m_LocalRotation: {x: 0.11751167, y: 0.012352315, z: -0.0014617826, w: 0.9929936}
+  m_LocalRotation: {x: 0.11751167, y: 0.012352316, z: -0.0014617827, w: 0.9929936}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2062,7 +2062,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941922348}
-  m_LocalRotation: {x: 0.13550667, y: 0.012323782, z: -0.0016856339, w: 0.99069834}
+  m_LocalRotation: {x: 0.13550667, y: 0.012323752, z: -0.0016856297, w: 0.99069834}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -50698,6 +50698,9 @@ GameObject:
   - component: {fileID: 105317861150847707}
   - component: {fileID: 105317861150847706}
   - component: {fileID: 105317861150847708}
+  - component: {fileID: 105317861150847710}
+  - component: {fileID: 105317861150847709}
+  - component: {fileID: 105317861150847711}
   m_Layer: 0
   m_Name: Zombie_BioHazardSuit_Male_01
   m_TagString: Untagged
@@ -50757,6 +50760,44 @@ MonoBehaviour:
   velocity: 0
   desiredVlocity: 0
   path: 0
+--- !u!114 &105317861150847709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105317861150847705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af2990d48e042894cb41bcb818e267ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+--- !u!114 &105317861150847710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105317861150847705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4520433a77e3244cb3d7616b84746e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &105317861150847711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105317861150847705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10e65201b562f9843995299df221c9ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &105319778009219561
 GameObject:
   m_ObjectHideFlags: 0
@@ -53373,6 +53414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow: {fileID: 8573147346731963456}
   lookAt: {fileID: 8572191583206220705}
+  pv: {fileID: 0}
 --- !u!1 &2520950597204395904
 GameObject:
   m_ObjectHideFlags: 0
@@ -53402,19 +53444,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c3efa6a30564549bac42231a4eae7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponslot: 0
   isFiring: 0
-  FireRate: 25
+  fireRate: 25
   bulletSpeed: 20
   bulletDrop: 1
+  maxBounces: 0
   muzzleFlash:
   - {fileID: 4337530709880482083}
   - {fileID: 4337811853912615301}
   hitEffect: {fileID: 4337509688217284049}
   tracerEffect: {fileID: 2745021422244975422, guid: 683b10f27e5fbff4299ed880fdabea0a, type: 3}
-  weaponName: 
   raycastOrigin: {fileID: 4536046160342462388}
   raycastDestination: {fileID: 0}
-  maxLifeTime: 3
+  weaponName: 
 --- !u!4 &2520950597204395935
 Transform:
   m_ObjectHideFlags: 0
@@ -87505,11 +87548,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crossHairTarget: {fileID: 759275908}
-  handIK: {fileID: 8572191582507359794}
-  weaponParent: {fileID: 7708465014681996639}
-  weaponLeftGrip: {fileID: 8572191582132764755}
-  weaponRightGrip: {fileID: 8572191582041247926}
   rigController: {fileID: 7708465014331466564}
+  weaponSlots: []
 --- !u!4 &8896560267700647531
 Transform:
   m_ObjectHideFlags: 0
