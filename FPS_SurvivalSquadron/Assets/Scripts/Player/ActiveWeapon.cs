@@ -77,12 +77,12 @@ public class ActiveWeapon : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log("1");
+            
             SetActiveWeapon(WeaponSlot.Primary);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Debug.Log("2");
+           
             SetActiveWeapon(WeaponSlot.Secondary);
         }
 
