@@ -53,7 +53,7 @@ MonoBehaviour:
   isFiring: 0
   fireRate: 25
   bulletSpeed: 1000
-  bulletDrop: 300
+  bulletDrop: 0
   maxBounces: 0
   debug: 0
   muzzleFlash:
