@@ -54,10 +54,10 @@ public class RayCastWeapon : MonoBehaviour
         bullet.tracer = Instantiate(tracerEffect, postion, Quaternion.identity);
         bullet.tracer.AddPosition(postion);
         bullet.bounce = maxBounces;
-        Color color = Random.ColorHSV(0.46f, 0.61f);
-        float intensity = 20.0f;
-        Color rgb = new Color(color.r * intensity, color.g * intensity, color.b * intensity, color.a * intensity);
-        bullet.tracer.material.SetColor("_EmissionColor", rgb);
+        //Color color = Random.ColorHSV(0.46f, 0.61f);
+        //float intensity = 20.0f;
+        //Color rgb = new Color(color.r * intensity, color.g * intensity, color.b * intensity, color.a * intensity);
+        //bullet.tracer.material.SetColor("_EmissionColor", rgb);
         return bullet;
     }
 
@@ -137,35 +137,36 @@ public class RayCastWeapon : MonoBehaviour
             hitEffect.transform.forward = hitInfo.normal;
             hitEffect.Emit(1);
 
-            bullet.tracer.transform.position = hitInfo.point;
+            //bullet.tracer.transform.position = hitInfo.point;
             bullet.time = maxLifeTime;
             //end = hitInfo.point;
             //debugColor = Color.red;
 
             //bullet ricochet
-            //if(bullet.bounce > 0)
-            //{
-            //    bullet.time = 0;
-            //    bullet.initialPosition = hitInfo.point;
-            //    bullet.initialVelocity = Vector3.Reflect(bullet.initialVelocity, hitInfo.normal);
-            //    bullet.bounce--;
-            //}
+            if (bullet.bounce > 0)
+            {
+                bullet.time = 0;
+                bullet.initialPosition = hitInfo.point;
+                bullet.initialVelocity = Vector3.Reflect(bullet.initialVelocity, hitInfo.normal);
+                bullet.bounce--;
+            }
 
             // collision impulse
-            //var rb2d = hitInfo.collider.GetComponent<Rigidbody>();
-            //if (rb2d)
-            //{
-            //    rb2d.AddForceAtPosition(ray.direction * 1, hitInfo.point, ForceMode.Impulse);
-            //}
+            var rb2d = hitInfo.collider.GetComponent<Rigidbody>();
+            if (rb2d)
+            {
+                rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
+            }
         }
+        bullet.tracer.transform.position = end;
         //if (debug)
         //{
         //    Debug.DrawLine(start, end, debugColor, 1.0f);
         //}       
-        else
-        {
-            bullet.tracer.transform.position = end;
-        }
+        //else
+        //{
+        //    bullet.tracer.transform.position = end;
+        //}
     }
 
     private void FireBullet()

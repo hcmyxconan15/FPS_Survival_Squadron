@@ -54,7 +54,7 @@ MonoBehaviour:
   fireRate: 25
   bulletSpeed: 1000
   bulletDrop: 0
-  maxBounces: 1
+  maxBounces: 0
   debug: 0
   muzzleFlash:
   - {fileID: 1170966664602527329}
