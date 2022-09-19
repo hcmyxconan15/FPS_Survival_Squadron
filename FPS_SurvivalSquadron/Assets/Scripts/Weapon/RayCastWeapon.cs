@@ -20,12 +20,16 @@ public class RayCastWeapon : MonoBehaviour
     public float bulletSpeed = 1000f;
     public float bulletDrop = 0f;
     public int maxBounces = 0;
+    public bool debug = false;
     public ParticleSystem[] muzzleFlash;
     public ParticleSystem hitEffect;
     public TrailRenderer tracerEffect;
+
     public Transform raycastOrigin;
     public Transform raycastDestination;
+
     public string weaponName;
+
     private Ray ray;
     private RaycastHit hitInfo;
     private float accumulatedTime;
@@ -50,7 +54,9 @@ public class RayCastWeapon : MonoBehaviour
         bullet.tracer = Instantiate(tracerEffect, postion, Quaternion.identity);
         bullet.tracer.AddPosition(postion);
         bullet.bounce = maxBounces;
-        //Color color = Random(color.r * intensity, color.g * intensity, color.b * intensity, color.a * intensity);
+        //Color color = Random.ColorHSV(0.46f, 0.61f);
+        //float intensity = 20.0f;
+        //Color rgb = new Color(color.r * intensity, color.g * intensity, color.b * intensity, color.a * intensity);
         //bullet.tracer.material.SetColor("_EmissionColor", rgb);
         return bullet;
     }
@@ -121,22 +127,23 @@ public class RayCastWeapon : MonoBehaviour
         Vector3 direction = end - start;
         float distance = direction.magnitude;
         ray.origin = start;
-
-        Color debugColor = Color.green;
-
         ray.direction = direction;
+
+        //Color debugColor = Color.green;
+
         if (Physics.Raycast(ray, out hitInfo, distance))
         {
             hitEffect.transform.position = hitInfo.point;
             hitEffect.transform.forward = hitInfo.normal;
             hitEffect.Emit(1);
 
-            bullet.tracer.transform.position = hitInfo.point;
+            //bullet.tracer.transform.position = hitInfo.point;
             bullet.time = maxLifeTime;
-            debugColor = Color.red;
+            //end = hitInfo.point;
+            //debugColor = Color.red;
 
             //bullet ricochet
-            if(bullet.bounce > 0)
+            if (bullet.bounce > 0)
             {
                 bullet.time = 0;
                 bullet.initialPosition = hitInfo.point;
@@ -156,6 +163,10 @@ public class RayCastWeapon : MonoBehaviour
         //{
         //    Debug.DrawLine(start, end, debugColor, 1.0f);
         //}       
+        //else
+        //{
+        //    bullet.tracer.transform.position = end;
+        //}
     }
 
     private void FireBullet()
