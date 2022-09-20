@@ -13,8 +13,8 @@ public class RayCastWeapon : MonoBehaviour
         public int bounce;
     }
 
+    [Header("Weapon")]
     public ActiveWeapon.WeaponSlot weaponslot;
-
     public bool isFiring = false;
     public int fireRate = 25;
     public float bulletSpeed = 1000f;
@@ -35,6 +35,9 @@ public class RayCastWeapon : MonoBehaviour
     private float accumulatedTime;
     private List<Bullet> bullets = new List<Bullet>();
     private float maxLifeTime = 3.0f;
+
+    [Header("AI")]
+    public float damage = 10f;
 
     private Vector3 GetPosition(Bullet bullet)
     {
@@ -157,6 +160,12 @@ public class RayCastWeapon : MonoBehaviour
             {
                 rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
             }
+
+            var hitBox = hitInfo.collider.GetComponent<HitBox>();
+            if(hitBox)
+            {
+                hitBox.OnRaycastHit(this, ray.direction);
+            } 
         }
         bullet.tracer.transform.position = end;
         //if (debug)

@@ -5,12 +5,14 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public float maxHealth;
+    public float dieForce;
     [HideInInspector] public float currentHealth;
     Ragdoll ragdoll;
-    SkinnedMeshRenderer skinnedMeshRenderer;
-    public float blikingHurt;
-    public float blinkDuration;
-    float blinkTimer;
+    //SkinnedMeshRenderer skinnedMeshRenderer;
+    //public float blikingHurt;
+    //public float blinkDuration;
+    //float blinkTimer;
+    UIHealthBar healthBar;
     
 
     // Start is called before the first frame update
@@ -18,7 +20,8 @@ public class Health : MonoBehaviour
     {
         ragdoll = GetComponent<Ragdoll>();
         currentHealth = maxHealth;
-        skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        //skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        healthBar = GetComponentInChildren<UIHealthBar>();
 
         var ridiBodies = GetComponentsInChildren<Rigidbody>();
         foreach(var rigiBody in ridiBodies)
@@ -31,25 +34,30 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        blinkTimer -= Time.deltaTime;
-        float lerp = Mathf.Clamp01(blinkTimer / blinkDuration);
-        float hurt = lerp * blikingHurt;
-        skinnedMeshRenderer.material.color = Color.white * hurt;
+        //blinkTimer -= Time.deltaTime;
+        //float lerp = Mathf.Clamp01(blinkTimer / blinkDuration);
+        //float hurt = lerp * blikingHurt;
+        //skinnedMeshRenderer.material.color = Color.white * hurt;
     }
 
-    public void TakeDamage(float amount, Vector3 diretion)
+
+    public void TakeDamage(float amount, Vector3 direction)
     {
         currentHealth -= amount;
+        healthBar.SetHealthBarPercentage(currentHealth / maxHealth);
         Debug.Log("Current Health: " + currentHealth);
         if(currentHealth <= 0.0f)
         {
-            Die();
+            Die(direction);
         }
-        blinkTimer = blinkDuration;
+        //blinkTimer = blinkDuration;
     }
 
-    void Die()
+    void Die(Vector3 direction)
     {
         ragdoll.ActivateRagdoll();
+        direction.y = 1;
+        ragdoll.ApplyForce(direction * dieForce);
+        healthBar.gameObject.SetActive(false);
     }
 }
