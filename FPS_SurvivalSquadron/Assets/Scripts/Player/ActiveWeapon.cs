@@ -9,15 +9,19 @@ public class ActiveWeapon : MonoBehaviour
         Primary = 0,
         Secondary = 1
     }
-    public Transform crossHairTarget;
-    public Animator rigController;
-
+    [Header("Switching weapon")]
     public Transform[] weaponSlots;
 
     RayCastWeapon[] equipped_weapons = new RayCastWeapon[2];
     private int activeWeaponIndex;
     private bool isHolstered = false;
+    [Header("Animator")]
+    public Animator rigController;
 
+    [Header("Camera")]
+    public Cinemachine.CinemachineFreeLook playerCamera;
+
+    public Transform crossHairTarget;
     // Start is called before the first frame update
     void Start()
     {
@@ -99,6 +103,8 @@ public class ActiveWeapon : MonoBehaviour
         }
         weapon = newWeapon;
         weapon.raycastDestination = crossHairTarget;
+        //take recoil camera = playerCamera
+        weapon.recoil.playerCamera = playerCamera;
         weapon.transform.SetParent(weaponSlots[weaponSlotIndex],false);
         equipped_weapons[weaponSlotIndex] = weapon;
 

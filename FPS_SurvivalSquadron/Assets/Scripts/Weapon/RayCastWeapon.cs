@@ -25,10 +25,9 @@ public class RayCastWeapon : MonoBehaviour
     public ParticleSystem hitEffect;
     public TrailRenderer tracerEffect;
 
+    [Header("Raycast destination")]
     public Transform raycastOrigin;
     public Transform raycastDestination;
-
-    public string weaponName;
 
     private Ray ray;
     private RaycastHit hitInfo;
@@ -36,9 +35,18 @@ public class RayCastWeapon : MonoBehaviour
     private List<Bullet> bullets = new List<Bullet>();
     private float maxLifeTime = 3.0f;
 
+    public string weaponName;
+    [Header("Recoil system")]
+    public WeaponRecoil recoil;
+
     [Header("AI")]
     public float damage = 10f;
 
+
+    private void Awake()
+    {
+        recoil = GetComponent<WeaponRecoil>();
+    }
     private Vector3 GetPosition(Bullet bullet)
     {
         // p + v*t + 0.5*g*t*t
@@ -189,21 +197,8 @@ public class RayCastWeapon : MonoBehaviour
         var bullet = CreateBullet(raycastOrigin.position, velocity);
         bullets.Add(bullet);
 
-        //ray.origin = raycastOrigin.position;
-        //ray.direction = raycastDestination.position - raycastOrigin.position;
+        recoil.GenerateRecoil();
 
-        //var bulletTracer = Instantiate(tracerEffect, ray.origin, Quaternion.identity);
-        //bulletTracer.AddPosition(ray.origin);
-
-        //if (Physics.Raycast(ray, out hitInfo))
-        //{
-        //    //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
-        //    hitEffect.transform.position = hitInfo.point;
-        //    hitEffect.transform.forward = hitInfo.normal;
-        //    hitEffect.Emit(1);
-
-        //    bulletTracer.transform.position = hitInfo.point;
-        //}
     }
 
     public void StopFiring()
