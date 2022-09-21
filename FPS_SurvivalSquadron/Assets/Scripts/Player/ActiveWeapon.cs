@@ -49,35 +49,15 @@ public class ActiveWeapon : MonoBehaviour
         var weapon = GetWeapon(activeWeaponIndex);
         if (weapon && !isHolstered)
         {
-            
-            if (Input.GetButtonDown("Fire1"))
-            {
-                weapon.StartFiring();
-            }
 
-            if (weapon.isFiring)
-            {
-                weapon.UpdateFiring(Time.deltaTime);
-            }
-            
-            weapon.UpdateBullet(Time.deltaTime);
-
-
-            if (Input.GetButtonUp("Fire1"))
-            {
-                weapon.StopFiring();
-
-            }
+            weapon.UpdateWeapon(Time.deltaTime);
         }
 
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                ToggleActiveWeapon();
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            ToggleActiveWeapon();
                 
-            }
-
-
-
+        }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -105,6 +85,8 @@ public class ActiveWeapon : MonoBehaviour
         weapon.raycastDestination = crossHairTarget;
         //take recoil camera = playerCamera
         weapon.recoil.playerCamera = playerCamera;
+
+        weapon.recoil.rigController = rigController;
         weapon.transform.SetParent(weaponSlots[weaponSlotIndex],false);
         equipped_weapons[weaponSlotIndex] = weapon;
 
@@ -149,7 +131,7 @@ public class ActiveWeapon : MonoBehaviour
             rigController.SetBool("hoslster_weapon", true);
             do
             {
-                yield return new WaitForEndOfFrame();
+                yield return new WaitForSeconds(0.09f);
             } while (rigController.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f);
         }
     }
@@ -163,7 +145,7 @@ public class ActiveWeapon : MonoBehaviour
             rigController.Play("equip_" + weapon.weaponName);
             do
             {
-                yield return new WaitForEndOfFrame();
+                yield return new WaitForSeconds(0.09f);
             } while (rigController.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f);
             isHolstered = false;
         }

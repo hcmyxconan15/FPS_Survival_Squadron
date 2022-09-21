@@ -79,6 +79,7 @@ public class RayCastWeapon : MonoBehaviour
     {
         isFiring = true;
         accumulatedTime = 0.0f;
+        recoil.Reset();
         FireBullet();
     }
 
@@ -197,7 +198,7 @@ public class RayCastWeapon : MonoBehaviour
         var bullet = CreateBullet(raycastOrigin.position, velocity);
         bullets.Add(bullet);
 
-        recoil.GenerateRecoil();
+        recoil.GenerateRecoil(weaponName);
 
     }
 
