@@ -62,6 +62,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5578239701848593384}
+  - component: {fileID: 1552928982}
   m_Layer: 0
   m_Name: WeaponRecoil
   m_TagString: Untagged
@@ -84,6 +85,27 @@ Transform:
   m_Father: {fileID: 4974484412699518668}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1552928982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721620883315232588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf219326d2292de48a0c671da18d402b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Weight: 1
+  m_Data:
+    m_ConstrainedObject: {fileID: 4974484413552782720}
+    m_OverrideSource: {fileID: 5578239701848593384}
+    m_OverridePosition: {x: 0, y: 0, z: 0}
+    m_OverrideRotation: {x: 0, y: 0, z: 0}
+    m_PositionWeight: 1
+    m_RotationWeight: 1
+    m_Space: 2
 --- !u!1 &4974484412043232046
 GameObject:
   m_ObjectHideFlags: 0
@@ -5528,11 +5550,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8239211903405930054, guid: e102a7719a791f6449d99eb744e5a338, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.01232375
+      value: 0.012323784
       objectReference: {fileID: 0}
     - target: {fileID: 8239211903405930054, guid: e102a7719a791f6449d99eb744e5a338, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0016856295
+      value: -0.0016856343
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239211903697713321, guid: e102a7719a791f6449d99eb744e5a338, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.012291074
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239211903697713321, guid: e102a7719a791f6449d99eb744e5a338, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0019095172
       objectReference: {fileID: 0}
     - target: {fileID: 8239211903959510001, guid: e102a7719a791f6449d99eb744e5a338, type: 3}
       propertyPath: m_Name

@@ -39,6 +39,13 @@ public class RayCastWeapon : MonoBehaviour
     [Header("Recoil system")]
     public WeaponRecoil recoil;
 
+    [Header("Reloading")]
+    public GameObject magazine;
+
+    [Header("accumulate Count")]
+    public int ammoCount;
+    public int clipSize;
+
     [Header("AI")]
     public float damage = 10f;
 
@@ -189,6 +196,12 @@ public class RayCastWeapon : MonoBehaviour
 
     private void FireBullet()
     {
+        if(ammoCount <= 0)
+        {
+            return;
+        }
+        ammoCount--;
+
         for (int i = 0; i < muzzleFlash.Length; i++)
         {
             muzzleFlash[i].Emit(1);

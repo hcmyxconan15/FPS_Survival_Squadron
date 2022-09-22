@@ -22,6 +22,11 @@ public class ActiveWeapon : MonoBehaviour
     public Cinemachine.CinemachineFreeLook playerCamera;
 
     public Transform crossHairTarget;
+
+    [Header("accumulate Count")]
+    public AmmoWidget ammoWidget;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +39,10 @@ public class ActiveWeapon : MonoBehaviour
         }
     }
 
+    public RayCastWeapon GetActiveWeapon()
+    {
+        return GetWeapon(activeWeaponIndex);
+    }
     RayCastWeapon GetWeapon(int index)
     {
         if(index < 0 || index >= equipped_weapons.Length)
@@ -90,7 +99,8 @@ public class ActiveWeapon : MonoBehaviour
         weapon.transform.SetParent(weaponSlots[weaponSlotIndex],false);
         equipped_weapons[weaponSlotIndex] = weapon;
 
-        SetActiveWeapon(newWeapon.weaponslot);  
+        SetActiveWeapon(newWeapon.weaponslot);
+        ammoWidget.Refresh(weapon.ammoCount);
     }
 
     private void ToggleActiveWeapon()

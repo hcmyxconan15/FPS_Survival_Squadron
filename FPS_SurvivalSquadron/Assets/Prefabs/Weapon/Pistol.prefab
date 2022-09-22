@@ -68,6 +68,9 @@ MonoBehaviour:
   raycastDestination: {fileID: 0}
   weaponName: Pistol
   recoil: {fileID: 0}
+  magazine: {fileID: 0}
+  ammoCount: 15
+  clipSize: 15
   damage: 10
 --- !u!114 &8181872248060742889
 MonoBehaviour:
