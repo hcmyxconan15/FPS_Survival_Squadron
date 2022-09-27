@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponslot: 1
   isFiring: 0
-  fireRate: 25
+  fireRate: 1
   bulletSpeed: 1000
   bulletDrop: 300
   maxBounces: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   raycastDestination: {fileID: 0}
   weaponName: Pistol
   recoil: {fileID: 0}
-  magazine: {fileID: 0}
+  magazine: {fileID: 1334401008399997721}
   ammoCount: 15
   clipSize: 15
   damage: 10
@@ -29045,9 +29045,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1048826336751012061}
     m_Modifications:
+    - target: {fileID: 1264200380836966, guid: 8a5973e326885694c8eb4a575b705591, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459174726613952, guid: 8a5973e326885694c8eb4a575b705591, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1700825503440746, guid: 8a5973e326885694c8eb4a575b705591, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Pistol_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700825503440746, guid: 8a5973e326885694c8eb4a575b705591, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4276584366140610, guid: 8a5973e326885694c8eb4a575b705591, type: 3}
       propertyPath: m_RootOrder

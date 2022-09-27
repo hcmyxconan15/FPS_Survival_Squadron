@@ -141,7 +141,7 @@ public class ActiveWeapon : MonoBehaviour
             rigController.SetBool("hoslster_weapon", true);
             do
             {
-                yield return new WaitForSeconds(0.09f);
+                yield return new WaitForEndOfFrame();
             } while (rigController.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f);
         }
     }
@@ -155,7 +155,7 @@ public class ActiveWeapon : MonoBehaviour
             rigController.Play("equip_" + weapon.weaponName);
             do
             {
-                yield return new WaitForSeconds(0.09f);
+                yield return new WaitForEndOfFrame();
             } while (rigController.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f);
             isHolstered = false;
         }
