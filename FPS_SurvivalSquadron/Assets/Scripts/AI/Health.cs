@@ -54,4 +54,6 @@ public class Health : MonoBehaviour
         healthBar.gameObject.SetActive(false);
         Destroy(gameObject,3f);
     }
+
+     
 }
