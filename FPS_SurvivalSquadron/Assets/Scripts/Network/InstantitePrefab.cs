@@ -9,6 +9,7 @@ public class InstantitePrefab : MonoBehaviour
     [SerializeField] GameObject prefab;
     [SerializeField] Transform crossTarget;
     [SerializeField] AmmoWidget ammoWidget;
+    [SerializeField] Cinemachine.CinemachineFreeLook playerCamera;
 
     private void Start()
     {
@@ -18,8 +19,11 @@ public class InstantitePrefab : MonoBehaviour
     private void Instantite()
     {
        GameObject go =  PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
-       go.GetComponent<ActiveWeapon>().crossHairTarget = crossTarget;
-        go.GetComponent<ActiveWeapon>().ammoWidget = ammoWidget;
-        go.GetComponent<ReloadWeapon>().ammoWidget = ammoWidget;
+        ActiveWeapon activeWeapon = go.GetComponent<ActiveWeapon>();
+        activeWeapon.crossHairTarget = crossTarget;
+        activeWeapon.ammoWidget = ammoWidget;
+        activeWeapon.playerCamera = playerCamera;
+       go.GetComponent<ReloadWeapon>().ammoWidget = ammoWidget;
+       
     }
 }
