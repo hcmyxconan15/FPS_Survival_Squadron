@@ -601,6 +601,8 @@ GameObject:
   - component: {fileID: 4974484412305826255}
   - component: {fileID: 4974484412305826254}
   - component: {fileID: 380421732}
+  - component: {fileID: 6829177067816517680}
+  - component: {fileID: 6490605052484360636}
   m_Layer: 0
   m_Name: -----RigLayer-----
   m_TagString: Untagged
@@ -659,6 +661,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4277310d70165444086083b8bec0425a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6829177067816517680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4974484412305826252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 6490605052484360636}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &6490605052484360636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4974484412305826252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 2
+    Name: hoslster_weapon
+  - Type: 9
+    SynchronizeType: 2
+    Name: Reload_Weapon
+  - Type: 4
+    SynchronizeType: 2
+    Name: isSprinting
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
+  - SynchronizeType: 2
+    LayerIndex: 1
+  - SynchronizeType: 2
+    LayerIndex: 2
 --- !u!1 &4974484412312629637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,7 +2167,6 @@ GameObject:
   - component: {fileID: 3742802593870660973}
   - component: {fileID: 3742802593870660967}
   - component: {fileID: 3742802593870660968}
-  - component: {fileID: 3742802593870660969}
   - component: {fileID: 3742802593870660974}
   - component: {fileID: 3742802593870660975}
   - component: {fileID: 3742802593870660972}
@@ -2121,6 +2176,7 @@ GameObject:
   - component: {fileID: 7945803247669225068}
   - component: {fileID: 6246404488738978577}
   - component: {fileID: -3130660503613604878}
+  - component: {fileID: -2732922510625868459}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2188,25 +2244,6 @@ MonoBehaviour:
   - m_Rig: {fileID: 4974484412522848485}
     m_Active: 1
   m_Effectors: []
---- !u!114 &3742802593870660969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4974484412792011036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a29c8a5edd1361249ad4a509ebdb2db8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponSlots:
-  - {fileID: 4974484412745008525}
-  - {fileID: 4974484413411595669}
-  rigController: {fileID: 4974484412305826254}
-  playerCamera: {fileID: 0}
-  crossHairTarget: {fileID: 0}
-  ammoWidget: {fileID: 0}
 --- !u!114 &3742802593870660974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2291,7 +2328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigController: {fileID: 4974484412305826254}
   animationEvents: {fileID: 380421732}
-  activeWeapon: {fileID: 3742802593870660969}
+  activeWeapon: {fileID: -2732922510625868459}
   leftHand: {fileID: 4974484412332862409}
   ammoWidget: {fileID: 0}
 --- !u!143 &1130166661
@@ -2374,6 +2411,25 @@ MonoBehaviour:
   follow: {fileID: 3742802593870660973}
   lookAt: {fileID: 3746539572813722252}
   pv: {fileID: 3742802593870660975}
+--- !u!114 &-2732922510625868459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4974484412792011036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a46ce31455d4bc4a871d82e11df1748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSlots:
+  - {fileID: 4974484412745008525}
+  - {fileID: 4974484413411595669}
+  rigController: {fileID: 4974484412305826254}
+  playerCamera: {fileID: 0}
+  crossHairTarget: {fileID: 0}
+  ammoWidget: {fileID: 0}
 --- !u!1 &4974484412882242499
 GameObject:
   m_ObjectHideFlags: 0

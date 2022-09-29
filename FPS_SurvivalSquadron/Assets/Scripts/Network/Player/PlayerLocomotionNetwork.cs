@@ -10,4 +10,9 @@ public class PlayerLocomotionNetwork : PlayerLocomotion
         if (!setPlayerIsMine.PlayerIsMine) return;
         base.Move();
     }
+    protected override void FixedUpdate()
+    {
+        if (!setPlayerIsMine.PlayerIsMine) return;
+        base.FixedUpdate();
+    }
 }
