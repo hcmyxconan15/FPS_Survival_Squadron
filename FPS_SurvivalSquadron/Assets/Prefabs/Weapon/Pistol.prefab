@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponslot: 1
   isFiring: 0
-  fireRate: 1
+  fireRate: 25
   bulletSpeed: 1000
   bulletDrop: 300
   maxBounces: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   raycastDestination: {fileID: 0}
   weaponName: Pistol
   recoil: {fileID: 0}
-  magazine: {fileID: 1334401008399997721}
+  magazine: {fileID: 0}
   ammoCount: 15
   clipSize: 15
   damage: 10

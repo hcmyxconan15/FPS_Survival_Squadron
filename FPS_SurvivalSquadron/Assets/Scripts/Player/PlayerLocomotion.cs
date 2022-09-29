@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,14 @@ public class PlayerLocomotion : MonoBehaviour
     private bool isJumping;
     #endregion
 
+    #region Sprinting
+    [Header("Sprinting")]
+    public Animator rigController;
+    private int isSprintingParam = Animator.StringToHash("isSprinting");
+
+    #endregion
+
+
 
 
     private void Start()
@@ -44,10 +53,19 @@ public class PlayerLocomotion : MonoBehaviour
         animator.SetFloat("InputX", input.x);
         animator.SetFloat("InputY", input.y);
 
+        updateSprinting();
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
         }
+    }
+
+    private void updateSprinting()
+    {
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+        animator.SetBool(isSprintingParam, isSprinting);
+        rigController.SetBool(isSprintingParam, isSprinting);
     }
 
     private void OnAnimatorMove()
@@ -93,7 +111,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     Vector3 CalcualteAirControl()
     {
-        return ((transform.forward * input.y) + (transform.right * input.x)) * (airControl/100);
+        return ((transform.forward * input.y) + (transform.right * input.x)) * (airControl / 100);
     }
 
     private void Jump()
