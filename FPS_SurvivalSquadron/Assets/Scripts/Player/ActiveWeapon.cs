@@ -55,6 +55,12 @@ public class ActiveWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Action();
+
+    }
+
+    protected virtual void Action()
+    {
         var weapon = GetWeapon(activeWeaponIndex);
         if (weapon && !isHolstered)
         {
@@ -65,7 +71,7 @@ public class ActiveWeapon : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             ToggleActiveWeapon();
-                
+
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -75,12 +81,10 @@ public class ActiveWeapon : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-           // Debug.Log("2");
+            // Debug.Log("2");
             SetActiveWeapon(WeaponSlot.Secondary);
         }
-
     }
-
 
     public void Equip(RayCastWeapon newWeapon)
     {

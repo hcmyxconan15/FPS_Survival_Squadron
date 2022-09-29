@@ -73,7 +73,7 @@ public class PlayerLocomotion : MonoBehaviour
         rootMotion += animator.deltaPosition;
     }
 
-    private void FixedUpdate()
+    virtual protected void FixedUpdate()
     {
         if (isJumping) // is inAir state
         {
