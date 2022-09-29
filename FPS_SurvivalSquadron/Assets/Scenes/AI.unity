@@ -34086,6 +34086,10 @@ MonoBehaviour:
   raycastOrigin: {fileID: 666289112}
   raycastDestination: {fileID: 0}
   weaponName: 
+  recoil: {fileID: 0}
+  magazine: {fileID: 0}
+  ammoCount: 0
+  clipSize: 0
   damage: 10
 --- !u!1 &1054380151
 GameObject:
@@ -90526,6 +90530,10 @@ MonoBehaviour:
   raycastOrigin: {fileID: 4536046160342462388}
   raycastDestination: {fileID: 0}
   weaponName: 
+  recoil: {fileID: 0}
+  magazine: {fileID: 0}
+  ammoCount: 0
+  clipSize: 0
   damage: 10
 --- !u!4 &2520950597204395935
 Transform:
@@ -129105,11 +129113,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a29c8a5edd1361249ad4a509ebdb2db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crossHairTarget: {fileID: 759275908}
-  rigController: {fileID: 1898721507}
   weaponSlots:
   - {fileID: 1266324640}
   - {fileID: 855983288}
+  rigController: {fileID: 1898721507}
+  playerCamera: {fileID: 0}
+  crossHairTarget: {fileID: 759275908}
+  ammoWidget: {fileID: 0}
 --- !u!114 &8573147346731963461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129156,6 +129166,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c422da994d8b54782507603fc453e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumHeight: 3
+  gravity: 20
+  stepDown: 0.3
+  airControl: 2.5
+  jumDamp: 0.5
+  groundSpeed: 1.2
+  pushPower: 2
+  rigController: {fileID: 1898721507}
 --- !u!136 &8573147346731963464
 CapsuleCollider:
   m_ObjectHideFlags: 0
