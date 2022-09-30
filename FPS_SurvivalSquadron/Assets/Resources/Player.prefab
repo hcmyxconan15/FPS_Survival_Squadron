@@ -601,8 +601,8 @@ GameObject:
   - component: {fileID: 4974484412305826255}
   - component: {fileID: 4974484412305826254}
   - component: {fileID: 380421732}
-  - component: {fileID: 6829177067816517680}
-  - component: {fileID: 6490605052484360636}
+  - component: {fileID: 6196103068916342086}
+  - component: {fileID: 2659049911701807235}
   m_Layer: 0
   m_Name: -----RigLayer-----
   m_TagString: Untagged
@@ -661,30 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4277310d70165444086083b8bec0425a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6829177067816517680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4974484412305826252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: 6490605052484360636}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &6490605052484360636
+--- !u!114 &6196103068916342086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -715,6 +692,29 @@ MonoBehaviour:
     LayerIndex: 1
   - SynchronizeType: 2
     LayerIndex: 2
+--- !u!114 &2659049911701807235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4974484412305826252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 6196103068916342086}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &4974484412312629637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2277,7 +2277,7 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 3
   OwnershipTransfer: 0
-  observableSearch: 2
+  observableSearch: 0
   ObservedComponents:
   - {fileID: 3742802593870660974}
   - {fileID: 3742802593870660972}
