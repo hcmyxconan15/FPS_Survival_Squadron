@@ -9,6 +9,7 @@ public class ReloadWeapon : MonoBehaviour
     public ActiveWeapon activeWeapon;
     public Transform leftHand;
     public AmmoWidget ammoWidget;
+    public bool isReloading;
 
 
     GameObject magazineHand;
@@ -25,6 +26,7 @@ public class ReloadWeapon : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R) || weapon.ammoCount <= 0)
             {
+                isReloading = true;
                 rigController.SetTrigger("Reload_Weapon");
             }
             if (weapon.isFiring)
@@ -79,5 +81,7 @@ public class ReloadWeapon : MonoBehaviour
         weapon.ammoCount = weapon.clipSize;
         rigController.ResetTrigger("Reload_Weapon");
         ammoWidget.Refresh(weapon.ammoCount);
+        isReloading = false;
+        
     }
 }
