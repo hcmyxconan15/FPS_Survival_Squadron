@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923aa5969ab4c964eb9c88de76652653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponFab: {fileID: 1048826336751012060, guid: 95cc3c2974c80d74da23820832021b9e, type: 3}
+  weaponFab: {fileID: 1024743758122445449, guid: 67ee96221eb467d4abdbf7fce2fe0ef2, type: 3}
 --- !u!1001 &8326439436833295141
 PrefabInstance:
   m_ObjectHideFlags: 0
