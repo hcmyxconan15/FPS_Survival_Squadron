@@ -2311,9 +2311,14 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 2
     Name: isSprinting
+  - Type: 4
+    SynchronizeType: 0
+    Name: isAiming
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
+  - SynchronizeType: 0
+    LayerIndex: 1
 --- !u!114 &1207971888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2331,6 +2336,7 @@ MonoBehaviour:
   activeWeapon: {fileID: -2732922510625868459}
   leftHand: {fileID: 4974484412332862409}
   ammoWidget: {fileID: 0}
+  isReloading: 0
 --- !u!143 &1130166661
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2363,6 +2369,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 15
   aimDuration: 0.3
+  CameraLookAt: {fileID: 0}
+  xAxis:
+    Value: 0
+    m_SpeedMode: 0
+    m_MaxSpeed: 0
+    m_AccelTime: 0
+    m_DecelTime: 0
+    m_InputAxisName: 
+    m_InputAxisValue: 0
+    m_InvertInput: 0
+    m_MinValue: 0
+    m_MaxValue: 0
+    m_Wrap: 0
+    m_Recentering:
+      m_enabled: 0
+      m_WaitTime: 0
+      m_RecenteringTime: 0
+      m_LegacyHeadingDefinition: 0
+      m_LegacyVelocityFilterStrength: 0
+  yAxis:
+    Value: 0
+    m_SpeedMode: 0
+    m_MaxSpeed: 0
+    m_AccelTime: 0
+    m_DecelTime: 0
+    m_InputAxisName: 
+    m_InputAxisValue: 0
+    m_InvertInput: 0
+    m_MinValue: 0
+    m_MaxValue: 0
+    m_Wrap: 0
+    m_Recentering:
+      m_enabled: 0
+      m_WaitTime: 0
+      m_RecenteringTime: 0
+      m_LegacyHeadingDefinition: 0
+      m_LegacyVelocityFilterStrength: 0
+  isAiming: 0
 --- !u!114 &7945803247669225068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2423,11 +2467,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a46ce31455d4bc4a871d82e11df1748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isChaningWeapon: 0
   weaponSlots:
   - {fileID: 4974484412745008525}
   - {fileID: 4974484413411595669}
   rigController: {fileID: 4974484412305826254}
-  playerCamera: {fileID: 0}
+  PlayerAiming: {fileID: 7278652308979682009}
   crossHairTarget: {fileID: 0}
   ammoWidget: {fileID: 0}
 --- !u!1 &4974484412882242499

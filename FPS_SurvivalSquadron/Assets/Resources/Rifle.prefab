@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb39918f05874f44992496793037772e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 0}
+  PlayerAiming: {fileID: 0}
   cameraShake: {fileID: 0}
   rigController: {fileID: 0}
   recoilPattern:
@@ -104,6 +104,7 @@ MonoBehaviour:
   - {x: 2, y: 10}
   - {x: 5, y: 10}
   duration: 0.1
+  recoilModifier: 1
 --- !u!114 &-3096109599356461711
 MonoBehaviour:
   m_ObjectHideFlags: 0
