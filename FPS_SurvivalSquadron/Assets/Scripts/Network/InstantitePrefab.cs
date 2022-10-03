@@ -9,7 +9,7 @@ public class InstantitePrefab : MonoBehaviour
     [SerializeField] GameObject prefab;
     [SerializeField] Transform crossTarget;
     [SerializeField] AmmoWidget ammoWidget;
-    [SerializeField] Cinemachine.CinemachineFreeLook playerCamera;
+    [SerializeField] Transform playerCamera;
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class InstantitePrefab : MonoBehaviour
         ActiveWeapon activeWeapon = go.GetComponent<ActiveWeapon>();
         activeWeapon.crossHairTarget = crossTarget;
         activeWeapon.ammoWidget = ammoWidget;
-        activeWeapon.playerCamera = playerCamera;
+        go.GetComponent<PlayerAmingNetwork>().CameraLookAt = playerCamera;
        go.GetComponent<ReloadWeapon>().ammoWidget = ammoWidget;
        
     }
