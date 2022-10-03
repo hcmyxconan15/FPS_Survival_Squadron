@@ -7,8 +7,14 @@ public class PlayerAiming : MonoBehaviour
 {
     public float turnSpeed = 15f;
     public float aimDuration = 0.3f;
- 
+    public Transform CameraLookAt;
+    public Cinemachine.AxisState xAxis;
+    public Cinemachine.AxisState yAxis;
+    public bool isAiming;
 
+    private Animator animator;
+    private int isAimingParam = Animator.StringToHash("isAiming");
+    private ActiveWeapon activeWeapon;
     protected Camera mainCamera;
     protected RayCastWeapon weapon;
    
@@ -18,21 +24,38 @@ public class PlayerAiming : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         weapon = GetComponentInChildren<RayCastWeapon>();
+        animator = GetComponent<Animator>();
+        activeWeapon = GetComponent<ActiveWeapon>();
        
     }
 
+    private void Update()
+    {
+        isAiming = Input.GetMouseButton(1);
+        animator.SetBool(isAimingParam, isAiming);
+
+        var weapon = activeWeapon.GetActiveWeapon();
+        if (weapon)
+        {
+            weapon.recoil.recoilModifier = isAiming ? 0.3f : 1.0f;
+        }
+
+
+        UseWeapon();
+
+    }
     private void FixedUpdate()
     {
         CameraUpdatePosition();
     }
 
-    private void Update()
-    {
-        UseWeapon();
-
-    }
     protected virtual void CameraUpdatePosition()
     {
+        xAxis.Update(Time.fixedDeltaTime);
+        yAxis.Update(Time.fixedDeltaTime);
+
+        CameraLookAt.eulerAngles = new Vector3(yAxis.Value, xAxis.Value, 0);
+        
         float yawCamera = mainCamera.transform.rotation.eulerAngles.y;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, yawCamera, 0), turnSpeed * Time.fixedDeltaTime);
     }
