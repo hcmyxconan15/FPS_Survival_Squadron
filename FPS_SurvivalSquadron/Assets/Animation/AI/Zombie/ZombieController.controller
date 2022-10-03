@@ -499,4 +499,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceStopChase: 7
-  distanceAttackMode: 1
+  distanceAttackMode: 2
