@@ -30,6 +30,9 @@ public class PlayerLocomotion : MonoBehaviour
     [Header("Sprinting")]
     public Animator rigController;
     private int isSprintingParam = Animator.StringToHash("isSprinting");
+    private ActiveWeapon activeWeapon;
+    private ReloadWeapon reloadWeapon;
+    private PlayerAiming playerAiming;
 
     #endregion
 
@@ -40,6 +43,9 @@ public class PlayerLocomotion : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         cc = GetComponent<CharacterController>();
+        activeWeapon = GetComponent<ActiveWeapon>();
+        reloadWeapon = GetComponent<ReloadWeapon>();
+        playerAiming = GetComponent<PlayerAiming>();
     }
     private void Update()
     {
@@ -61,9 +67,19 @@ public class PlayerLocomotion : MonoBehaviour
         }
     }
 
-    private void updateSprinting()
+    bool IsSprinting()
     {
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+        bool isFiring = activeWeapon.IsFiring();
+        bool isReloading = reloadWeapon.isReloading;
+        bool isChangingWeapon = activeWeapon.isChaningWeapon;
+        bool isAiming = playerAiming.isAiming;
+        return isSprinting && !isFiring && !isReloading &&!isChangingWeapon &&!isAiming;
+    }
+
+    private void updateSprinting()
+    {
+        bool isSprinting = IsSprinting();
         animator.SetBool(isSprintingParam, isSprinting);
         rigController.SetBool(isSprintingParam, isSprinting);
     }
