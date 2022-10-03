@@ -6,6 +6,8 @@ public class AttackEnemy : MonoBehaviour
 {
     public GameObject projectile;
     public Transform projectilePoint;
+    public float force = 30f;
+    public float forceUp = 7f;
 
     
     // Start is called before the first frame update
@@ -23,7 +25,7 @@ public class AttackEnemy : MonoBehaviour
     public void Shoot()
     {
         Rigidbody rb = Instantiate(projectile, projectilePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
-        rb.AddForce(transform.up * 7, ForceMode.Impulse);
+        rb.AddForce(transform.forward * force, ForceMode.Impulse);
+        rb.AddForce(transform.up * forceUp, ForceMode.Impulse);
     }
 }
