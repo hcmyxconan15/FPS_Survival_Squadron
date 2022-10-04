@@ -5,9 +5,16 @@ using UnityEngine.UI;
 public class SliderRunTo1 : MonoBehaviour
 {
  
-     public bool b=true;
-	 public Slider slider;
-	 public float speed=0.5f;
+    public bool b=true;
+	public Slider slider;
+	public float speed=0.5f;
+
+	public GameObject Loading;
+	public GameObject Home;
+
+		
+
+	
 
   float time =0f;
   
@@ -24,12 +31,18 @@ public class SliderRunTo1 : MonoBehaviour
 			time+=Time.deltaTime*speed;
 			slider.value = time;
 			
-        if(time>1)
-		{
-					b=false;
-			time=0;
+			if(time>1)
+			{
+				b=false;
+				time=0;
+			}
+
+			if(slider.value == 1)
+            {
+				Loading.SetActive(false);
+				Home.SetActive(true);
+            }
 		}
-    }
 	}
 	
 	
