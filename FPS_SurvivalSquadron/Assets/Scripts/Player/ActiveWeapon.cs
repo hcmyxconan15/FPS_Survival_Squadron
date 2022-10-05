@@ -134,7 +134,7 @@ public class ActiveWeapon : MonoBehaviour
             StartCoroutine(HolsterWeapon(activeWeaponIndex));
         }
     }
-    private void SetActiveWeapon(WeaponSlot Weaponslot)
+    public void SetActiveWeapon(WeaponSlot Weaponslot)
     {
         int holsterIndex = activeWeaponIndex;
         int activeIndex = (int)Weaponslot;
