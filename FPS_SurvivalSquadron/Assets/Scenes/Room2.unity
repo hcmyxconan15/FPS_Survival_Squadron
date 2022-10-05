@@ -612,7 +612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5426093490851572941, guid: 75736b444aac68f4a89300841748db8b, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5426093490851572941, guid: 75736b444aac68f4a89300841748db8b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -709,7 +709,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 729022792135525536, guid: 025ce7f7dd6102b4a934d3bfc587005b, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 729022792135525536, guid: 025ce7f7dd6102b4a934d3bfc587005b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -788,7 +788,7 @@ Transform:
   - {fileID: 4770556489489475183}
   - {fileID: 1835568931}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &971061102
 PrefabInstance:
@@ -799,7 +799,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8839505134851836394, guid: bd97e1eeebda67b4b9a58bf8f5746a5a, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8839505134851836394, guid: bd97e1eeebda67b4b9a58bf8f5746a5a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -986,7 +986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2cb250f6efad74f83c17e651a5a846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4974484412792011036, guid: 8f3d903a43a33174ab748bbdc871bcd0, type: 3}
+  prefab: {fileID: 4974484412792011036, guid: 1ff1645d049ef0e48b5c4e1a2623175e, type: 3}
   crossTarget: {fileID: 759205888}
   ammoWidget: {fileID: 1411887418}
   playerCamera: {fileID: 971061103}
