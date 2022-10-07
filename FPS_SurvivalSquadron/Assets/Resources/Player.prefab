@@ -601,6 +601,7 @@ GameObject:
   - component: {fileID: 4974484412305826255}
   - component: {fileID: 4974484412305826254}
   - component: {fileID: 380421732}
+  - component: {fileID: 10483567038788710}
   m_Layer: 0
   m_Name: -----RigLayer-----
   m_TagString: Untagged
@@ -659,6 +660,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4277310d70165444086083b8bec0425a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &10483567038788710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4974484412305826252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: hoslster_weapon
+  - Type: 9
+    SynchronizeType: 1
+    Name: Reload_Weapon
+  - Type: 4
+    SynchronizeType: 0
+    Name: isSprinting
+  - Type: 3
+    SynchronizeType: 0
+    Name: WeaponIndex
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
+  - SynchronizeType: 0
+    LayerIndex: 1
+  - SynchronizeType: 0
+    LayerIndex: 2
 --- !u!1 &4974484412312629637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,6 +2325,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 3742802593870660974}
   - {fileID: 3742802593870660972}
+  - {fileID: 10483567038788710}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
