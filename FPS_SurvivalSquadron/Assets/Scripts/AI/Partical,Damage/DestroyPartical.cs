@@ -20,7 +20,7 @@ public class DestroyPartical : MonoBehaviour
 
     void DestroyGameObject()
     {
-        if(health.currentHealth <= 0)
+        if(health.CurrentHealth <= 0)
         {
             Destroy(gameObject);
             GameObject explosion = Instantiate(VFX, transform.position, transform.rotation);
