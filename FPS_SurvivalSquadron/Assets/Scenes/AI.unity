@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.450449, g: 0.5004494, b: 0.5751932, a: 1}
+  m_IndirectSpecularColor: {r: 0.45044917, g: 0.5004496, b: 0.575194, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14344,11 +14344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29bcc5b27339d2a48a6556efe6e851e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
-  dieForce: 10
-  currentHealth: 0
-  healthBar: {fileID: 772012332}
-  borderHealth: {fileID: 185901272}
+  maxHealth: 0
 --- !u!114 &594342887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14361,7 +14357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b4fd23f372bad41bc810d4a10e44ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 594342886}
+  health: {fileID: 0}
 --- !u!114 &594342888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17748,7 +17744,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722875173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.934, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18812,6 +18808,7 @@ MonoBehaviour:
   activeWeapon: {fileID: 3742802595568710050}
   leftHand: {fileID: 4974484413989216002}
   ammoWidget: {fileID: 3441168326627066514}
+  isReloading: 0
 --- !u!1001 &761623381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22857,7 +22854,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.13550667, y: 0.012323801, z: -0.0016856367, w: 0.99069834}
+  m_LocalRotation: {x: 0.13550667, y: 0.012323764, z: -0.0016856315, w: 0.99069834}
   m_LocalPosition: {x: -2.9671307, y: 2.7043314, z: 10.135443}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -26504,8 +26501,8 @@ GameObject:
   - component: {fileID: 1104486046}
   - component: {fileID: 1104486045}
   - component: {fileID: 1104486044}
-  - component: {fileID: 1104486043}
   - component: {fileID: 1104486048}
+  - component: {fileID: 1104486049}
   m_Layer: 0
   m_Name: Zombie_Far
   m_TagString: Untagged
@@ -26533,23 +26530,6 @@ Transform:
   m_Father: {fileID: 2137235367}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1104486043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104486041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29bcc5b27339d2a48a6556efe6e851e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 200
-  dieForce: 10
-  currentHealth: 0
-  healthBar: {fileID: 492810354}
-  borderHealth: {fileID: 1714184154}
 --- !u!114 &1104486044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26562,7 +26542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b4fd23f372bad41bc810d4a10e44ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 1104486043}
+  health: {fileID: 1104486049}
 --- !u!114 &1104486045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26633,6 +26613,21 @@ MonoBehaviour:
   projectilePoint: {fileID: 543262812}
   force: 10
   forceUp: 7
+--- !u!114 &1104486049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104486041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac17b2163ba1fa4db640011dcba220a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 500
+  healthBar: {fileID: 492810354}
+  borderHealth: {fileID: 1714184154}
 --- !u!1 &1105819628
 GameObject:
   m_ObjectHideFlags: 0
@@ -27107,11 +27102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29bcc5b27339d2a48a6556efe6e851e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
-  dieForce: 10
-  currentHealth: 0
-  healthBar: {fileID: 647880622}
-  borderHealth: {fileID: 7134207}
+  maxHealth: 0
 --- !u!114 &1132134766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27124,7 +27115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b4fd23f372bad41bc810d4a10e44ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 1132134765}
+  health: {fileID: 0}
 --- !u!114 &1132134767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62136,7 +62127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b4fd23f372bad41bc810d4a10e44ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 95560969628942177}
+  health: {fileID: 0}
 --- !u!114 &95560969628942177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62149,11 +62140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29bcc5b27339d2a48a6556efe6e851e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
-  dieForce: 10
-  currentHealth: 0
-  healthBar: {fileID: 991117886}
-  borderHealth: {fileID: 1770746067}
+  maxHealth: 0
 --- !u!195 &95560969628942178
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -64006,11 +63993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29bcc5b27339d2a48a6556efe6e851e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
-  dieForce: 10
-  currentHealth: 0
-  healthBar: {fileID: 1947173250}
-  borderHealth: {fileID: 1981512130}
+  maxHealth: 0
 --- !u!114 &105317861150847710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64023,7 +64006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b4fd23f372bad41bc810d4a10e44ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 105317861150847709}
+  health: {fileID: 0}
 --- !u!114 &105317861150847711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68355,6 +68338,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 15
   aimDuration: 0.2
+  CameraLookAt: {fileID: 3746539573306148423}
+  xAxis:
+    Value: 0
+    m_SpeedMode: 0
+    m_MaxSpeed: 0
+    m_AccelTime: 0
+    m_DecelTime: 0
+    m_InputAxisName: 
+    m_InputAxisValue: 0
+    m_InvertInput: 0
+    m_MinValue: 0
+    m_MaxValue: 0
+    m_Wrap: 0
+    m_Recentering:
+      m_enabled: 0
+      m_WaitTime: 0
+      m_RecenteringTime: 0
+      m_LegacyHeadingDefinition: 0
+      m_LegacyVelocityFilterStrength: 0
+  yAxis:
+    Value: 0
+    m_SpeedMode: 0
+    m_MaxSpeed: 0
+    m_AccelTime: 0
+    m_DecelTime: 0
+    m_InputAxisName: 
+    m_InputAxisValue: 0
+    m_InvertInput: 0
+    m_MinValue: 0
+    m_MaxValue: 0
+    m_Wrap: 0
+    m_Recentering:
+      m_enabled: 0
+      m_WaitTime: 0
+      m_RecenteringTime: 0
+      m_LegacyHeadingDefinition: 0
+      m_LegacyVelocityFilterStrength: 0
+  isAiming: 0
 --- !u!114 &3742802595568710049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68387,11 +68408,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a29c8a5edd1361249ad4a509ebdb2db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isChaningWeapon: 0
   weaponSlots:
   - {fileID: 4974484413363024198}
   - {fileID: 4974484412961366366}
   rigController: {fileID: 4974484414004122885}
-  playerCamera: {fileID: 4974484412319046269}
+  PlayerAiming: {fileID: 0}
   crossHairTarget: {fileID: 759275908}
   ammoWidget: {fileID: 3441168326627066514}
 --- !u!114 &3742802595568710051
@@ -111325,7 +111347,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4974484414047029194}
-  m_LocalRotation: {x: 0.13550669, y: 0.0123237865, z: -0.0016856346, w: 0.99069834}
+  m_LocalRotation: {x: 0.13550669, y: 0.012323752, z: -0.0016856301, w: 0.99069834}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
