@@ -14,6 +14,7 @@ public class SetCameraFreeLook : MonoBehaviour
     [SerializeField]
     private Photon.Pun.PhotonView pv;
 
+    [SerializeField] ReloadPosition reload;
     private CinemachineFreeLook cameraFreeLook;
     private void OnEnable()
     {
@@ -23,6 +24,8 @@ public class SetCameraFreeLook : MonoBehaviour
     {
         if(pv.IsMine)
         {
+            reload = FindObjectOfType<ReloadPosition>();
+            reload.player = this.gameObject;
             if (cameraFreeLook == null)
             {
                 cameraFreeLook = FindObjectOfType<CinemachineFreeLook>();

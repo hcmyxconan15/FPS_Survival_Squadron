@@ -8,7 +8,7 @@ public class HealPlayerNetwork : Health
 {
     public GameObject healthBar;
     public GameObject borderHealth;
-
+    PhotonView pv => GetComponent<PhotonView>();
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +23,15 @@ public class HealPlayerNetwork : Health
     {
         healthBar.GetComponent<Image>().fillAmount = currentHealth / maxHealth;
     }
-    [PunRPC]
     public override void TakeDamage(float amount, Vector3 direction)
     {
-        currentHealth -= amount;
+        pv.RPC("RPC_TakeDamg", RpcTarget.All, amount, direction);
+    }
+
+    [PunRPC]
+    void RPC_TakeDamg(float damg, Vector3 direction)
+    {
+        currentHealth -= damg;
         SetHealth();
         Debug.Log("Current Health: " + currentHealth);
         if (currentHealth <= 0.0f)
@@ -34,7 +39,6 @@ public class HealPlayerNetwork : Health
             Die(direction);
         }
     }
-
     public override void Die(Vector3 direction)
     {
         healthBar.SetActive(false);
