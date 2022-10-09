@@ -10,7 +10,6 @@ public class InstantitePrefab : MonoBehaviour
     [SerializeField] Transform crossTarget;
     [SerializeField] AmmoWidget ammoWidget;
     [SerializeField] Transform playerCamera;
-
     private void Start()
     {
         Instantite();
