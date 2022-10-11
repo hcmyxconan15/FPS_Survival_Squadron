@@ -2479,6 +2479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
+  dieForce: 0
   healthBar: {fileID: 322636994971108805}
   borderHealth: {fileID: 9014276957997143832}
 --- !u!114 &4018692582271943880
