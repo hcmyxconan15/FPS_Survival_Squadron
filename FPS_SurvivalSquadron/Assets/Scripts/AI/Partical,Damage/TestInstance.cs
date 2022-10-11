@@ -16,8 +16,9 @@ public class TestInstance : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.J))
         {
-            var game = Instantiate(Partical, transform.position, transform.rotation);
-            Destroy(game, 0.75f);
+            var game = Instantiate(Partical, transform.position, Quaternion.identity);
+            //Destroy(game, 0.75f);
         }
+        
     }
 }

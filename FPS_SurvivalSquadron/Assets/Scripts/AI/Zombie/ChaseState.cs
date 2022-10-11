@@ -21,6 +21,7 @@ public class ChaseState : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent.SetDestination(player.position);
+        agent.transform.LookAt(player.transform);
         float distance = Vector3.Distance(player.position, animator.transform.position);
         if (distance > distanceStopChase)
         {
