@@ -37945,6 +37945,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4289126748202998, guid: 9672218ecb324c240ae58e7a390701f2, type: 3}
   m_PrefabInstance: {fileID: 1829957272}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1833482867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2033186455419368513, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
+  m_PrefabInstance: {fileID: 2033186456481901272}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1833482874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833482867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb6e8681a9a1ea4aa3036a1eff068f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 3742802595568710054}
+  maxTime: 1
+  maxDistance: 1
 --- !u!1001 &1843728768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41231,7 +41251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b2dfec065aad1344ad15ccb3199a1f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
 --- !u!65 &2011721146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -57656,6 +57675,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2033186455419368519, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 871f4d9af0a49104cb3d0f3e457fecce, type: 2}
     - target: {fileID: 2033186455419368568, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
       propertyPath: player
       value: 
