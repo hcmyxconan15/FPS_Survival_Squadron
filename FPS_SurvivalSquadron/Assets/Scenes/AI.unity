@@ -18806,7 +18806,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.13550667, y: 0.012323849, z: -0.0016856432, w: 0.99069834}
+  m_LocalRotation: {x: 0.13550667, y: 0.012323773, z: -0.0016856327, w: 0.99069834}
   m_LocalPosition: {x: -8.396115, y: 6.7743316, z: 0.2715215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -57575,6 +57575,63 @@ Transform:
   m_Father: {fileID: 4110306647670873724}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1824907972271294265
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1825728286722645051, guid: e3acdc0121f1b4e4ab3e45ce68114897, type: 3}
+      propertyPath: m_Name
+      value: Projectile 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827655179645278003, guid: e3acdc0121f1b4e4ab3e45ce68114897, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827655179645278003, guid: e3acdc0121f1b4e4ab3e45ce68114897, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827655179645278003, guid: e3acdc0121f1b4e4ab3e45ce68114897, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827655179645278003, guid: e3acdc0121f1b4e4ab3e45ce68114897, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827655179645278003, guid: e3acdc0121f1b4e4ab3e45ce68114897, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827655179645278003, guid: e3acdc0121f1b4e4ab3e45ce68114897, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827655179645278003, guid: e3acdc0121f1b4e4ab3e45ce68114897, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827655179645278003, guid: e3acdc0121f1b4e4ab3e45ce68114897, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827655179645278003, guid: e3acdc0121f1b4e4ab3e45ce68114897, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827655179645278003, guid: e3acdc0121f1b4e4ab3e45ce68114897, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827655179645278003, guid: e3acdc0121f1b4e4ab3e45ce68114897, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e3acdc0121f1b4e4ab3e45ce68114897, type: 3}
 --- !u!224 &1941128028552250473
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57603,6 +57660,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2137235367}
     m_Modifications:
+    - target: {fileID: 1833482881, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 1825728286722645051, guid: e3acdc0121f1b4e4ab3e45ce68114897, type: 3}
     - target: {fileID: 2033186455419368513, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
       propertyPath: m_Name
       value: Zombie_Far
@@ -101592,7 +101653,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4974484414047029194}
-  m_LocalRotation: {x: 0.13550667, y: 0.012323832, z: -0.0016856404, w: 0.9906984}
+  m_LocalRotation: {x: 0.13550667, y: 0.012323794, z: -0.0016856352, w: 0.9906984}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
