@@ -2815,6 +2815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
+  dieForce: 5
 --- !u!114 &6964733681952508522
 MonoBehaviour:
   m_ObjectHideFlags: 0

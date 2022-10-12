@@ -1,0 +1,10 @@
+diff a/FPS_SurvivalSquadron/Assets/Animation/AI/Zombie/ZombieController.controller b/FPS_SurvivalSquadron/Assets/Animation/AI/Zombie/ZombieController.controller	(rejected hunks)
+@@ -51,7 +51,7 @@
+   m_Script: {fileID: 11500000, guid: c7f1afdbe4788ad4eb9e0fe429f06caf, type: 3}
+   m_Name: 
+   m_EditorClassIdentifier: 
+-  distanceStopAttack: 100
++  distanceStopAttack: 5
+ --- !u!1101 &-4632552112940948223
+ AnimatorStateTransition:
+   m_ObjectHideFlags: 1
