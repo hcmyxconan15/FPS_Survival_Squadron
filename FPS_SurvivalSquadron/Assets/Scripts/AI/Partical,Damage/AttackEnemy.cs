@@ -43,6 +43,7 @@ public class AttackEnemy : MonoBehaviour
         Rigidbody rb = Instantiate(projectile, projectilePoint, true).GetComponent<Rigidbody>();
         projectile.transform.position = projectilePoint.position;
         Vector3 direction = player.transform.position - projectilePoint.transform.position + offset;
+        //Vector3 direction = transform.forward + offset;
         rb.AddForce(direction * force, ForceMode.Impulse);
         rb.AddForce(transform.up * forceUp, ForceMode.Impulse);
     }

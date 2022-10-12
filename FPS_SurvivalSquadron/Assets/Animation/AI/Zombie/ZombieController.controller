@@ -37,8 +37,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c12a54c8c2acc04a86c2401c2cab9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerPatrolToIdle: 10
-  chaseRange: 5
+  timerPatrolToIdle: 5
+  chaseRange: 10
 --- !u!114 &-6076695506153153949
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f1afdbe4788ad4eb9e0fe429f06caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceStopAttack: 100
+  distanceStopAttack: 10
 --- !u!1101 &-4632552112940948223
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -498,5 +498,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904553d971f8fe84da00fc32a5d820e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceStopChase: 7
-  distanceAttackMode: 1000
+  distanceStopChase: 5
+  distanceAttackMode: 7
