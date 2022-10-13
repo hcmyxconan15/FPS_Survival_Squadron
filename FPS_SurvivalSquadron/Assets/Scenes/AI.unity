@@ -57303,6 +57303,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2137235367}
     m_Modifications:
+    - target: {fileID: 1454661256, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
+      propertyPath: particalDestroy
+      value: 
+      objectReference: {fileID: 6901471035317374658, guid: 8c4b63b2194ebf44dbdd72ac7346f4b6, type: 3}
     - target: {fileID: 1833482881, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
       propertyPath: projectile
       value: 
@@ -57359,7 +57363,8 @@ PrefabInstance:
       propertyPath: cameraToFollow
       value: 
       objectReference: {fileID: 963194227}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1833482888, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
 --- !u!1 &2139819065997866461
 GameObject:

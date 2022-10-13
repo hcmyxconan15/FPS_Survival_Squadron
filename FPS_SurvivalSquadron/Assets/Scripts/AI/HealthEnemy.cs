@@ -7,6 +7,7 @@ public class HealthEnemy : Health
     Ragdoll ragdoll;
     //UIHealthBar healthBar;
     Animator animator;
+    public GameObject particalDestroy;
     public GameObject healthBar;
     public GameObject borderHealth;
 
@@ -46,6 +47,7 @@ public class HealthEnemy : Health
         if (currentHealth <= 0.0f)
         {
             Die(direction);
+            DestroyGameObject();
         }
     }
 
@@ -54,9 +56,15 @@ public class HealthEnemy : Health
         ragdoll.ActivateRagdoll();
         direction.y = 1;
         ragdoll.ApplyForce(direction * dieForce);
-        //healthBar.gameObject.SetActive(false);
         healthBar.SetActive(false);
         borderHealth.SetActive(false);
         Destroy(gameObject, 3f);
+    }
+
+    void DestroyGameObject()
+    {
+        Destroy(gameObject);
+        GameObject explosion = Instantiate(particalDestroy, transform.position, transform.rotation);
+        Destroy(explosion, 0.75f);
     }
 }
