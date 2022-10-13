@@ -1272,8 +1272,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ac17b2163ba1fa4db640011dcba220a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 500
-  dieForce: 10
+  maxHealth: 100
+  dieForce: 20
+  isParticalDestroy: 1
   particalDestroy: {fileID: 6901471035317374658, guid: 8c4b63b2194ebf44dbdd72ac7346f4b6, type: 3}
   healthBar: {fileID: 2033186456299805354}
   borderHealth: {fileID: 2033186455908611330}

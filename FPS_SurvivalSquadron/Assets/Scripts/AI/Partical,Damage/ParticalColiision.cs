@@ -28,7 +28,7 @@ public class ParticalColiision : MonoBehaviour
         for(int i = 0; i < particleCollisionEvents.Count;i++)
         {
             var collider = particleCollisionEvents[i].colliderComponent;
-            if(collider.CompareTag("Player"))
+            if(collider.tag == "Player")
             {
                 var health = collider.GetComponent<HealthPlayer>();
                 health.TakeDamage(dame);

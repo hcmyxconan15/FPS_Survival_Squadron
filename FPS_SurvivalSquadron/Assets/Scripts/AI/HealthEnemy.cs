@@ -8,10 +8,12 @@ public class HealthEnemy : Health
     //UIHealthBar healthBar;
     Animator animator;
     [Header("Partical")]
+    public bool isParticalDestroy = true;
     public GameObject particalDestroy;
     [Header("HealthBar")]
     public GameObject healthBar;
     public GameObject borderHealth;
+    bool coolDownRagdoll = true;
 
 
     // Start is called before the first frame update
@@ -19,7 +21,6 @@ public class HealthEnemy : Health
     {
         ragdoll = GetComponent<Ragdoll>();
         currentHealth = maxHealth;
-        //healthBar = GetComponentInChildren<UIHealthBar>();
         animator = GetComponent<Animator>();
         var ridiBodies = GetComponentsInChildren<Rigidbody>();
         foreach (var rigiBody in ridiBodies)
@@ -43,19 +44,25 @@ public class HealthEnemy : Health
     public override void  TakeDamage(float amount, Vector3 direction)
     {
         currentHealth -= amount;
-        //healthBar.SetHealthBarPercentage(currentHealth / maxHealth);
-        Debug.Log("Current Health: " + currentHealth);
         animator.SetTrigger("Hurt");
-        if (currentHealth <= 0.0f)
+        if (currentHealth <= 0.0f && coolDownRagdoll)
         {
             Die(direction);
-            DestroyGameObject();
+            coolDownRagdoll = false;
+            StartCoroutine(CoolDown(3f));            
         }
+    }
+
+    IEnumerator CoolDown(float time)
+    {
+        yield return new WaitForSeconds(time);
+        coolDownRagdoll = true;
     }
 
     public override void Die(Vector3 direction)
     {
-        ragdoll.ActivateRagdoll();
+        DestroyGameObject();
+        ragdoll.ActivateRagdoll();        
         direction.y = 1;
         ragdoll.ApplyForce(direction * dieForce);
         healthBar.SetActive(false);
@@ -65,8 +72,11 @@ public class HealthEnemy : Health
 
     void DestroyGameObject()
     {
-        Destroy(gameObject);
-        GameObject explosion = Instantiate(particalDestroy, transform.position, transform.rotation);
-        Destroy(explosion, 0.75f);
+       if(isParticalDestroy)
+       {
+            GameObject explosion = Instantiate(particalDestroy, transform.position, transform.rotation);
+            explosion.transform.SetParent(transform); 
+            Destroy(explosion, 3f);
+       }
     }
 }
