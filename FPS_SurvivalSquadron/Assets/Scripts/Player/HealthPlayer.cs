@@ -29,9 +29,6 @@ public class HealthPlayer : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
-        //healthBar.SetHealthBarPercentage(currentHealth / maxHealth);
-        Debug.Log("Current Health Player: " + currentHealth);
-        //animator.SetTrigger("Hurt");
         if (currentHealth <= 0.0f)
         {
             //Die(direction);

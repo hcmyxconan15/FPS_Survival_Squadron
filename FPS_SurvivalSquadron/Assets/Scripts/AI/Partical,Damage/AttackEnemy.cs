@@ -23,27 +23,13 @@ public class AttackEnemy : MonoBehaviour
     {
         
     }
-    //public void Shoot()
-    //{
-    //    Rigidbody rb = Instantiate(projectile, projectilePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-    //    rb.AddForce(transform.forward*force, ForceMode.Impulse);
-    //    rb.AddForce(transform.up * forceUp, ForceMode.Impulse);
-    //}
 
     public void Shoot()
     {
-        //GameObject testpositon = Instantiate(projectile);
-        //testpositon.transform.SetParent(projectilePoint, true);
-        //testpositon.transform.position = projectilePoint.transform.position;
-        //Rigidbody rb = testpositon.GetComponent<Rigidbody>();
-        //Vector3 testTransform = (player.transform.position - testpositon.transform.position) + offset;
-        //rb.AddForce(testTransform * force, ForceMode.Impulse);
-        //rb.AddForce(transform.up * forceUp, ForceMode.Impulse);
 
-        Rigidbody rb = Instantiate(projectile, projectilePoint, true).GetComponent<Rigidbody>();
         projectile.transform.position = projectilePoint.position;
+        Rigidbody rb = Instantiate(projectile, projectilePoint, true).GetComponent<Rigidbody>();
         Vector3 direction = player.transform.position - projectilePoint.transform.position + offset;
-        //Vector3 direction = transform.forward + offset;
         rb.AddForce(direction * force, ForceMode.Impulse);
         rb.AddForce(transform.up * forceUp, ForceMode.Impulse);
     }
