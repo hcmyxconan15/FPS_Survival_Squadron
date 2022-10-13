@@ -7,7 +7,9 @@ public class HealthEnemy : Health
     Ragdoll ragdoll;
     //UIHealthBar healthBar;
     Animator animator;
+    [Header("Partical")]
     public GameObject particalDestroy;
+    [Header("HealthBar")]
     public GameObject healthBar;
     public GameObject borderHealth;
 
