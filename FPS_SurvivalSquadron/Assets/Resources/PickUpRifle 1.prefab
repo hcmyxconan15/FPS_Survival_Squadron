@@ -95,8 +95,8 @@ GameObject:
   - component: {fileID: 1603266376699629821}
   - component: {fileID: 1603266376699629822}
   - component: {fileID: 1603266376699629823}
+  - component: {fileID: 1603266376699629816}
   - component: {fileID: -1478377429978146020}
-  - component: {fileID: 3175083086833324590}
   m_Layer: 0
   m_Name: PickUpRifle 1
   m_TagString: Untagged
@@ -183,6 +183,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1603266376699629816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603266376699629817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923aa5969ab4c964eb9c88de76652653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponFab: {fileID: 1048826336751012060, guid: fed569011fce2ec459dd45c40f18f983, type: 3}
 --- !u!114 &-1478377429978146020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,19 +249,6 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0, y: -1, z: 0}
---- !u!114 &3175083086833324590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603266376699629817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72e1aeb52a1b154ea073896438164b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1048826336751012034, guid: 3886c1f73c9f81a45a4dc4b273fee7c6, type: 3}
 --- !u!1 &2903119939867356293
 GameObject:
   m_ObjectHideFlags: 0

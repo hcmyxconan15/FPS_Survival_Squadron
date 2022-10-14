@@ -6,14 +6,13 @@ using Unity.VisualScripting;
 
 public class InstantitePrefab : MonoBehaviour
 {
-    [SerializeField] GameObject prefab;
     [SerializeField] Transform crossTarget;
     [SerializeField] AmmoWidget ammoWidget;
     [SerializeField] Transform playerCamera;
-
     private void Start()
     {
         Instantite();
+        InstantiteEnemy();
     }
     
     private void Instantite()
@@ -25,5 +24,11 @@ public class InstantitePrefab : MonoBehaviour
         go.GetComponent<PlayerAmingNetwork>().CameraLookAt = playerCamera;
        go.GetComponent<ReloadWeapon>().ammoWidget = ammoWidget;
        
+    }
+    private void InstantiteEnemy()
+    {
+        GameObject go = PhotonNetwork.Instantiate("Zombie", Vector3.zero, Quaternion.identity);
+        
+
     }
 }
