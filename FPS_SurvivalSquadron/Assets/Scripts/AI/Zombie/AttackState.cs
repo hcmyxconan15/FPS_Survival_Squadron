@@ -18,7 +18,6 @@ public class AttackState : StateMachineBehaviour
         float x = player.position.x;
         float z = player.position.z;
         Vector3 vt = new Vector3(x, 0, z);
-         
         animator.transform.LookAt(vt);
         float distance = Vector3.Distance(player.position, animator.transform.position);
         if (distance > distanceStopAttack)
