@@ -12,7 +12,7 @@ public class SliderRunTo1 : MonoBehaviour
 	public GameObject Loading;
 	public GameObject Home;
 
-		
+	
 
 	
 
@@ -39,8 +39,8 @@ public class SliderRunTo1 : MonoBehaviour
 
 			if(slider.value == 1)
             {
-				Loading.SetActive(false);
-				Home.SetActive(true);
+				GameManager.Instance.SetCanvas(GameManager.Instance.Loading, false);
+				GameManager.Instance.SetCanvas(GameManager.Instance.Home, true);
             }
 		}
 	}

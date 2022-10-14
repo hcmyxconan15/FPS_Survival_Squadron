@@ -3,13 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-   
+    [Header("CanvasGroup")]
+    public CanvasGroup Loading;
+    public CanvasGroup Home;
+    public CanvasGroup Setting;
+    public CanvasGroup SelectionMap;
+    public CanvasGroup About;
+    
+    
     
 
-   public void OnClickQuitButton()
+
+    public void SetCanvas(CanvasGroup canvas, bool t)
+    {
+        canvas.alpha = t ? 1 : 0;
+        canvas.blocksRaycasts = t;
+        canvas.interactable = t;
+    }
+
+
+
+
+    public void OnClickQuitButton()
     {
 #if UNITY_EDITOR
         EditorApplication.isPlaying = false;
