@@ -9,6 +9,7 @@ public class InstantitePrefab : MonoBehaviour
     [SerializeField] Transform crossTarget;
     [SerializeField] AmmoWidget ammoWidget;
     [SerializeField] Transform playerCamera;
+    [SerializeField] LoadMap loadMap;
     private void Start()
     {
         Instantite();
@@ -27,8 +28,9 @@ public class InstantitePrefab : MonoBehaviour
     }
     private void InstantiteEnemy()
     {
-        GameObject go = PhotonNetwork.Instantiate("Zombie", Vector3.zero, Quaternion.identity);
-        
-
+        if(PhotonNetwork.IsMasterClient)
+        {
+            loadMap.InstantiateEnemy("Map_1");
+        }
     }
 }

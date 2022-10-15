@@ -16,4 +16,9 @@ public class EnititySave
         y = position.y;
         z = position.z;
     }
+    public Vector3 GetPosition()
+    {
+        Vector3 vector3 = new Vector3(x, y, z);
+        return vector3;
+    }
 }
