@@ -2704,10 +2704,10 @@ GameObject:
   - component: {fileID: 2239324517011572609}
   - component: {fileID: 2239324517011572608}
   - component: {fileID: 2239324517011572623}
-  - component: {fileID: 2239324517011572622}
   - component: {fileID: 6964733681952508522}
   - component: {fileID: 6182626807419852343}
   - component: {fileID: 4803577768072083132}
+  - component: {fileID: -3803584629649454495}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -2801,21 +2801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b4fd23f372bad41bc810d4a10e44ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 2239324517011572622}
---- !u!114 &2239324517011572622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2239324517011572621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29bcc5b27339d2a48a6556efe6e851e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 200
-  dieForce: 5
+  health: {fileID: 0}
 --- !u!114 &6964733681952508522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2886,6 +2872,24 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &-3803584629649454495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2239324517011572621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac17b2163ba1fa4db640011dcba220a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 500
+  dieForce: 20
+  isParticalDestroy: 1
+  particalDestroy: {fileID: 0}
+  healthBar: {fileID: 2239324517059218756}
+  borderHealth: {fileID: 2239324516607333552}
 --- !u!1 &2239324517059218756
 GameObject:
   m_ObjectHideFlags: 0
