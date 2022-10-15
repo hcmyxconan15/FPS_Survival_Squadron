@@ -4,7 +4,7 @@ using UnityEngine;
 using System.IO;
 public class HelperStore
 {
-    public static void WrriteData<T>(string nameFile, List<T> list)
+    public static void WrriteData<T>(string nameFile, T[] list)
     {
         string path = Getpath(nameFile);
         string data = ToJason<T>(list);
@@ -13,19 +13,19 @@ public class HelperStore
             stream.WriteLine(data);
         }
     }
-    public static List<T> ReadData<T>(string nameFile)
+    public static T[] ReadData<T>(string nameFile)
     {
         string path = Getpath(nameFile);
         StreamReader reader = new StreamReader(path);
         string data = reader.ReadLine();
-        List<T> list = FromJson<T>(data);
+        T[] list = FromJson<T>(data);
         return list;
     }
     private static string Getpath(string nameFile)
     {
-        return "Asset/Resources/Map/" + nameFile + ".csv";
+        return "Assets/Resources/Map/" + nameFile + ".csv";
     }
-    private static string ToJason<T>(List<T> list)
+    private static string ToJason<T>(T[] list)
     {
         if(list !=null)
         {
@@ -42,13 +42,13 @@ public class HelperStore
         
     }
 
-    private static List<T> FromJson<T>(string data)
+    private static T[] FromJson<T>(string data)
     {
         Wrraper<T> wrraper = JsonUtility.FromJson<Wrraper<T>>(data);
         return wrraper.Items;
     }
     private class Wrraper<T>
     {
-        public List<T> Items;
+        public T[] Items;
     }
 }
