@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : SingletonMonoBehaviour<UIManager>
+public class UIManager : Singleton<UIManager>
 {
     public GameObject cScreen, cPopup, cNotify;
 
@@ -14,7 +14,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     private List<string> rmPopups = new List<string>();
     private List<string> rmNotifies = new List<string>();
 
-    private const string SCREEN_RESOURCES_PATH = "UI/Screen";
+    private const string SCREEN_RESOURCES_PATH = "UI/Screen/";
     private const string POPUP_RESOURCES_PATH = "UI/Popup/";
     private const string NOTIFY_RESOURCES_PATH = "UI/Notify/";
 

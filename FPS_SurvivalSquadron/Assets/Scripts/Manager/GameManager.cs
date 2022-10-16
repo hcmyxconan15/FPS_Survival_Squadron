@@ -13,9 +13,15 @@ public class GameManager : Singleton<GameManager>
     public CanvasGroup Setting;
     public CanvasGroup SelectionMap;
     public CanvasGroup About;
-    
-    
-    
+
+
+    private void Start()
+    {
+        if(UIManager.HasInstance)
+        {
+            UIManager.Instance.ShowScreen<ScreenHome>();
+        }
+    }
 
 
     public void SetCanvas(CanvasGroup canvas, bool t)
