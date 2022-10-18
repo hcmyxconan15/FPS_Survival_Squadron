@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScreenHome : BaseScreen
 {
@@ -15,5 +16,10 @@ public class ScreenHome : BaseScreen
         {
             UIManager.Instance.ShowPopup<PopupSetting>();
         }
+    }
+
+    public void OnClickLoadScreen(string name)
+    {
+        SceneManager.LoadScene(name);
     }
 }
