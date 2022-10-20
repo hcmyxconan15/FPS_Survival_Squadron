@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : Singleton<AudioManager>
+public class AudioManager : SingletonMonoBehaviour<AudioManager>
 {
     public Sound[] sounds;
 
@@ -16,6 +16,7 @@ public class AudioManager : Singleton<AudioManager>
             s.source.loop = s.loop;
         }
     }
+
 
     public void PlaySound(string soundName)
     {

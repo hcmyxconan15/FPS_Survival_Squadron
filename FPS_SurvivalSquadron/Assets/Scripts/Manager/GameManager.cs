@@ -5,40 +5,18 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 using UnityEngine.UI;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : SingletonMonoBehaviour<GameManager>
 {
-    [Header("CanvasGroup")]
-    public CanvasGroup Loading;
-    public CanvasGroup Home;
-    public CanvasGroup Setting;
-    public CanvasGroup SelectionMap;
-    public CanvasGroup About;
-
-
     private void Start()
     {
         if(UIManager.HasInstance)
         {
-            UIManager.Instance.ShowScreen<ScreenHome>();
+            UIManager.Instance.ShowNotify<NotifyLoading>();
+            NotifyLoading scr = UIManager.Instance.GetExistNotify<NotifyLoading>();
+            if (scr != null)
+            {
+                UIManager.Instance.ShowScreen<ScreenHome>();
+            }
         }
-    }
-
-
-    public void SetCanvas(CanvasGroup canvas, bool t)
-    {
-        canvas.alpha = t ? 1 : 0;
-        canvas.blocksRaycasts = t;
-        canvas.interactable = t;
-    }
-
-
-
-
-    public void OnClickQuitButton()
-    {
-#if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-#endif
-        Application.Quit();
     }
 }

@@ -29,14 +29,14 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     public BasePopup CurPopup => curPopup;
     public BaseNotify CurNotify => curNotify;
 
-    #region Screen
 
-    public void ShowScreen<T>(object data = null, bool forceShowData = false) where T : BaseScreen
+    #region Screen
+    public void ShowScreen<T>(object data = null, bool forceShowData = false) where T: BaseScreen
     {
         string nameScreen = typeof(T).Name;
         BaseScreen result = null;
 
-        if (curScreen != null)
+        if(curScreen != null)
         {
             var curName = curScreen.GetType().Name;
             if (curName.Equals(nameScreen))
@@ -49,7 +49,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             }
         }
 
-        if (result == null)
+        if(result == null)
         {
             if (!screens.ContainsKey(nameScreen))
             {
@@ -67,7 +67,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         }
 
         bool isShow = false;
-        if (result != null)
+        if(result != null)
         {
             if (forceShowData)
             {
@@ -94,7 +94,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     {
         string nameScreen = typeof(T).Name;
         GameObject pfScreen = GetUIPrefab(UIType.Screen, nameScreen);
-        if (pfScreen == null || !pfScreen.GetComponent<BaseScreen>())
+        if(pfScreen == null || !pfScreen.GetComponent<BaseScreen>())
         {
             throw new MissingReferenceException("Cant found " + nameScreen + "screen. !!!");
         }
@@ -154,7 +154,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         }
     }
     #endregion
-
     #region Popup
     public void ShowPopup<T>(object data = null, bool forceShowData = false) where T : BasePopup
     {
@@ -410,12 +409,11 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         var defaultPath = "";
         if(result == null)
         {
-            switch(t)
+            switch (t)
             {
                 case UIType.Screen:
                     {
                         defaultPath = SCREEN_RESOURCES_PATH + uiName;
-                        Debug.Log("Screen");
                     }
                     break;
                 case UIType.Popup:
@@ -432,6 +430,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
 
             result = Resources.Load(defaultPath) as GameObject;
         }
+
         return result;
     }
 }
