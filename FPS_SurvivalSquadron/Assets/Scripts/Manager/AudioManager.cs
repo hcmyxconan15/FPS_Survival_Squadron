@@ -5,27 +5,45 @@ using UnityEngine;
 
 public class AudioManager : SingletonMonoBehaviour<AudioManager>
 {
-    public Sound[] sounds;
-
+    public Sound[] soundsMusic;
+    public Sound[] soundsEffect;
     private void Start()
     {
-        foreach(Sound s in sounds)
+        foreach(Sound effect in soundsEffect)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.loop = s.loop;
+            effect.source = gameObject.AddComponent<AudioSource>();
+            effect.source.clip = effect.clip;
+            effect.source.loop = effect.loop;
+        }
+        foreach(Sound music in soundsMusic)
+        {
+            music.source = gameObject.AddComponent<AudioSource>();
+            music.source.clip = music.clip;
+            music.source.loop = music.loop;
         }
     }
 
 
-    public void PlaySound(string soundName)
+    public void PlaySoundEffect(string soundName)
     {
-        Sound sound = Array.Find(sounds, item => item.name == soundName);
-        if(sound == null)
+        Sound effect = Array.Find(soundsEffect, item => item.name == soundName);
+        if(effect == null)
         {
             Debug.LogWarning("Sound: " + soundName + " not found");
         }
-        sound.source.volume = sound.volume;
-        sound.source.Play();
+        effect.source.volume = effect.volume;
+        effect.source.Play();
     }
+
+    public void PlaySoundMusic(string soundName)
+    {
+        Sound music = Array.Find(soundsMusic, item => item.name == soundName);
+        if (music == null)
+        {
+            Debug.LogWarning("Sound: " + soundName + " not found");
+        }
+        music.source.volume = music.volume;
+        music.source.Play();
+    }
+
 }

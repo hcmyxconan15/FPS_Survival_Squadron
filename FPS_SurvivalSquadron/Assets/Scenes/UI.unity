@@ -388,7 +388,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1046722443
 GameObject:
@@ -419,20 +419,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893302b088062ce40a966ee16f04c386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
+  soundsMusic:
   - name: Backround
-    clip: {fileID: 8300000, guid: c0a69aaaac97eb74e8718566bc999b72, type: 3}
+    clip: {fileID: 0}
     volume: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
+  soundsEffect:
   - name: Effect
     clip: {fileID: 0}
     volume: 1
     loop: 0
     source: {fileID: 0}
-  - name: Test
+  - name: 
     clip: {fileID: 0}
-    volume: 1
+    volume: 0
     loop: 0
     source: {fileID: 0}
 --- !u!4 &1046722445
@@ -448,7 +449,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1103609948
 GameObject:
@@ -492,7 +493,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1276939776
 GameObject:
@@ -504,6 +505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1276939777}
   - component: {fileID: 1276939778}
+  - component: {fileID: 1276939779}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -525,7 +527,7 @@ Transform:
   m_Children:
   - {fileID: 501540364}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1276939778
 MonoBehaviour:
@@ -542,6 +544,18 @@ MonoBehaviour:
   cScreen: {fileID: 1771632986}
   cPopup: {fileID: 926690882}
   cNotify: {fileID: 166062105}
+--- !u!114 &1276939779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276939776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7732d9bdf15b4b14daccaffccd66ba4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1306704479
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +621,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1335181673
 GameObject:
@@ -803,5 +817,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
