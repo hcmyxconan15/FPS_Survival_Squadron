@@ -7,6 +7,8 @@ public class ScreenHome : BaseScreen
 {
     PopupSetting popupSetting;
     PopupAbout popupAbout;
+    PopupSelect popupSelect;
+    PopupExit popupExit;
 
     private void Start()
     {
@@ -14,6 +16,8 @@ public class ScreenHome : BaseScreen
         {
             InstancePopupSetting();
             InstancePopupAbout();
+            InstancePopupSelect();
+            InstancePopupExit();
         }
     }
 
@@ -35,6 +39,26 @@ public class ScreenHome : BaseScreen
         {
             popupAbout.Hide();
         }
+    }    
+    
+    private void InstancePopupSelect()
+    {
+        UIManager.Instance.ShowPopup<PopupSelect>();
+        popupSelect = UIManager.Instance.GetExistPopup<PopupSelect>();
+        if (popupSelect != null)
+        {
+            popupSelect.Hide();
+        }
+    }    
+    
+    private void InstancePopupExit()
+    {
+        UIManager.Instance.ShowPopup<PopupExit>();
+        popupExit = UIManager.Instance.GetExistPopup<PopupExit>();
+        if (popupExit != null)
+        {
+            popupExit.Hide();
+        }
     }
 
  
@@ -43,31 +67,43 @@ public class ScreenHome : BaseScreen
         base.Show(data);
     }
 
-    public void OnClickLoadScreen(string name)
+    public void OnClickSelectScreen()
     {
-        SceneManager.LoadScene(name);
+        popupSelect.Show(this.gameObject);
+        popupAbout.Hide();
+        popupSetting.Hide();
+        popupExit.Hide();
     }
 
     public void OnClickPopupAbout()
     {
         popupAbout.Show(this.gameObject);
-        if (popupSetting != null)
-        {
-            popupSetting.Hide();
-        }
+        //if (popupSetting != null)
+        //{
+        //    popupSetting.Hide();
+        //}
+        popupSetting.Hide();
+        popupSelect.Hide();
+        popupExit.Hide();
     }
 
     public void OnClickPopupSetting()
     {
         popupSetting.Show(this.gameObject);
-        if (popupAbout != null)
-        {
-            popupAbout.Hide();
-        }
+        popupAbout.Hide();
+        popupSelect.Hide();
+        popupExit.Hide();
+        //if (popupAbout != null)
+        //{
+        //    popupAbout.Hide();
+        //}
     }
 
     public void OnClickQuitApplication()
     {
-        Application.Quit();
+        popupExit.Show(this.gameObject);
+        popupSetting.Hide();
+        popupAbout.Hide();
+        popupSelect.Hide();
     }
 }

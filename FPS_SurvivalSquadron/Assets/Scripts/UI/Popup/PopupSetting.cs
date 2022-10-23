@@ -15,6 +15,10 @@ public class PopupSetting : BasePopup
     private void Awake()
     {
         audioManager = FindObjectOfType<AudioManager>();
+    }
+
+    private void Start()
+    {
         CheckInit();
         LoadQuality();
         LoadVolume();
