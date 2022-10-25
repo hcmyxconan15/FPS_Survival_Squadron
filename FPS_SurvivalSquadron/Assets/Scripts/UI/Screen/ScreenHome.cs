@@ -73,6 +73,7 @@ public class ScreenHome : BaseScreen
         popupAbout.Hide();
         popupSetting.Hide();
         popupExit.Hide();
+        this.Hide();
     }
 
     public void OnClickPopupAbout()
