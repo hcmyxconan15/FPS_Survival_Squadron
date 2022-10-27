@@ -8,6 +8,7 @@ public class CONSTANT
     public const string PP_MUSICVOLUME = "MusicVolume";
     public const string PP_EFFECTVOLUME = "EffectVolume";
     public const string PP_QUALITY = "Quality";
+    public const string PP_MAXHPPLAYER = "MaxHp";
 
     //Variables
     public const float DEFAULT_MUSICVOLUME = 0.5f;

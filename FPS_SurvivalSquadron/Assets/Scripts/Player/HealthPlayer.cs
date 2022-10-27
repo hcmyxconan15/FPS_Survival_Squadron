@@ -7,24 +7,21 @@ public class HealthPlayer : MonoBehaviour
 {
     public float maxHealth = 300;
     float currentHealth;
-    public Image healthyBarPlayer;
+
     
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        PlayerPrefs.SetFloat(CONSTANT.PP_MAXHPPLAYER, maxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetHealth();
+
     }
 
-    void SetHealth()
-    {
-        healthyBarPlayer.fillAmount = currentHealth / maxHealth;
-    }
 
     public void TakeDamage(float amount)
     {
@@ -33,5 +30,6 @@ public class HealthPlayer : MonoBehaviour
         {
             //Die(direction);
         }
+        ListenerManager.Instance.BroadCast(ListenType.UPDATE_HP_PLAYER, currentHealth);
     }
 }

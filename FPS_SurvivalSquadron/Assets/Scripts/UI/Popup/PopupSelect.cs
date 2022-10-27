@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PopupSelect : BasePopup
 {
     ScreenHome screenHome;
+    ScreenPlayGame screenPlayGame;
 
     public override void Hide()
     {
@@ -26,6 +27,7 @@ public class PopupSelect : BasePopup
     void Start()
     {
         screenHome = UIManager.Instance.GetExistScreen<ScreenHome>();
+        InstanceScreenPlayGame();
     }
 
     // Update is called once per frame
@@ -34,24 +36,36 @@ public class PopupSelect : BasePopup
         
     }
 
+    private void InstanceScreenPlayGame()
+    {
+        UIManager.Instance.ShowScreen<ScreenPlayGame>();
+        screenPlayGame = UIManager.Instance.GetExistScreen<ScreenPlayGame>();
+        if (screenPlayGame != null)
+        {
+            screenPlayGame.Hide();
+        }
+    }
+
 
     public void OnClickLoadScreenTutourial(string name)
     {
         SceneManager.LoadScene(name);
         this.Hide();
+        screenPlayGame.Show(this.gameObject);
     }    
     
     public void OnClickLoadScreenSingle(string name)
     {
         SceneManager.LoadScene(name);
         this.Hide();
-
+        screenPlayGame.Show(this.gameObject);
     }
 
     public void OnClickLoadScreenMultiPlayer(string name)
     {
         SceneManager.LoadScene(name);
         this.Hide();
+        screenPlayGame.Show(this.gameObject);
     }
 
     public void OnClickBack()

@@ -21,8 +21,8 @@ public class PlayerAiming : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
         weapon = GetComponentInChildren<RayCastWeapon>();
         animator = GetComponent<Animator>();
         activeWeapon = GetComponent<ActiveWeapon>();
