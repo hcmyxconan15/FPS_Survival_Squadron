@@ -16,6 +16,4 @@ public class SliderValuePass : MonoBehaviour {
 	public  void UpdateProgress (float content) {
 		progress.text = Mathf.Round( content*100) +"%";
 	}
-
-
 }

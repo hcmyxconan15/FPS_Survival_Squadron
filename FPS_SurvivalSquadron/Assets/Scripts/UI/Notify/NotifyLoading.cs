@@ -41,7 +41,7 @@ public class NotifyLoading : BaseNotify
         slider.value = 1 - time / speed;
         if (slider.value == 1)
         {
-          gameObject.SetActive(false);
+           Destroy(gameObject);
         }
     }
 

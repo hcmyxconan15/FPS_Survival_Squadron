@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PopupSelect : BasePopup
 {
-    ScreenHome screenHome;
     ScreenPlayGame screenPlayGame;
-
+    ScreenHome screenHome;
+    bool isloaded = false;
     public override void Hide()
     {
         base.Hide();
@@ -27,7 +27,6 @@ public class PopupSelect : BasePopup
     void Start()
     {
         screenHome = UIManager.Instance.GetExistScreen<ScreenHome>();
-        //InstanceScreenPlayGame();
     }
 
     // Update is called once per frame
@@ -36,39 +35,44 @@ public class PopupSelect : BasePopup
         
     }
 
-    private void InstanceScreenPlayGame()
+    private void LoadGame()
     {
-        UIManager.Instance.ShowScreen<ScreenPlayGame>();
-        screenPlayGame = UIManager.Instance.GetExistScreen<ScreenPlayGame>();
-        if (screenPlayGame != null)
+        UIManager.Instance.ShowNotify<NotifyLoadingPlayGame>();
+        NotifyLoadingPlayGame scr = UIManager.Instance.GetExistNotify<NotifyLoadingPlayGame>();
+        if (scr != null && isloaded == false)
         {
-            screenPlayGame.Hide();
+            UIManager.Instance.ShowScreen<ScreenPlayGame>();
+            screenPlayGame = UIManager.Instance.GetExistScreen<ScreenPlayGame>();
+            isloaded = true;
+        }
+        else if (scr != null && isloaded)
+        {
+            scr.time = scr.defautTime;
+            Time.timeScale = 1;
+            scr.gameObject.SetActive(true);
+            screenPlayGame.Show(this.gameObject);
         }
     }
 
-
     public void OnClickLoadScreenTutourial(string name)
     {
-        SceneManager.LoadScene(name);
         this.Hide();
-        //screenPlayGame.Show(this.gameObject);
-        UIManager.Instance.ShowScreen<ScreenPlayGame>();
+        LoadGame();
+        SceneManager.LoadScene(name);
     }
 
     public void OnClickLoadScreenSingle(string name)
     {
-        SceneManager.LoadScene(name);
         this.Hide();
-        //screenPlayGame.Show(this.gameObject);
-        UIManager.Instance.ShowScreen<ScreenPlayGame>();
+        LoadGame();
+        SceneManager.LoadScene(name);
     }
 
     public void OnClickLoadScreenMultiPlayer(string name)
     {
-        SceneManager.LoadScene(name);
         this.Hide();
-        //screenPlayGame.Show(this.gameObject);
-        UIManager.Instance.ShowScreen<ScreenPlayGame>();
+        LoadGame();
+        SceneManager.LoadScene(name);
     }
 
     public void OnClickBack()
@@ -76,6 +80,4 @@ public class PopupSelect : BasePopup
         this.Hide();
         screenHome.Show(this.gameObject);
     }
-
-
 }

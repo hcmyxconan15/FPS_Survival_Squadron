@@ -393,7 +393,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 {
                     Destroy(notifies[v].gameObject);
                     notifies.Remove(v);
-
                     Resources.UnloadUnusedAssets();
                     System.GC.Collect();
                 }
