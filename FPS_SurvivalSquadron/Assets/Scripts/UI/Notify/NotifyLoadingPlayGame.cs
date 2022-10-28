@@ -8,7 +8,6 @@ public class NotifyLoadingPlayGame : BaseNotify
     public Slider slider;
     public float time = 3f;
     float speed;
-    public float defautTime;
     //public bool isLoading = true;
 
     public override void Hide()
@@ -29,7 +28,6 @@ public class NotifyLoadingPlayGame : BaseNotify
     private void Start()
     {
         speed = time;
-        defautTime = time;
     }
 
     private void Update()
@@ -45,6 +43,7 @@ public class NotifyLoadingPlayGame : BaseNotify
         {
             gameObject.SetActive(false);
             slider.value = 0;
+            time = speed;
         }
     }
 }
