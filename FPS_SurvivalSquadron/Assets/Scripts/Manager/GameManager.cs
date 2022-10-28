@@ -9,7 +9,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     private void Start()
     {
-        if(UIManager.HasInstance)
+        //InstanceUIManager();
+        if (UIManager.HasInstance)
         {
             UIManager.Instance.ShowNotify<NotifyLoading>();
             NotifyLoading scr = UIManager.Instance.GetExistNotify<NotifyLoading>();
@@ -19,4 +20,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             }
         }
     }
+
+    //private GameObject InstanceUIManager()
+    //{
+    //    GameObject UIManager = Resources.Load("UI/Manager/UIManager") as GameObject;
+    //    return UIManager;
+    //}
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PopupExit : BasePopup
 {
+
     public override void Hide()
     {
         base.Hide();
@@ -21,6 +22,15 @@ public class PopupExit : BasePopup
 
     public void OnClickNo()
     {
-        this.Hide();
+        PopupPause popupPause = UIManager.Instance.GetExistPopup<PopupPause>();
+        if(popupPause == null)
+        {
+            this.Hide();
+        }
+        else if(popupPause)
+        {
+            this.Hide();
+            popupPause.Show(this.gameObject);
+        }
     }
 }

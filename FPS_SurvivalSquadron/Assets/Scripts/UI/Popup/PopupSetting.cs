@@ -37,7 +37,19 @@ public class PopupSetting : BasePopup
 
     public void OnClickCloseButton()
     {
-        this.Hide();
+        PopupPause popupPause = UIManager.Instance.GetExistPopup<PopupPause>();
+        if (popupPause == null)
+        {
+            this.Hide();
+        }
+        else if(popupPause != null)
+        {
+            if (popupPause.IsHide == true)
+            {
+                this.Hide();
+                popupPause.Show(this.gameObject);
+            }
+        }
     }
 
     private void CheckInit()

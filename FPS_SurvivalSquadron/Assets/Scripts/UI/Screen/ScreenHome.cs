@@ -79,10 +79,6 @@ public class ScreenHome : BaseScreen
     public void OnClickPopupAbout()
     {
         popupAbout.Show(this.gameObject);
-        //if (popupSetting != null)
-        //{
-        //    popupSetting.Hide();
-        //}
         popupSetting.Hide();
         popupSelect.Hide();
         popupExit.Hide();
@@ -94,10 +90,6 @@ public class ScreenHome : BaseScreen
         popupAbout.Hide();
         popupSelect.Hide();
         popupExit.Hide();
-        //if (popupAbout != null)
-        //{
-        //    popupAbout.Hide();
-        //}
     }
 
     public void OnClickQuitApplication()

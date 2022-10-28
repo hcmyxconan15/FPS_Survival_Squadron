@@ -5,11 +5,13 @@ using UnityEngine;
 public class ScreenPlayGame : BaseScreen
 {
     PopupPause popupPause;
+    public PopupPause PopupPause => popupPause;
 
     // Start is called before the first frame update
     void Start()
     {
         InstancePopupPause();
+        InstancePopupHome();
     }
 
     // Update is called once per frame
@@ -37,6 +39,17 @@ public class ScreenPlayGame : BaseScreen
             popupPause.Hide();
         }
     }
+
+    private void InstancePopupHome()
+    {
+        UIManager.Instance.ShowPopup<PopupHome>();
+        PopupHome popupHome = UIManager.Instance.GetExistPopup<PopupHome>();
+        if (popupHome != null)
+        {
+            popupHome.Hide();
+        }
+    }
+
 
     public void OnClickPopupPause()
     {

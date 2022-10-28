@@ -27,7 +27,7 @@ public class PopupSelect : BasePopup
     void Start()
     {
         screenHome = UIManager.Instance.GetExistScreen<ScreenHome>();
-        InstanceScreenPlayGame();
+        //InstanceScreenPlayGame();
     }
 
     // Update is called once per frame
@@ -51,21 +51,24 @@ public class PopupSelect : BasePopup
     {
         SceneManager.LoadScene(name);
         this.Hide();
-        screenPlayGame.Show(this.gameObject);
-    }    
-    
+        //screenPlayGame.Show(this.gameObject);
+        UIManager.Instance.ShowScreen<ScreenPlayGame>();
+    }
+
     public void OnClickLoadScreenSingle(string name)
     {
         SceneManager.LoadScene(name);
         this.Hide();
-        screenPlayGame.Show(this.gameObject);
+        //screenPlayGame.Show(this.gameObject);
+        UIManager.Instance.ShowScreen<ScreenPlayGame>();
     }
 
     public void OnClickLoadScreenMultiPlayer(string name)
     {
         SceneManager.LoadScene(name);
         this.Hide();
-        screenPlayGame.Show(this.gameObject);
+        //screenPlayGame.Show(this.gameObject);
+        UIManager.Instance.ShowScreen<ScreenPlayGame>();
     }
 
     public void OnClickBack()
