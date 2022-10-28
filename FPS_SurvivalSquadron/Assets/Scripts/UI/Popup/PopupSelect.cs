@@ -48,7 +48,6 @@ public class PopupSelect : BasePopup
         else if (scr != null && isloaded)
         {
             scr.time = scr.defautTime;
-            Time.timeScale = 1;
             scr.gameObject.SetActive(true);
             screenPlayGame.Show(this.gameObject);
         }

@@ -27,6 +27,7 @@ public class PopupHome : BasePopup
         SceneManager.LoadScene(name);
         this.Hide();
         screenHome.Show(this.gameObject);
+        Time.timeScale = 1;
     }
 
     public void OnClickNo()
