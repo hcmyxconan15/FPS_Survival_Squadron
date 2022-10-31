@@ -222,8 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 5988989033020215466}
-  time: 1
-  defautTime: 0
+  time: 2.5
 --- !u!1 &1712644022980489484
 GameObject:
   m_ObjectHideFlags: 0

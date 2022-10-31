@@ -17,7 +17,7 @@ public class ScreenPlayGame : BaseScreen
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public override void Hide()
@@ -48,13 +48,15 @@ public class ScreenPlayGame : BaseScreen
         {
             popupHome.Hide();
         }
-    }
-
+    }    
+    
 
     public void OnClickPopupPause()
     {
         Time.timeScale = 0;
         popupPause.Show(this.gameObject);
         this.Hide();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }

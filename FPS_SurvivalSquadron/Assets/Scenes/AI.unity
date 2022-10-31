@@ -48003,6 +48003,7 @@ MonoBehaviour:
       m_LegacyHeadingDefinition: 0
       m_LegacyVelocityFilterStrength: 0
   isAiming: 0
+  isDouble: 1
 --- !u!114 &3742802595568710049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80948,7 +80949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3b4ca32293653489762e1b75562f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 300
+  maxHealth: 10000
 --- !u!1 &4974484413325566984
 GameObject:
   m_ObjectHideFlags: 0
