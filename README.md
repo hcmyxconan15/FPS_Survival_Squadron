@@ -2,6 +2,4 @@
 Contributors:
 + Nguyễn Hoài Phúc
 + Trần Thanh Sang
-+ Trần Thanh Bảo.
-Advisor:
-+ Trần Thiện Kiến Thức
++ Trần Thanh Bảo
