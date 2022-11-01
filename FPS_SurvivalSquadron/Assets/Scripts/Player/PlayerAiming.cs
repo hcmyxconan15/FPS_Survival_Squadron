@@ -36,7 +36,7 @@ public class PlayerAiming : MonoBehaviour
 
     private void Update()
     {
-        isAiming = Input.GetMouseButton(1);
+        isAiming = SimpleInput.GetMouseButton(1);
         animator.SetBool(isAimingParam, isAiming);
 
         var weapon = activeWeapon.GetActiveWeapon();
@@ -66,7 +66,7 @@ public class PlayerAiming : MonoBehaviour
 
     private void ShowCursor()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (SimpleInput.GetKey(KeyCode.LeftControl))
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
@@ -83,7 +83,7 @@ public class PlayerAiming : MonoBehaviour
 
     private void Ese()
     {
-        if (Input.GetKeyDown(KeyCode.F2) && isEse == false)
+        if (SimpleInput.GetKeyDown(KeyCode.F2) && isEse == false)
         {
             Time.timeScale = 0;
             popupPause.Show(this.gameObject);
@@ -92,7 +92,7 @@ public class PlayerAiming : MonoBehaviour
             isDouble = false;
             isEse = true;
         }
-        else if (Input.GetKeyDown(KeyCode.F2) && isEse == true)
+        else if (SimpleInput.GetKeyDown(KeyCode.F2) && isEse == true)
         {
             Time.timeScale = 1;
             popupPause.Hide();
@@ -125,7 +125,7 @@ public class PlayerAiming : MonoBehaviour
         if (weapon)
         {
 
-            if (Input.GetButtonDown("Fire1"))
+            if (SimpleInput.GetButtonDown("Fire1"))
             {
                 weapon.StartFiring();
             }
@@ -138,7 +138,7 @@ public class PlayerAiming : MonoBehaviour
             weapon.UpdateBullet(Time.deltaTime);
 
 
-            if (Input.GetButtonUp("Fire1"))
+            if (SimpleInput.GetButtonUp("Fire1"))
             {
                 weapon.StopFiring();
 

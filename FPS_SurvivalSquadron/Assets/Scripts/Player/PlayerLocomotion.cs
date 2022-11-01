@@ -53,15 +53,15 @@ public class PlayerLocomotion : MonoBehaviour
     }
     virtual protected void Move()
     {
-        input.x = Input.GetAxis("Horizontal");
-        input.y = Input.GetAxis("Vertical");
+        input.x = SimpleInput.GetAxis("Horizontal");
+        input.y = SimpleInput.GetAxis("Vertical");
 
         animator.SetFloat("InputX", input.x);
         animator.SetFloat("InputY", input.y);
 
         updateSprinting();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (SimpleInput.GetKeyDown(KeyCode.Space))
         {
             Jump();
         }
@@ -69,7 +69,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     bool IsSprinting()
     {
-        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+        bool isSprinting = SimpleInput.GetKey(KeyCode.LeftShift);
         bool isFiring = activeWeapon.IsFiring();
         bool isReloading = reloadWeapon.isReloading;
         bool isChangingWeapon = activeWeapon.isChaningWeapon;
