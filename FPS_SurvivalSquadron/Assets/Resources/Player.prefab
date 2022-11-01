@@ -2271,6 +2271,7 @@ MonoBehaviour:
       m_LegacyHeadingDefinition: 0
       m_LegacyVelocityFilterStrength: 0
   isAiming: 0
+  isDouble: 1
 --- !u!114 &3742802593870660968
 MonoBehaviour:
   m_ObjectHideFlags: 0
