@@ -1,5 +1,5 @@
 # FPS_Survival_Squadron
-# Contributors:
+- Contributors:
 + Nguyễn Hoài Phúc
 + Trần Thanh Sang
 + Trần Thanh Bảo
