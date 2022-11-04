@@ -43,6 +43,7 @@ public class HealPlayerNetwork : Health
     {
         healthBar.SetActive(false);
         borderHealth.SetActive(false);
-        Destroy(gameObject, 3f);
+        gameObject.SetActive(false);
     }
+    
 }
