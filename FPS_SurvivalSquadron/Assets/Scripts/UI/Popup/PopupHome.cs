@@ -7,10 +7,12 @@ public class PopupHome : BasePopup
 {
     PopupPause popupPause;
     ScreenHome screenHome;
+    ScreenPlayGame screenPlayGame;
     private void Start()
     {
         popupPause = UIManager.Instance.GetExistPopup<PopupPause>();
         screenHome = UIManager.Instance.GetExistScreen<ScreenHome>();
+        screenPlayGame = UIManager.Instance.GetExistScreen<ScreenPlayGame>();
     }
     public override void Hide()
     {
@@ -26,6 +28,8 @@ public class PopupHome : BasePopup
     {
         SceneManager.LoadScene(name);
         this.Hide();
+        screenPlayGame.Hide();
+        popupPause.Hide();
         screenHome.Show(this.gameObject);
         Time.timeScale = 1;
     }

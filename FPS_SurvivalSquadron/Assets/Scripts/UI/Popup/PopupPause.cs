@@ -48,10 +48,14 @@ public class PopupPause : BasePopup
     public void OnClickHome()
     {
         this.Hide();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         popupHome.Show(this.gameObject);
     }
     public void OnClickPopupSetting()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         popupSetting.Show(this.gameObject);
         this.Hide();
     }
@@ -59,6 +63,8 @@ public class PopupPause : BasePopup
     public void OnClickQuitApplication()
     {
         this.Hide();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         popupExit.Show(this.gameObject);
     }
 }
