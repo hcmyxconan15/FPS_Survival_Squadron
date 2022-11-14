@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceStopAttack: 1.5
+  attackSound: ZombieAttack2
 --- !u!1101 &-4632552112940948223
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
