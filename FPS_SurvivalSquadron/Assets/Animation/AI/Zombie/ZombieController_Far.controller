@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceStopAttack: 10
-  attackSound: ZombieAttack2
 --- !u!1101 &-4632552112940948223
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -148,7 +147,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 77cb152dc88baeb4db02c9257ae496f3, type: 3}
+  m_Motion: {fileID: 7400000, guid: a9b2d3682a3f00349b8f98eaa08881c6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -177,7 +176,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: b4b1b8528430f3744a56eccd69aac0bf, type: 3}
+  m_Motion: {fileID: 7400000, guid: 4f5ede45e860ab540a9969073281ee48, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -329,7 +328,7 @@ AnimatorStateMachine:
     m_Position: {x: 790, y: -50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1519809092604683821}
-    m_Position: {x: 710, y: 300, z: 0}
+    m_Position: {x: 720, y: 300, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -4580753956356120248}
@@ -403,7 +402,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -4391933643253906413, guid: e43a6dced5b3c0d46be7c8ae731c90f4, type: 3}
+  m_Motion: {fileID: 7400000, guid: 13861b5e73fea6f4da42a2512f9ca7b8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

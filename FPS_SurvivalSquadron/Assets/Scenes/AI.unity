@@ -6408,31 +6408,39 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
-      propertyPath: soundsEffect.Array.data[0].loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
       propertyPath: soundsEffect.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: e3f9b38bec4ac084cb2e46df54cba796, type: 3}
-    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
-      propertyPath: soundsEffect.Array.data[1].loop
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 43cd624ba9f40e84a9cc2a1db1472fb7, type: 3}
     - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
       propertyPath: soundsEffect.Array.data[1].name
-      value: idle
+      value: ZombieAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ca1a67143c2e70f46b4c69618bdf0ff5, type: 3}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[2].name
+      value: ZombieAttack_Far
       objectReference: {fileID: 0}
     - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
       propertyPath: soundsEffect.Array.data[3].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 96434fb9d0ba9d14292e6d36365b6105, type: 3}
+      objectReference: {fileID: 8300000, guid: 3c276ac72f1f8224a98cbf0477d59286, type: 3}
     - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
       propertyPath: soundsEffect.Array.data[3].name
-      value: ZombieAttack2
+      value: ZombieDeath
       objectReference: {fileID: 0}
     - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
       propertyPath: soundsEffect.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[3].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4698180103445339772, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
@@ -18791,7 +18799,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.13550667, y: 0.012323849, z: -0.0016856432, w: 0.99069834}
+  m_LocalRotation: {x: 0.13550667, y: 0.012323773, z: -0.0016856327, w: 0.99069834}
   m_LocalPosition: {x: -8.396115, y: 6.7743316, z: 0.2715215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -29112,11 +29120,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4062619256373206, guid: a2e435ea5b0f606429670d1f3f1f1504, type: 3}
   m_PrefabInstance: {fileID: 1459272841}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1462715699 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3184207074029880507, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
-  m_PrefabInstance: {fileID: 3262498939293677154}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1469995119
 PrefabInstance:
@@ -47247,29 +47250,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3180897261576664813, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
   m_PrefabInstance: {fileID: 3262498939293677154}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &99756814093648016 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3184207074029880450, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
-  m_PrefabInstance: {fileID: 3262498939293677154}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462715699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ac17b2163ba1fa4db640011dcba220a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &99756814093648021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462715699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaff49ad51ca12c4db2ebaa6a148188a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!137 &137113586927489182
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -47781,10 +47761,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2137235367}
     m_Modifications:
-    - target: {fileID: 1779392128261171049, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 2033186455419368513, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
       propertyPath: m_Name
       value: Zombie_Far
@@ -47837,41 +47813,17 @@ PrefabInstance:
       propertyPath: cameraToFollow
       value: 
       objectReference: {fileID: 963194227}
-    - target: {fileID: 2938058656145318638, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
+    - target: {fileID: 3038869440964023842, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
+      propertyPath: idle
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 3094664645479511925, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
+    - target: {fileID: 3038869440964023842, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
+      propertyPath: death
+      value: ZombieDeath
       objectReference: {fileID: 0}
-    - target: {fileID: 3575970847505720538, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 3989955403492050750, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059228092285923629, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 5150677584595591820, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 6488015065792750950, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 6907844849206353153, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 8281998653083140225, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
+    - target: {fileID: 3038869440964023842, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
+      propertyPath: attack
+      value: ZombieAttack_Far
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
@@ -47959,45 +47911,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2137235367}
     m_Modifications:
-    - target: {fileID: 292513, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
+    - target: {fileID: 99756814093648021, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
+      propertyPath: idle
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 250728549, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
+    - target: {fileID: 99756814093648021, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
+      propertyPath: death
+      value: ZombieDeath
       objectReference: {fileID: 0}
-    - target: {fileID: 289980263, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 374954760, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 729439366, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 769858054, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 1049461800, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 1378824008, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 1455078722, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 2132638985, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
+    - target: {fileID: 99756814093648021, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
+      propertyPath: attack
+      value: ZombieAttack
       objectReference: {fileID: 0}
     - target: {fileID: 3180897261576664813, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
       propertyPath: m_RootOrder
@@ -48047,10 +47971,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie
       objectReference: {fileID: 0}
-    - target: {fileID: 3184207074029880508, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
-      propertyPath: health
-      value: 
-      objectReference: {fileID: 99756814093648016}
     - target: {fileID: 3262498937985622901, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
       propertyPath: cameraToFollow
       value: 
@@ -82935,7 +82855,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4974484414047029194}
-  m_LocalRotation: {x: 0.13550667, y: 0.012323832, z: -0.0016856404, w: 0.9906984}
+  m_LocalRotation: {x: 0.13550667, y: 0.012323794, z: -0.0016856352, w: 0.9906984}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

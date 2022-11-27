@@ -51,23 +51,8 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   soundsEffect:
-  - name: ZombieAttack
-    clip: {fileID: 8300000, guid: 43cd624ba9f40e84a9cc2a1db1472fb7, type: 3}
+  - name: ZombieIdle
+    clip: {fileID: 8300000, guid: 3c0433f512cf99248b3fe3396c82af59, type: 3}
     volume: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: idle
-    clip: {fileID: 8300000, guid: e3f9b38bec4ac084cb2e46df54cba796, type: 3}
-    volume: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: ZombieAttack2
-    clip: {fileID: 8300000, guid: 96434fb9d0ba9d14292e6d36365b6105, type: 3}
-    volume: 0
     loop: 0
     source: {fileID: 0}

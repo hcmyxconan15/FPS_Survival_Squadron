@@ -480,6 +480,58 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 88fdbbdb81e99cc4ea47871fb74a3f82, type: 3}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[0].name
+      value: UIClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3cc3dec365af98c48873f103a99a716c, type: 3}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[1].name
+      value: UIHover
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 328b7feba22284541b20217a492d587f, type: 3}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[2].name
+      value: Win
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1150f9335f11471469a0b34440a25926, type: 3}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[3].name
+      value: Loose
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4698180103445339772, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
       propertyPath: m_Name
       value: AudioManager
