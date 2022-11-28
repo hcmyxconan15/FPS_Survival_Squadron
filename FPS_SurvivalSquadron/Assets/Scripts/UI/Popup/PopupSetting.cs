@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PopupSetting : BasePopup
@@ -40,6 +41,7 @@ public class PopupSetting : BasePopup
     public void OnClickCloseButton()
     {
         PopupPause popupPause = UIManager.Instance.GetExistPopup<PopupPause>();
+        //if (SceneManager.GetActiveScene().name == "")
         if (popupPause == null)
         {
             this.Hide();
@@ -49,7 +51,8 @@ public class PopupSetting : BasePopup
             if (popupPause.IsHide == true)
             {
                 this.Hide();
-                popupPause.Show(this.gameObject);
+                if (SceneManager.GetActiveScene().name != "UI")
+                    popupPause.Show(this.gameObject);
             }
         }
     }

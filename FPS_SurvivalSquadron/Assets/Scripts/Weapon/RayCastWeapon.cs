@@ -28,6 +28,7 @@ public class RayCastWeapon : MonoBehaviour
     [Header("Raycast destination")]
     public Transform raycastOrigin;
     public Transform raycastDestination;
+    public ObjectPool objectPool;
 
     private Ray ray;
     private RaycastHit hitInfo;
@@ -53,6 +54,7 @@ public class RayCastWeapon : MonoBehaviour
     private void Awake()
     {
         recoil = GetComponent<WeaponRecoil>();
+        objectPool = FindObjectOfType<ObjectPool>();
     }
     private Vector3 GetPosition(Bullet bullet)
     {
@@ -72,10 +74,6 @@ public class RayCastWeapon : MonoBehaviour
         bullet.tracer = Instantiate(tracerEffect, postion, Quaternion.identity);
         bullet.tracer.AddPosition(postion);
         bullet.bounce = maxBounces;
-        //Color color = Random.ColorHSV(0.46f, 0.61f);
-        //float intensity = 20.0f;
-        //Color rgb = new Color(color.r * intensity, color.g * intensity, color.b * intensity, color.a * intensity);
-        //bullet.tracer.material.SetColor("_EmissionColor", rgb);
         return bullet;
     }
 
@@ -88,6 +86,7 @@ public class RayCastWeapon : MonoBehaviour
         accumulatedTime = 0.0f;
         recoil.Reset();
         FireBullet();
+        //objectPool.GetObject();
     }
 
     public void UpdateWeapon(float deltaTime)
@@ -210,7 +209,8 @@ public class RayCastWeapon : MonoBehaviour
         Vector3 velocity = (raycastDestination.position - raycastOrigin.position).normalized * bulletSpeed;
         var bullet = CreateBullet(raycastOrigin.position, velocity);
         bullets.Add(bullet);
-
+        //objectPool.GetObject();ss
+        AudioManager.Instance.PlaySoundEffect("Bullet");
         recoil.GenerateRecoil(weaponName);
 
     }

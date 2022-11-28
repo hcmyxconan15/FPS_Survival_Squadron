@@ -78,6 +78,11 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: UIHover
     clip: {fileID: 8300000, guid: 3cc3dec365af98c48873f103a99a716c, type: 3}
-    volume: 1
+    volume: 0.121
+    loop: 0
+    source: {fileID: 0}
+  - name: Bullet
+    clip: {fileID: 8300000, guid: d78fd3e92516b334895d70ba82564232, type: 3}
+    volume: 0.533
     loop: 0
     source: {fileID: 0}

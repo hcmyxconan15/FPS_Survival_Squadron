@@ -55,7 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponslot: 0
   isFiring: 0
-  fireRate: 25
+  fireRate: 5
   bulletSpeed: 1000
   bulletDrop: 300
   maxBounces: 0
@@ -67,6 +67,7 @@ MonoBehaviour:
   tracerEffect: {fileID: 2745021422244975422, guid: 683b10f27e5fbff4299ed880fdabea0a, type: 3}
   raycastOrigin: {fileID: 1333451667866099958}
   raycastDestination: {fileID: 0}
+  objectPool: {fileID: 0}
   weaponName: Rifle
   recoil: {fileID: 0}
   magazine: {fileID: 8551743704967710321}
@@ -176,7 +177,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: -557840629766962551}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

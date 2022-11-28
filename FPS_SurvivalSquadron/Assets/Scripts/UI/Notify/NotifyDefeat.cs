@@ -23,9 +23,7 @@ public class NotifyDefeat : BaseNotify
 
     public void OnClickHome(string name)
     {
-        SceneManager.LoadScene(name);
+        UIManager.Instance.GetExistPopup<PopupHome>().OnClickYes("UI");
         this.Hide();
-        screenHome.Show(this.gameObject);
-        Time.timeScale = 1;
     }
 }

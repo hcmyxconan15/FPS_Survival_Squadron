@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScreenPlayGame : BaseScreen
 {
@@ -54,6 +55,7 @@ public class ScreenPlayGame : BaseScreen
     public void OnClickPopupPause()
     {
         Time.timeScale = 0;
+
         popupPause.Show(this.gameObject);
         this.Hide();
         Cursor.visible = true;
