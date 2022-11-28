@@ -38,6 +38,22 @@ public class BaseUIElement : MonoBehaviour
         SetActiveCanvasGroup(false);
     }
 
+    public virtual void OnUIClick()
+    {
+        if(AudioManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySoundEffect("UIClick");
+        }
+    }
+
+    public virtual void OnUIHover()
+    {
+        if (AudioManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySoundEffect("UIHover");
+        }
+    }
+
     private void SetActiveCanvasGroup(bool isActive)
     {
         if(CanvasGroup != null)
@@ -46,5 +62,6 @@ public class BaseUIElement : MonoBehaviour
             CanvasGroup.alpha = isActive ? 1 : 0;
         }
     }
+
 
 }

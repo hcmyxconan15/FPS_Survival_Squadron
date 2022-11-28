@@ -56,3 +56,28 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
+  - name: ZombieAttack
+    clip: {fileID: 8300000, guid: 43cd624ba9f40e84a9cc2a1db1472fb7, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ZombieAttack_Far
+    clip: {fileID: 8300000, guid: ca1a67143c2e70f46b4c69618bdf0ff5, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ZombieDeath
+    clip: {fileID: 8300000, guid: 3c276ac72f1f8224a98cbf0477d59286, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: UIClick
+    clip: {fileID: 8300000, guid: 88fdbbdb81e99cc4ea47871fb74a3f82, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: UIHover
+    clip: {fileID: 8300000, guid: 3cc3dec365af98c48873f103a99a716c, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}

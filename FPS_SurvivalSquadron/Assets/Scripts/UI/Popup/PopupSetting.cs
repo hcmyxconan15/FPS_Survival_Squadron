@@ -34,6 +34,8 @@ public class PopupSetting : BasePopup
         base.Hide();
     }
 
+    
+
 
     public void OnClickCloseButton()
     {
