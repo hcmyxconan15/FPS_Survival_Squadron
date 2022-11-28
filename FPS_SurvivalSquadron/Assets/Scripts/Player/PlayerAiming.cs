@@ -11,8 +11,6 @@ public class PlayerAiming : MonoBehaviour
     public Cinemachine.AxisState xAxis;
     public Cinemachine.AxisState yAxis;
     public bool isAiming;
-    public ObjectPool audito;
-
 
     private Animator animator;
     private int isAimingParam = Animator.StringToHash("isAiming");
@@ -129,7 +127,6 @@ public class PlayerAiming : MonoBehaviour
             if (SimpleInput.GetButtonDown("Fire1"))
             {
                 weapon.StartFiring();
-                audito.GetObject();
                 Debug.Log("Hello1");
 
             }

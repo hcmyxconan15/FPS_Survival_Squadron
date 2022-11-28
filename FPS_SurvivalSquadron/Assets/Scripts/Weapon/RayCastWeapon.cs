@@ -28,7 +28,6 @@ public class RayCastWeapon : MonoBehaviour
     [Header("Raycast destination")]
     public Transform raycastOrigin;
     public Transform raycastDestination;
-    public ObjectPool objectPool;
 
     private Ray ray;
     private RaycastHit hitInfo;
@@ -54,7 +53,6 @@ public class RayCastWeapon : MonoBehaviour
     private void Awake()
     {
         recoil = GetComponent<WeaponRecoil>();
-        objectPool = FindObjectOfType<ObjectPool>();
     }
     private Vector3 GetPosition(Bullet bullet)
     {
