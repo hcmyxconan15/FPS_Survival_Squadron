@@ -72,13 +72,13 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: UIClick
-    clip: {fileID: 8300000, guid: 88fdbbdb81e99cc4ea47871fb74a3f82, type: 3}
+    clip: {fileID: 8300000, guid: c5442865315ef1c4e80ff060cec23f0b, type: 3}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: UIHover
-    clip: {fileID: 8300000, guid: 3cc3dec365af98c48873f103a99a716c, type: 3}
-    volume: 0.121
+    clip: {fileID: 8300000, guid: d8b522f633c9eb443b71cf9cdae4c861, type: 3}
+    volume: 1
     loop: 0
     source: {fileID: 0}
   - name: Bullet

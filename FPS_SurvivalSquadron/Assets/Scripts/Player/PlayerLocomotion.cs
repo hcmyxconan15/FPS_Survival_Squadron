@@ -168,4 +168,9 @@ public class PlayerLocomotion : MonoBehaviour
         // Apply the push
         body.velocity = pushDir * pushPower;
     }
+
+    public void footSound()
+    {
+        AudioManager.Instance.PlaySoundEffect("footSound");
+    }
 }

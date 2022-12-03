@@ -6403,6 +6403,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a01d57b925357c04dad30a50337402fb, type: 3}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[7].name
+      value: footSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698180103445339771, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
+      propertyPath: soundsEffect.Array.data[7].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4698180103445339772, guid: 089a01a2c86daa64b8dfc15873718976, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -44689,7 +44705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2137235367
 Transform:
   m_ObjectHideFlags: 0
@@ -47876,7 +47892,6 @@ MonoBehaviour:
   tracerEffect: {fileID: 2745021422244975422, guid: 683b10f27e5fbff4299ed880fdabea0a, type: 3}
   raycastOrigin: {fileID: 4536046160342462388}
   raycastDestination: {fileID: 0}
-  objectPool: {fileID: 0}
   weaponName: 
   recoil: {fileID: 0}
   magazine: {fileID: 0}
@@ -48051,7 +48066,6 @@ MonoBehaviour:
       m_LegacyHeadingDefinition: 0
       m_LegacyVelocityFilterStrength: 0
   isAiming: 0
-  audito: {fileID: 2019317081}
   isDouble: 1
 --- !u!114 &3742802595568710049
 MonoBehaviour:

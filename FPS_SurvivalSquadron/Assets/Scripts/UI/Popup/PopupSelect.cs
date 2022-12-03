@@ -50,6 +50,7 @@ public class PopupSelect : BasePopup
             scr.gameObject.SetActive(true);
             screenPlayGame.Show(this.gameObject);
         }
+        screenHome.Hide();
     }
 
     public void OnClickLoadScreenTutourial(string name)
