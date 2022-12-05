@@ -44405,7 +44405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2137235367
 Transform:
   m_ObjectHideFlags: 0
@@ -47372,6 +47372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie_Far
       objectReference: {fileID: 0}
+    - target: {fileID: 2033186455419368513, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2033186455419368514, guid: c33ac6a3a0e7f9e4e8528680961f6573, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -47497,9 +47501,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3184207074029880450, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3184207074029880507, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
       propertyPath: m_Name
       value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184207074029880507, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3262498937985622901, guid: 209f6cde9ca881c4b8328c9905718ae1, type: 3}
       propertyPath: cameraToFollow
