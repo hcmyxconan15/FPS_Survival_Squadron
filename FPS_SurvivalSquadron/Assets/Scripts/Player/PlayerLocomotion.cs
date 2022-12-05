@@ -172,5 +172,15 @@ public class PlayerLocomotion : MonoBehaviour
     public void footSound()
     {
         AudioManager.Instance.PlaySoundEffect("footSound");
+    }    
+    
+    public void runingSound()
+    {
+        AudioManager.Instance.PlaySoundEffect("runingSound");
+    }
+
+    public void jumpSound()
+    {
+        AudioManager.Instance.PlaySoundEffect("jumpSound");
     }
 }
