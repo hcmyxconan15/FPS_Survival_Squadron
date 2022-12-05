@@ -51,6 +51,11 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   soundsEffect:
+  - name: -----ZombieSound-----
+    clip: {fileID: 0}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
   - name: ZombieIdle
     clip: {fileID: 8300000, guid: 3c0433f512cf99248b3fe3396c82af59, type: 3}
     volume: 1
@@ -71,6 +76,11 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
+  - name: -----UISound-----
+    clip: {fileID: 0}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
   - name: UIClick
     clip: {fileID: 8300000, guid: c5442865315ef1c4e80ff060cec23f0b, type: 3}
     volume: 1
@@ -81,8 +91,28 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
+  - name: -----PlayerSound-----
+    clip: {fileID: 0}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
   - name: Bullet
     clip: {fileID: 8300000, guid: d78fd3e92516b334895d70ba82564232, type: 3}
-    volume: 0.533
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: footSound
+    clip: {fileID: 8300000, guid: 8a51d5d914e55d7478c96ee9a71dbed2, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: runingSound
+    clip: {fileID: 8300000, guid: 6879ab3fbfda3364a9a001261cd0d911, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: jumpSound
+    clip: {fileID: 8300000, guid: 96d50154056ca684cafc235b53b0d147, type: 3}
+    volume: 1
     loop: 0
     source: {fileID: 0}
