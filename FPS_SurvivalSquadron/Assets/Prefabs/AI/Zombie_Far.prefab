@@ -1406,6 +1406,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaff49ad51ca12c4db2ebaa6a148188a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idle: 
+  walk: 
+  run: 
+  attack: ZombieAttack_Far
+  death: ZombieDeath
 --- !u!1 &2033186455431475373
 GameObject:
   m_ObjectHideFlags: 0
