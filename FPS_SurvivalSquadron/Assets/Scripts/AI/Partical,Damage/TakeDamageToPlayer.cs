@@ -7,7 +7,6 @@ namespace Invector.vCharacterController
     public class TakeDamageToPlayer : MonoBehaviour
     {
         public float damage;
-        vDamage vDamage;
 
         // Start is called before the first frame update
         void Start()
@@ -26,8 +25,7 @@ namespace Invector.vCharacterController
             if (other.tag == "Player")
             {
                 //other.GetComponent<HealthPlayer>().TakeDamage(damage);
-                //other.GetComponent<vDamage>().damageValue = damage;
-                //other.GetComponent<vThirdPersonMotor>().TakeDamage();
+                other.GetComponent<vThirdPersonController>().TakeDamage(damage);
             }
         }
     }

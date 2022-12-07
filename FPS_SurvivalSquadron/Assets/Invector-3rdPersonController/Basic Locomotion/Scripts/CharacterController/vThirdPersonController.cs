@@ -337,5 +337,20 @@ namespace Invector.vCharacterController
         }
 
         #endregion
+
+        public void TakeDamage(float amount)
+        {
+            currentHealth -= amount;
+            if (currentHealth <= 0.0f)
+            {
+                //Die(direction);
+            }
+            ListenerManager.Instance.BroadCast(ListenType.UPDATE_HP_PLAYER, currentHealth);
+        }
+
+        private void Start()
+        {
+            PlayerPrefs.SetFloat(CONSTANT.PP_MAXHPPLAYER, maxHealth);
+        }
     }
 }
