@@ -348,9 +348,10 @@ namespace Invector.vCharacterController
             ListenerManager.Instance.BroadCast(ListenType.UPDATE_HP_PLAYER, currentHealth);
         }
 
-        private void Start()
+        private void Awake()
         {
             PlayerPrefs.SetFloat(CONSTANT.PP_MAXHPPLAYER, maxHealth);
+            Debug.Log(maxHealth);
         }
     }
 }
