@@ -10,9 +10,9 @@ public class SetPlayerIsMine : MonoBehaviour
 
     private void Awake()
     {
-        if (!pv.IsMine)
+        if (pv.IsMine)
         {
-            GetComponent<vShooterMeleeInput>().enabled = false;
+            GetComponent<vShooterMeleeInput>().enabled = true;
         }
     }
 }

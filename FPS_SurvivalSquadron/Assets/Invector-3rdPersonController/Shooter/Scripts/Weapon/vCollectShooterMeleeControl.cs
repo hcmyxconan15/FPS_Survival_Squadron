@@ -19,6 +19,7 @@ namespace Invector.vMelee
         {
             base.Start();
             shooterManager = GetComponent<vShooterManager>();
+            HandleCollectableInput(collectableStandAlone);
             
         }
        
@@ -28,7 +29,7 @@ namespace Invector.vMelee
             {
                 EquipShooterWeapon(collectableStandAlone);
             }
-            base.HandleCollectableInput(collectableStandAlone);
+            //base.HandleCollectableInput(collectableStandAlone);
         }
        
         protected virtual void EquipShooterWeapon(vCollectableStandalone collectable)

@@ -18,7 +18,7 @@ public class InstantitePrefab : MonoBehaviour
     private void Instantite()
     {
         GameObject go = PhotonNetwork.Instantiate("Prefab/Player", Vector3.zero, Quaternion.identity);
-        
+        GameObject gun = PhotonNetwork.Instantiate("Prefab/HandGun", Vector3.zero, Quaternion.identity);
 
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
-
+using Photon.Realtime;
+using Photon.Pun;
 namespace Invector.vCharacterController
 {
     [vClassHeader("THIRD PERSON CONTROLLER", iconName = "controllerIcon")]
-    public class vThirdPersonController : vThirdPersonAnimator
+    public class vThirdPersonController : vThirdPersonAnimator, IPunObservable
     {
         /// <summary>
         /// Move the controller to a specific Position, you must Lock the Input first 
@@ -13,6 +14,19 @@ namespace Invector.vCharacterController
         public virtual void MoveToPosition(Transform targetPosition)
         {
             MoveToPosition(targetPosition.position);
+        }
+        
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        {
+            //if (stream.IsWriting)
+            //{
+            //    stream.SendNext(currentHealth);
+                
+            //}
+            //else
+            //{
+            //    currentHealth = (float)stream.ReceiveNext();
+            //}
         }
 
         /// <summary>
@@ -343,7 +357,8 @@ namespace Invector.vCharacterController
             currentHealth -= amount;
             if (currentHealth <= 0.0f)
             {
-                //Die(direction);
+                gameObject.GetComponent<vShooterMeleeInput>().enabled = true;
+                
             }
             ListenerManager.Instance.BroadCast(ListenType.UPDATE_HP_PLAYER, currentHealth);
         }
@@ -353,5 +368,17 @@ namespace Invector.vCharacterController
             PlayerPrefs.SetFloat(CONSTANT.PP_MAXHPPLAYER, maxHealth);
             Debug.Log(maxHealth);
         }
+        public void CheckDie()
+        {
+            if(currentHealth <=0)
+            {
+                
+            }
+        }
+        public void Update()
+        {
+            CheckDie();
+        }
+
     }
 }

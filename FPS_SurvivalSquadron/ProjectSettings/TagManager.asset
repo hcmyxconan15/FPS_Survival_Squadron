@@ -6,14 +6,31 @@ TagManager:
   tags:
   - WayPoints
   - Test
+  - Collectable
+  - Enemy
+  - Boss
+  - Weapon
+  - Action
+  - Interactable
+  - LadderTrigger
+  - Concrete
+  - LookAt
+  - Ignore Ragdoll
+  - AutoCrouch
+  - Metal
+  - Dirt
+  - Barrel
+  - Wood
+  - Glass
+  - PlayerUI
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

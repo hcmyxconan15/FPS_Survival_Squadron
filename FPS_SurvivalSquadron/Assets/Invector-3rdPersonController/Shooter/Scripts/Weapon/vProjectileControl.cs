@@ -109,6 +109,7 @@ namespace Invector.vShooter
                     if (rigb)
                     {                       
                         rigb.AddForce(transform.forward * damage.damageValue * forceMultiplier, ForceMode.Impulse);
+                        
                     }
                     var hitBox = hitInfo.collider.GetComponent<HitBox>();
                     if (hitBox)

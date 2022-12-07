@@ -36,6 +36,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 773648566097124173}
   - {fileID: 3540061948428732684}
@@ -44,7 +45,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &9512312
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -57,6 +58,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -129,6 +131,12 @@ MonoBehaviour:
   sprintStamina: 30
   jumpStamina: 30
   rollStamina: 25
+  OnExitGround:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrounded:
+    m_PersistentCalls:
+      m_Calls: []
   OnRoll:
     m_PersistentCalls:
       m_Calls: []
@@ -148,6 +156,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   crouchHeightReduction: 1.5
+  crouchColliderRadius: 1.5
   autoCrouchLayer:
     serializedVersion: 2
     m_Bits: 1
@@ -175,110 +184,6 @@ MonoBehaviour:
     runningSpeed: 4
     sprintSpeed: 6
     crouchSpeed: 2
-  walkRotationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.20340729
-      value: 1.011383
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  runRotationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.20340729
-      value: 1.011383
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  sprintRotationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.20340729
-      value: 1.011383
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  currentRotationSpeed: 0
-  rotationCurveTime: 0
-  timeToDisableHorizontal: 1
-  useHorizontal: 0
-  rotationTimer: 0
   disableAnimations: 0
   useRootMotion: 0
   useLeanMovementAnim: 1
@@ -303,6 +208,8 @@ MonoBehaviour:
   fallDamage: 10
   useRollRootMotion: 1
   rollTransition: 0.25
+  rollHeightReduction: 1.6
+  rollColliderRadius: 1.5
   rollControl: 1
   rollSpeed: 0
   rollRotationSpeed: 20
@@ -311,6 +218,7 @@ MonoBehaviour:
   timeToRollAgain: 0.75
   noDamageWhileRolling: 1
   noActiveRagdollWhileRolling: 1
+  _isGrounded: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
@@ -342,6 +250,9 @@ MonoBehaviour:
   rotateSlopeEnterTime: 0.1
   rotateDownSlopeSmooth: 8
   useStepOffset: 1
+  stepOffsetLayer:
+    serializedVersion: 2
+    m_Bits: 1
   stepOffsetMaxHeight: 0.5
   stepOffsetMinHeight: 0
   stepOffsetDistance: 0.1
@@ -764,8 +675,8 @@ MonoBehaviour:
     inButtomTimer: 0
   leftWeapon: {fileID: 0}
   rightWeapon: {fileID: 0}
-  controlDisplayPrefab: {fileID: 11438324, guid: 4366fb7b67e8c4f4f9baba6f99ae69f9,
-    type: 3}
+  controlDisplayPrefab: {fileID: 11438324, guid: 4366fb7b67e8c4f4f9baba6f99ae69f9, type: 3}
+  collectableStandAlone: {fileID: 0}
   onEquipMeleeWeapon:
     m_PersistentCalls:
       m_Calls: []
@@ -1063,6 +974,7 @@ Transform:
   m_LocalRotation: {x: -0.9960457, y: -0.00000024455275, z: 0.00000026270172, w: 0.08884291}
   m_LocalPosition: {x: 0, y: -0.06, z: -0.074}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5025532390041101602}
   m_RootOrder: 0
@@ -1093,6 +1005,7 @@ Transform:
   m_LocalRotation: {x: 0.5081719, y: -0.39124188, z: -0.56414664, w: 0.52002865}
   m_LocalPosition: {x: 0.0098, y: 0.1013, z: 0.0244}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2563925648046680265}
   m_RootOrder: 0
@@ -1126,6 +1039,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1233741227}
   m_Father: {fileID: 3540061948428732684}
@@ -1179,6 +1093,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1757798916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,6 +1138,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2563925648046680265}
   - {fileID: 5025532390041101602}
@@ -1433,6 +1349,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4116838773588884876}
   - {fileID: 1184771218525692443}
@@ -1440,214 +1357,6 @@ Transform:
   m_Father: {fileID: 452080}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5957479210009664634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2452448056493410690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0befb9e9384ab34d9dfc9d3cabf04b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openCloseEvents: 0
-  openCloseWindow: 0
-  selectedToolbar: 0
-  attackObjectName: RightLowerLeg
-  damage:
-    damageValue: 15
-    staminaBlockCost: 5
-    staminaRecoveryDelay: 1
-    ignoreDefense: 0
-    activeRagdoll: 0
-    senselessTime: 0
-    sender: {fileID: 0}
-    receiver: {fileID: 0}
-    hitPosition: {x: 0, y: 0, z: 0}
-    hitReaction: 1
-    recoil_id: 0
-    reaction_id: 0
-    damageType: 
-    force: {x: 0, y: 0, z: 0}
-  overrideDamageSender: {fileID: 0}
-  hitBoxes:
-  - {fileID: 1471443177734550800}
-  damageModifier: 0
-  canApplyDamage: 0
-  onDamageHit:
-    m_PersistentCalls:
-      m_Calls: []
-  onRecoilHit:
-    m_PersistentCalls:
-      m_Calls: []
-  onPassDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  onEnableDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  onDisableDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  meleeManager: {fileID: 0}
---- !u!114 &5277003525643568982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2452448056493410710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0befb9e9384ab34d9dfc9d3cabf04b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openCloseEvents: 0
-  openCloseWindow: 0
-  selectedToolbar: 0
-  attackObjectName: RightLowerArm
-  damage:
-    damageValue: 15
-    staminaBlockCost: 5
-    staminaRecoveryDelay: 1
-    ignoreDefense: 0
-    activeRagdoll: 0
-    senselessTime: 0
-    sender: {fileID: 0}
-    receiver: {fileID: 0}
-    hitPosition: {x: 0, y: 0, z: 0}
-    hitReaction: 1
-    recoil_id: 0
-    reaction_id: 0
-    damageType: 
-    force: {x: 0, y: 0, z: 0}
-  overrideDamageSender: {fileID: 0}
-  hitBoxes:
-  - {fileID: 8779189225836758041}
-  damageModifier: 0
-  canApplyDamage: 0
-  onDamageHit:
-    m_PersistentCalls:
-      m_Calls: []
-  onRecoilHit:
-    m_PersistentCalls:
-      m_Calls: []
-  onPassDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  onEnableDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  onDisableDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  meleeManager: {fileID: 0}
---- !u!114 &711047274452525833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2452448056493410790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0befb9e9384ab34d9dfc9d3cabf04b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openCloseEvents: 0
-  openCloseWindow: 0
-  selectedToolbar: 0
-  attackObjectName: LeftLowerLeg
-  damage:
-    damageValue: 15
-    staminaBlockCost: 5
-    staminaRecoveryDelay: 1
-    ignoreDefense: 0
-    activeRagdoll: 0
-    senselessTime: 0
-    sender: {fileID: 0}
-    receiver: {fileID: 0}
-    hitPosition: {x: 0, y: 0, z: 0}
-    hitReaction: 1
-    recoil_id: 0
-    reaction_id: 0
-    damageType: 
-    force: {x: 0, y: 0, z: 0}
-  overrideDamageSender: {fileID: 0}
-  hitBoxes:
-  - {fileID: 2790375198006084933}
-  damageModifier: 0
-  canApplyDamage: 0
-  onDamageHit:
-    m_PersistentCalls:
-      m_Calls: []
-  onRecoilHit:
-    m_PersistentCalls:
-      m_Calls: []
-  onPassDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  onEnableDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  onDisableDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  meleeManager: {fileID: 0}
---- !u!114 &8289803671321199936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2452448056493410810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0befb9e9384ab34d9dfc9d3cabf04b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openCloseEvents: 0
-  openCloseWindow: 0
-  selectedToolbar: 0
-  attackObjectName: LeftLowerArm
-  damage:
-    damageValue: 15
-    staminaBlockCost: 5
-    staminaRecoveryDelay: 1
-    ignoreDefense: 0
-    activeRagdoll: 0
-    senselessTime: 0
-    sender: {fileID: 0}
-    receiver: {fileID: 0}
-    hitPosition: {x: 0, y: 0, z: 0}
-    hitReaction: 1
-    recoil_id: 0
-    reaction_id: 0
-    damageType: 
-    force: {x: 0, y: 0, z: 0}
-  overrideDamageSender: {fileID: 0}
-  hitBoxes:
-  - {fileID: 1720832872894069268}
-  damageModifier: 0
-  canApplyDamage: 0
-  onDamageHit:
-    m_PersistentCalls:
-      m_Calls: []
-  onRecoilHit:
-    m_PersistentCalls:
-      m_Calls: []
-  onPassDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  onEnableDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  onDisableDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  meleeManager: {fileID: 0}
 --- !u!1 &2541358738465332279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1675,6 +1384,7 @@ Transform:
   m_LocalRotation: {x: 0.49710056, y: 0.4903727, z: -0.5028863, w: 0.50944203}
   m_LocalPosition: {x: 0.7723175, y: 1.4934043, z: -0.0044339737}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 473700}
   m_Father: {fileID: 4116838773588884876}
@@ -1723,6 +1433,7 @@ Transform:
   m_LocalRotation: {x: 0.70596904, y: 0.040097512, z: 0.040097516, w: -0.7059689}
   m_LocalPosition: {x: 0.0000000069849193, y: 0.312223, z: 0.000000022351742}
   m_LocalScale: {x: 0.15000008, y: 0.15000007, z: 0.44603285}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2452448056493512162}
   m_RootOrder: 1
@@ -1786,6 +1497,7 @@ Transform:
   m_LocalRotation: {x: 0.7055425, y: -0.047009263, z: -0.04700928, w: -0.7055425}
   m_LocalPosition: {x: -9.313226e-10, y: 0.31135356, z: 0.000000033527613}
   m_LocalScale: {x: 0.15000018, y: 0.1500001, z: 0.4447907}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2452448056493512134}
   m_RootOrder: 1
@@ -1848,6 +1560,7 @@ Transform:
   m_LocalRotation: {x: 0.49310425, y: -0.49309385, z: 0.5068115, w: 0.5068025}
   m_LocalPosition: {x: -0.7726598, y: 1.4933898, z: -0.0059201736}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 452700}
   m_Father: {fileID: 4116838773588884876}
@@ -1896,6 +1609,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7708563939817044175}
   m_Father: {fileID: 3540061948428732684}
@@ -1927,6 +1641,7 @@ MonoBehaviour:
   showGizmos: 0
   startUsingTargetRotation: 1
   startSmooth: 0
+  startSmoothFactor: 1
   autoBehindTarget: 0
   behindTargetDelay: 2
   behindTargetSmoothRotation: 1
@@ -2031,6 +1746,7 @@ Transform:
   m_LocalRotation: {x: -0.7070552, y: 0.00855526, z: 0.008555555, w: 0.70705485}
   m_LocalPosition: {x: -0.000000014551915, y: 0.20691642, z: -0.00000009685755}
   m_LocalScale: {x: 0.15000007, y: 0.15000004, z: 0.295595}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2452448056493512182}
   m_RootOrder: 1
@@ -2092,6 +1808,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2452448056493512082}
   m_Father: {fileID: 452080}
@@ -2125,6 +1842,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1184771218525692443}
   m_RootOrder: 0
@@ -2208,6 +1926,7 @@ Transform:
   m_LocalRotation: {x: -0.70704335, y: -0.0094734635, z: -0.00947355, w: 0.70704335}
   m_LocalPosition: {x: -0.000000040890882, y: 0.20702672, z: -0.000000027939677}
   m_LocalScale: {x: 0.14999998, y: 0.15000004, z: 0.29575244}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2452448056493512154}
   m_RootOrder: 1
@@ -2342,8 +2061,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 65d09cff7cef67d47a9d1f9a022f2d84, type: 3}
 --- !u!224 &1233741227 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 22471896, guid: 65d09cff7cef67d47a9d1f9a022f2d84,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 22471896, guid: 65d09cff7cef67d47a9d1f9a022f2d84, type: 3}
   m_PrefabInstance: {fileID: 1222607219}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2452448056493379408
@@ -2408,153 +2126,336 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9500000, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
---- !u!4 &2452448056493512172 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400060, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
+--- !u!1 &2452448056493410690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100050, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
   m_PrefabInstance: {fileID: 2452448056493379408}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512156 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400012, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
+--- !u!114 &5957479210009664634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452448056493410690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0befb9e9384ab34d9dfc9d3cabf04b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openCloseEvents: 0
+  openCloseWindow: 0
+  selectedToolbar: 0
+  attackObjectName: RightLowerLeg
+  damage:
+    damageValue: 15
+    staminaBlockCost: 5
+    staminaRecoveryDelay: 1
+    ignoreDefense: 0
+    activeRagdoll: 0
+    senselessTime: 0
+    sender: {fileID: 0}
+    receiver: {fileID: 0}
+    hitPosition: {x: 0, y: 0, z: 0}
+    hitReaction: 1
+    recoil_id: 0
+    reaction_id: 0
+    damageType: 
+    force: {x: 0, y: 0, z: 0}
+  overrideDamageSender: {fileID: 0}
+  hitBoxes:
+  - {fileID: 1471443177734550800}
+  damageModifier: 0
+  canApplyDamage: 0
+  onDamageHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onRecoilHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onPassDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnableDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDisableDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  meleeManager: {fileID: 0}
+--- !u!1 &2452448056493410710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100038, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
   m_PrefabInstance: {fileID: 2452448056493379408}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512154 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400010, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
+--- !u!114 &5277003525643568982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452448056493410710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0befb9e9384ab34d9dfc9d3cabf04b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openCloseEvents: 0
+  openCloseWindow: 0
+  selectedToolbar: 0
+  attackObjectName: RightLowerArm
+  damage:
+    damageValue: 15
+    staminaBlockCost: 5
+    staminaRecoveryDelay: 1
+    ignoreDefense: 0
+    activeRagdoll: 0
+    senselessTime: 0
+    sender: {fileID: 0}
+    receiver: {fileID: 0}
+    hitPosition: {x: 0, y: 0, z: 0}
+    hitReaction: 1
+    recoil_id: 0
+    reaction_id: 0
+    damageType: 
+    force: {x: 0, y: 0, z: 0}
+  overrideDamageSender: {fileID: 0}
+  hitBoxes:
+  - {fileID: 8779189225836758041}
+  damageModifier: 0
+  canApplyDamage: 0
+  onDamageHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onRecoilHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onPassDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnableDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDisableDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  meleeManager: {fileID: 0}
+--- !u!1 &2452448056493410790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100022, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
   m_PrefabInstance: {fileID: 2452448056493379408}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &711047274452525833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452448056493410790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0befb9e9384ab34d9dfc9d3cabf04b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openCloseEvents: 0
+  openCloseWindow: 0
+  selectedToolbar: 0
+  attackObjectName: LeftLowerLeg
+  damage:
+    damageValue: 15
+    staminaBlockCost: 5
+    staminaRecoveryDelay: 1
+    ignoreDefense: 0
+    activeRagdoll: 0
+    senselessTime: 0
+    sender: {fileID: 0}
+    receiver: {fileID: 0}
+    hitPosition: {x: 0, y: 0, z: 0}
+    hitReaction: 1
+    recoil_id: 0
+    reaction_id: 0
+    damageType: 
+    force: {x: 0, y: 0, z: 0}
+  overrideDamageSender: {fileID: 0}
+  hitBoxes:
+  - {fileID: 2790375198006084933}
+  damageModifier: 0
+  canApplyDamage: 0
+  onDamageHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onRecoilHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onPassDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnableDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDisableDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  meleeManager: {fileID: 0}
 --- !u!1 &2452448056493410810 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 100010, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 100010, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
   m_PrefabInstance: {fileID: 2452448056493379408}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512150 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400006, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2452448056493379408}
+--- !u!114 &8289803671321199936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512136 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400024, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2452448056493379408}
-  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452448056493410810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0befb9e9384ab34d9dfc9d3cabf04b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openCloseEvents: 0
+  openCloseWindow: 0
+  selectedToolbar: 0
+  attackObjectName: LeftLowerArm
+  damage:
+    damageValue: 15
+    staminaBlockCost: 5
+    staminaRecoveryDelay: 1
+    ignoreDefense: 0
+    activeRagdoll: 0
+    senselessTime: 0
+    sender: {fileID: 0}
+    receiver: {fileID: 0}
+    hitPosition: {x: 0, y: 0, z: 0}
+    hitReaction: 1
+    recoil_id: 0
+    reaction_id: 0
+    damageType: 
+    force: {x: 0, y: 0, z: 0}
+  overrideDamageSender: {fileID: 0}
+  hitBoxes:
+  - {fileID: 1720832872894069268}
+  damageModifier: 0
+  canApplyDamage: 0
+  onDamageHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onRecoilHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onPassDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnableDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDisableDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  meleeManager: {fileID: 0}
 --- !u!4 &2452448056493512080 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400064, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2452448056493379408}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512174 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400062, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2452448056493379408}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512180 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400036, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2452448056493379408}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512162 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400050, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400064, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
   m_PrefabInstance: {fileID: 2452448056493379408}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2452448056493512082 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400066, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2452448056493379408}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512142 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400030, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2452448056493379408}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512176 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400032, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2452448056493379408}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512144 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2452448056493379408}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512164 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400052, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2452448056493379408}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2452448056493410790 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100022, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400066, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
   m_PrefabInstance: {fileID: 2452448056493379408}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2452448056493512134 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400022, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400022, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
   m_PrefabInstance: {fileID: 2452448056493379408}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512152 stripped
+--- !u!4 &2452448056493512136 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400008, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400024, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
   m_PrefabInstance: {fileID: 2452448056493379408}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512170 stripped
+--- !u!4 &2452448056493512142 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400058, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400030, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
   m_PrefabInstance: {fileID: 2452448056493379408}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512178 stripped
+--- !u!4 &2452448056493512144 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400034, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2452448056493379408}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2452448056493410710 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100038, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2452448056493379408}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512182 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400038, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2452448056493379408}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2452448056493410690 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100050, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2452448056493379408}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2452448056493512184 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400040, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
   m_PrefabInstance: {fileID: 2452448056493379408}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2452448056493512148 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400004, guid: 66a74de1d4a081e49b0a790722fd06ab,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400004, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
+  m_PrefabInstance: {fileID: 2452448056493379408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2452448056493512150 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400006, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
+  m_PrefabInstance: {fileID: 2452448056493379408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2452448056493512152 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400008, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
+  m_PrefabInstance: {fileID: 2452448056493379408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2452448056493512154 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400010, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
+  m_PrefabInstance: {fileID: 2452448056493379408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2452448056493512156 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400012, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
+  m_PrefabInstance: {fileID: 2452448056493379408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2452448056493512162 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400050, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
+  m_PrefabInstance: {fileID: 2452448056493379408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2452448056493512164 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400052, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
+  m_PrefabInstance: {fileID: 2452448056493379408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2452448056493512170 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400058, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
+  m_PrefabInstance: {fileID: 2452448056493379408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2452448056493512172 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400060, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
+  m_PrefabInstance: {fileID: 2452448056493379408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2452448056493512174 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400062, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
+  m_PrefabInstance: {fileID: 2452448056493379408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2452448056493512176 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400032, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
+  m_PrefabInstance: {fileID: 2452448056493379408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2452448056493512178 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400034, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
+  m_PrefabInstance: {fileID: 2452448056493379408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2452448056493512180 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400036, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
+  m_PrefabInstance: {fileID: 2452448056493379408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2452448056493512182 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400038, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
+  m_PrefabInstance: {fileID: 2452448056493379408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2452448056493512184 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400040, guid: 66a74de1d4a081e49b0a790722fd06ab, type: 3}
   m_PrefabInstance: {fileID: 2452448056493379408}
   m_PrefabAsset: {fileID: 0}

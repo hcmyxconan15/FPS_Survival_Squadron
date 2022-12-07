@@ -124,6 +124,7 @@ namespace Invector.vCharacterController
 
         protected virtual void Start()
         {
+            
             cc = GetComponent<vThirdPersonController>();
 
             if (cc != null)
@@ -147,6 +148,7 @@ namespace Invector.vCharacterController
 
         public virtual void FindHUD()
         {
+            
             if (hud == null && vHUDController.instance != null)
             {
                 hud = vHUDController.instance;
