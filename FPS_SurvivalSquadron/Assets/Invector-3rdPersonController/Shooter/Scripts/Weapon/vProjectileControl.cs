@@ -110,6 +110,12 @@ namespace Invector.vShooter
                     {                       
                         rigb.AddForce(transform.forward * damage.damageValue * forceMultiplier, ForceMode.Impulse);
                     }
+                    var hitBox = hitInfo.collider.GetComponent<HitBox>();
+                    if (hitBox)
+                    {
+                        hitBox.OnRaycastHit(this, transform.forward);
+                    }
+
 
                     startPosition = transform.position;
                     castDist = dist;

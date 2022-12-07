@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class RayCastWeapon : MonoBehaviour
 {
     class Bullet
@@ -168,17 +169,17 @@ public class RayCastWeapon : MonoBehaviour
             }
 
             // collision impulse
-            var rb2d = hitInfo.collider.GetComponent<Rigidbody>();
-            if (rb2d)
-            {
-                rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
-            }
+            //var rb2d = hitInfo.collider.GetComponent<Rigidbody>();
+            //if (rb2d)
+            //{
+            //    rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
+            //}
 
-            var hitBox = hitInfo.collider.GetComponent<HitBox>();
-            if(hitBox)
-            {
-                hitBox.OnRaycastHit(this, ray.direction);
-            } 
+            //var hitBox = hitInfo.collider.GetComponent<HitBox>();
+            //if(hitBox)
+            //{
+            //    hitBox.OnRaycastHit(this, ray.direction);
+            //} 
         }
         bullet.tracer.transform.position = end;
         //if (debug)

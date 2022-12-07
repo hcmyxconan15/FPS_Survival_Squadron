@@ -2,23 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitBox : MonoBehaviour
+namespace Invector.vShooter
 {
-    public Health health;
-    // Start is called before the first frame update
-    void Start()
+    public class HitBox : MonoBehaviour
     {
-        
-    }
+        public Health health;
+        // Start is called before the first frame update
+        void Start()
+        {
 
-    // Update is called once per frame 
-    void Update()
-    {
-        
-    }
+        }
 
-    public virtual void OnRaycastHit(RayCastWeapon weapon, Vector3 diretion)
-    {
-        health.TakeDamage(weapon.damage, diretion);
+        // Update is called once per frame 
+        void Update()
+        {
+
+        }
+
+        public virtual void OnRaycastHit(vProjectileControl vProjectileControl, Vector3 diretion)
+        {
+            health.TakeDamage(vProjectileControl.damage.damageValue, diretion);
+        }
     }
 }
+
