@@ -23,6 +23,7 @@ namespace Invector.vCharacterController
         #region Shooter Variables       
 
         [HideInInspector] public vShooterManager shooterManager;
+        private Photon.Pun.PhotonView pv => GetComponent<Photon.Pun.PhotonView>();
 
         internal bool isAimingByInput;
         internal bool isReloading;
@@ -413,6 +414,7 @@ namespace Invector.vCharacterController
         /// </summary>
         protected override void InputHandle()
         {
+            //if (!pv.IsMine) return;
             if (cc == null || cc.isDead)
             {
                 AimInput();
@@ -1097,12 +1099,12 @@ namespace Invector.vCharacterController
                     return;
                 }
 
-                if (tpCamera)
+                if (tpCamera && pv.IsMine == true)
                 {
                     tpCamera.SetMainTarget(this.transform);
                     tpCamera.Init();
                 }
-            }          
+            }         
 
             if (changeCameraState)
             {

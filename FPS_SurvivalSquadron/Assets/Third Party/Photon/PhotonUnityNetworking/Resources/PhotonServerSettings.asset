@@ -40,6 +40,8 @@ MonoBehaviour:
   - TakeDamage
   - Test
   - RPC_TakeDamg
+  - EquipMeleeWeapon
+  - EquipShooterWeapon
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

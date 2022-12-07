@@ -5,31 +5,32 @@ namespace Invector.vMelee
     using System;
     using vCharacterController.vActions;
     using vShooter;
-
+    using Photon.Pun;
     [vClassHeader("Collect Shooter Melee Control", "This component is used when you're character doesn't have a ItemManager to manage items, this will allow you to pickup 1 weapon at the time.")]
     public class vCollectShooterMeleeControl : vCollectMeleeControl
     {
         protected vShooterManager shooterManager;
         [vEditorToolbar("Shooter Events")]
         public UnityEngine.Events.UnityEvent onEquipShooterWeapon, onUnequipShooterWeapon;
-
+        PhotonView photonView => GetComponent<PhotonView>();
 
         internal bool wasUsingShooterWeapon;
         protected override void Start()
         {
             base.Start();
             shooterManager = GetComponent<vShooterManager>();
+            
         }
        
         public override void HandleCollectableInput(vCollectableStandalone collectableStandAlone)
         {
             if (shooterManager && collectableStandAlone != null && collectableStandAlone.weapon != null)
             {
-                EquipShooterWeapon(collectableStandAlone); 
+                EquipShooterWeapon(collectableStandAlone);
             }
             base.HandleCollectableInput(collectableStandAlone);
         }
-
+       
         protected virtual void EquipShooterWeapon(vCollectableStandalone collectable)
         {
             var weapon = collectable.weapon.GetComponent<vShooterWeapon>();

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ActiveWeaponNetwork : ActiveWeapon
 {
-    SetPlayerIsMine setPlayerIsMine => GetComponent<SetPlayerIsMine>();
-    protected override void Action()
-    {
-        if (!setPlayerIsMine.PlayerIsMine) return;
-        base.Action();
-    }
+    //    SetPlayerIsMine setPlayerIsMine => GetComponent<SetPlayerIsMine>();
+    //    protected override void Action()
+    //    {
+    //        if (!setPlayerIsMine.PlayerIsMine) return;
+    //        base.Action();
+    //    }
+    //}
 }

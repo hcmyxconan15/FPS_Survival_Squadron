@@ -2,27 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TakeDamageToPlayer : MonoBehaviour
+namespace Invector.vCharacterController
 {
-    public float damage;
-    
-    // Start is called before the first frame update
-    void Start()
+    public class TakeDamageToPlayer : MonoBehaviour
     {
-        
-    }
+        public float damage;
+        vDamage vDamage;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
+        // Start is called before the first frame update
+        void Start()
         {
-            other.GetComponent<HealthPlayer>().TakeDamage(damage);
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player")
+            {
+                //other.GetComponent<HealthPlayer>().TakeDamage(damage);
+                //other.GetComponent<vDamage>().damageValue = damage;
+                //other.GetComponent<vThirdPersonMotor>().TakeDamage();
+            }
         }
     }
 }

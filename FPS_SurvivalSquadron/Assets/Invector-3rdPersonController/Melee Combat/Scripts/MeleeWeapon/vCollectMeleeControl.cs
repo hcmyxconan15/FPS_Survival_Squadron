@@ -5,6 +5,7 @@ namespace Invector.vMelee
     using UnityEngine.Events;
     using vCharacterController;
     using vCharacterController.vActions;
+    using Photon.Pun;
 
     [vClassHeader("Collect Melee Control", "This component is used when you're character doesn't have a ItemManager to manage items, this will allow you to pickup 1 weapon at the time.")]
     public class vCollectMeleeControl : vMonoBehaviour
@@ -20,14 +21,17 @@ namespace Invector.vMelee
         [HideInInspector]
         public vCollectableStandalone leftWeapon, rightWeapon;
         public vControlDisplayWeaponStandalone controlDisplayPrefab;
+        public vCollectableStandalone collectableStandAlone;
         protected vControlDisplayWeaponStandalone currentDisplay;
         [vEditorToolbar("Melee Events")]
         public UnityEngine.Events.UnityEvent onEquipMeleeWeapon, onUnequipMeleeWeapon, onEquipRightWeapon, onEquipLeftWeapon, onUnEquipRightWeapon, onUnEquipLeftWeapon;
 
         internal bool wasUsingMeleeWeapon;
+        PhotonView photonView;
 
         protected virtual void Start()
         {
+            photonView = GetComponent<PhotonView>();
             meleeManager = GetComponent<vMeleeManager>();
             if (controlDisplayPrefab)
             {
@@ -53,7 +57,6 @@ namespace Invector.vMelee
                 EquipMeleeWeapon(collectableStandAlone);
             }
         }
-
         protected virtual void EquipMeleeWeapon(vCollectableStandalone collectable)
         {
             var weapon = collectable.weapon.GetComponent<vMeleeWeapon>();

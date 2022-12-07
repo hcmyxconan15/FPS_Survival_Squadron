@@ -1,23 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Invector.vCharacterController;
 
 public class SetPlayerIsMine : MonoBehaviour
 {
     Photon.Pun.PhotonView pv => GetComponent<Photon.Pun.PhotonView>();
 
-    public bool PlayerIsMine = false ;
-
 
     private void Awake()
     {
-        if (pv.IsMine)
+        if (!pv.IsMine)
         {
-            PlayerIsMine = true;
-        }
-        else
-        {
-            PlayerIsMine = false;
+            GetComponent<vShooterMeleeInput>().enabled = false;
         }
     }
 }

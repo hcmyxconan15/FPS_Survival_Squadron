@@ -13,24 +13,12 @@ public class InstantitePrefab : MonoBehaviour
     private void Start()
     {
         Instantite();
-        InstantiteEnemy();
     }
     
     private void Instantite()
     {
-       GameObject go =  PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
-        ActiveWeapon activeWeapon = go.GetComponent<ActiveWeapon>();
-        activeWeapon.crossHairTarget = crossTarget;
-        activeWeapon.ammoWidget = ammoWidget;
-        go.GetComponent<PlayerAmingNetwork>().CameraLookAt = playerCamera;
-       go.GetComponent<ReloadWeapon>().ammoWidget = ammoWidget;
-       
-    }
-    private void InstantiteEnemy()
-    {
-        if(PhotonNetwork.IsMasterClient)
-        {
-            loadMap.InstantiateEnemy("Map_1");
-        }
+        GameObject go = PhotonNetwork.Instantiate("Prefab/Player", Vector3.zero, Quaternion.identity);
+        
+
     }
 }

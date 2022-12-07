@@ -13,6 +13,7 @@ namespace Invector.vCharacterController
         public event OnUpdateEvent onLateUpdate;
         public event OnUpdateEvent onFixedUpdate;
         public event OnUpdateEvent onAnimatorMove;
+        private Photon.Pun.PhotonView pv => GetComponent<Photon.Pun.PhotonView>();
 
         #region Variables        
 
@@ -182,7 +183,7 @@ namespace Invector.vCharacterController
                 tpCamera = tpCameras[0];
             }
 
-            if (tpCamera && tpCamera.mainTarget != transform)
+            if (tpCamera && tpCamera.mainTarget != transform && pv.IsMine ==true)
             {
                 tpCamera.SetMainTarget(this.transform);
             }
@@ -593,7 +594,7 @@ namespace Invector.vCharacterController
                     return;
                 }
 
-                if (tpCamera)
+                if (tpCamera && pv.IsMine == true)
                 {
                     tpCamera.SetMainTarget(this.transform);
                     tpCamera.Init();
