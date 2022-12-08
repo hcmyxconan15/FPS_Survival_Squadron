@@ -23,6 +23,9 @@ TagManager:
   - Wood
   - Glass
   - PlayerUI
+  - WayPoints01_00
+  - WayPoints01_01
+  - WayPoints01_02
   layers:
   - Default
   - TransparentFX
