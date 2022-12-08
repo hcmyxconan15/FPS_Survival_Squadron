@@ -63,13 +63,16 @@ public class HealthPlayerObsever : MonoBehaviour
         countEnemy.text = CountEnemy.ToString();
         if(SceneManager.GetActiveScene().name == "AI")
         {
-            if(countEnemy.text == "5")
+            if(countEnemy.text == "10")
             {
-                screenPlayGame.isDone = true;
                 OnCurso();
-                screenPlayGame.Hide();
-                notifyVictory.Show(this.gameObject);
-                Time.timeScale = 0;
+            }
+        }        
+        if(SceneManager.GetActiveScene().name == "GameSence")
+        {
+            if(countEnemy.text == "23")
+            {
+                OnCurso();
             }
         }
     }
@@ -78,5 +81,10 @@ public class HealthPlayerObsever : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        ScreenPlayGame.countEnemy = 0;
+        screenPlayGame.isDone = true;
+        screenPlayGame.Hide();
+        notifyVictory.Show(this.gameObject);
+        Time.timeScale = 0;
     }
 }
