@@ -11,7 +11,7 @@ namespace Invector.vShooter
         //UIHealthBar healthBar;
         Animator animator;
         [Header("Partical")]
-        public bool isParticalDestroy = true;
+        public bool isParticalDestroy = false;
         public GameObject particalDestroy;
         [Header("HealthBar")]
         public GameObject healthBar;
