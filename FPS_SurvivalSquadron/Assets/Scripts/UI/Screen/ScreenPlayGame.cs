@@ -7,6 +7,8 @@ public class ScreenPlayGame : BaseScreen
 {
     PopupPause popupPause;
     public PopupPause PopupPause => popupPause;
+    public static int countEnemy = 0;
+    public bool isDone = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +64,7 @@ public class ScreenPlayGame : BaseScreen
 
     private void OnButtonSetting()
     {
-        if (SceneManager.GetActiveScene().name != "UI")
+        if (SceneManager.GetActiveScene().name != "UI" && isDone == false)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {

@@ -18,7 +18,6 @@ public class PopupPause : BasePopup
         screenPlayGame = UIManager.Instance.GetExistScreen<ScreenPlayGame>();
         popupExit = UIManager.Instance.GetExistPopup<PopupExit>();
         popupHome = UIManager.Instance.GetExistPopup<PopupHome>();
-
     }
 
     // Update is called once per frame

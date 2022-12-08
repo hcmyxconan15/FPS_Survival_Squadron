@@ -14,7 +14,7 @@ public enum ListenType
 {
     Unkow = 0,
     UPDATE_HP_PLAYER = 1,
-    UPDATE_COUNT_BULLET = 2,
+    UPDATE_COUNT_ENEMY = 2,
 }
 
 

@@ -17,8 +17,6 @@ namespace Invector.vShooter
         public GameObject healthBar;
         public GameObject borderHealth;
         bool coolDownRagdoll = true;
-
-
         // Start is called before the first frame update
         void Start()
         {
@@ -31,6 +29,10 @@ namespace Invector.vShooter
                 HitBox hitBox = rigiBody.gameObject.AddComponent<HitBox>();
                 hitBox.health = this;
             }
+            //screenPlayGame.countEnemy = 0;
+            //ListenerManager.Instance.BroadCast(ListenType.UPDATE_COUNT_ENEMY, screenPlayGame.countEnemy);
+            ListenerManager.Instance.BroadCast(ListenType.UPDATE_COUNT_ENEMY, ScreenPlayGame.countEnemy);
+
         }
 
         // Update is called once per frame
@@ -51,6 +53,7 @@ namespace Invector.vShooter
             if (currentHealth <= 0.0f && coolDownRagdoll)
             {
                 Die(direction);
+                ListenerManager.Instance.BroadCast(ListenType.UPDATE_COUNT_ENEMY,++ScreenPlayGame.countEnemy);
                 coolDownRagdoll = false;
                 StartCoroutine(CoolDown(3f));
             }
