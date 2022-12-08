@@ -3649,7 +3649,7 @@ PrefabInstance:
     - target: {fileID: 163722695179281343, guid: 4607e0aaac3725d44b34c141f79989b2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 30c99345f109fe6429908bc4baf51ede, type: 3}
+      objectReference: {fileID: 21300000, guid: 0b55ace0bbf63124e96a736abe4a6318, type: 3}
     - target: {fileID: 163726476881204507, guid: 4607e0aaac3725d44b34c141f79989b2, type: 3}
       propertyPath: m_Text
       value: Map 02
@@ -3660,7 +3660,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 30c99345f109fe6429908bc4baf51ede, type: 3}
     - target: {fileID: 164148325015468169, guid: 4607e0aaac3725d44b34c141f79989b2, type: 3}
       propertyPath: m_Text
-      value: Map 02 - MultiPlayer
+      value: Map 01 - MultiPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 1507336549620674260, guid: 4607e0aaac3725d44b34c141f79989b2, type: 3}
       propertyPath: m_IsActive
@@ -3701,6 +3701,14 @@ PrefabInstance:
     - target: {fileID: 1724973732568857122, guid: 4607e0aaac3725d44b34c141f79989b2, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -321.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725810429454809756, guid: 4607e0aaac3725d44b34c141f79989b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725954254592545334, guid: 4607e0aaac3725d44b34c141f79989b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 483
       objectReference: {fileID: 0}
     - target: {fileID: 3658498074487613398, guid: 4607e0aaac3725d44b34c141f79989b2, type: 3}
       propertyPath: m_Pivot.x
