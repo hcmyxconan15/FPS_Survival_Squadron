@@ -316,7 +316,7 @@ namespace Invector.vShooter
                 rWeapon.hitLayer = damageLayer;
                 if (Photon.Pun.PhotonNetwork.IsConnected)
                 {
-                    rWeapon.ignoreTags.RemoveAll( p => p !="");
+                    rWeapon.ignoreTags = new List<string>();
                     rWeapon.hitLayer = LayerMask.GetMask("Enemy") | LayerMask.GetMask("Default");
                 }
                 rWeapon.root = transform;

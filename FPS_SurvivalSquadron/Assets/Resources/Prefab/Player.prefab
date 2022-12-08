@@ -1492,7 +1492,7 @@ GameObject:
   - component: {fileID: 6114576844202234275}
   - component: {fileID: 6114576844202231820}
   - component: {fileID: 6114576844202234878}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: hitBox
   m_TagString: Ignore Ragdoll
   m_Icon: {fileID: 0}
@@ -2431,7 +2431,7 @@ GameObject:
   - component: {fileID: 6114576844202234284}
   - component: {fileID: 6114576844202232309}
   - component: {fileID: 6114576844202234876}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: hitBox
   m_TagString: Ignore Ragdoll
   m_Icon: {fileID: 0}
@@ -2495,7 +2495,7 @@ GameObject:
   - component: {fileID: 6114576844202234281}
   - component: {fileID: 6114576844202232314}
   - component: {fileID: 6114576844202234875}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: hitBox
   m_TagString: Ignore Ragdoll
   m_Icon: {fileID: 0}
@@ -2719,7 +2719,7 @@ MonoBehaviour:
   _currentHealth: 0
   isImmortal: 0
   fillHealthOnStart: 1
-  maxHealth: 200
+  maxHealth: 500
   healthRecovery: 1
   healthRecoveryDelay: 20
   currentHealthRecoveryDelay: 0
@@ -4699,7 +4699,7 @@ GameObject:
   - component: {fileID: 6114576844202234318}
   - component: {fileID: 6114576844202231819}
   - component: {fileID: 6114576844202234877}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: hitBox
   m_TagString: Ignore Ragdoll
   m_Icon: {fileID: 0}
