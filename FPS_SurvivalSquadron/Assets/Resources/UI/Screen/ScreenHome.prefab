@@ -3642,6 +3642,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -313.99994
       objectReference: {fileID: 0}
+    - target: {fileID: 163267438729917305, guid: 4607e0aaac3725d44b34c141f79989b2, type: 3}
+      propertyPath: m_Text
+      value: Survial Squadron
+      objectReference: {fileID: 0}
     - target: {fileID: 163408520320125131, guid: 4607e0aaac3725d44b34c141f79989b2, type: 3}
       propertyPath: m_Sprite
       value: 

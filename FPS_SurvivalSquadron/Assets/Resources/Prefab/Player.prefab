@@ -31956,7 +31956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openCloseEvents: 1
   openCloseWindow: 1
-  selectedToolbar: 1
+  selectedToolbar: 2
   _isDead: 0
   _currentHealth: 0
   isImmortal: 0
@@ -32017,7 +32017,7 @@ MonoBehaviour:
   onActionExit:
     m_PersistentCalls:
       m_Calls: []
-  maxStamina: 500
+  maxStamina: 300
   staminaRecovery: 1.2
   sprintStamina: 30
   jumpStamina: 30

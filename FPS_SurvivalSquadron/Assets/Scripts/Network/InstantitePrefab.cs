@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Unity.VisualScripting;
 using Invector.vCharacterController;
+using UnityEngine.UI;
 
 public class InstantitePrefab : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class InstantitePrefab : MonoBehaviour
     private List<Transform> transforms;
     private GameObject goMine;
     public float time;
+    public float timeGame = 300f;
+    public Text text;
 
     private void Awake()
     {
@@ -18,15 +21,16 @@ public class InstantitePrefab : MonoBehaviour
     }
     private void Start()
     {
+        Debug.Log("Hello");
         Instantite();
         bool isdead = false;
     }
-    
+
     private void Instantite()
     {
         GameObject go = PhotonNetwork.Instantiate("Prefab/Player", RamdomPostion(), Quaternion.identity);
         go.tag = "Enemy";
-        if(go.GetComponent<PhotonView>().IsMine)
+        if (go.GetComponent<PhotonView>().IsMine)
         {
             goMine = go;
         }
@@ -35,16 +39,30 @@ public class InstantitePrefab : MonoBehaviour
     bool isdead;
     private void Update()
     {
-        if(goMine != null)
+        if (goMine != null)
         {
-            if(goMine.GetComponent<vThirdPersonController>().isDead && !isdead)
+            if (goMine.GetComponent<vThirdPersonController>().isDead && !isdead)
             {
                 isdead = true;
                 StartCoroutine(Revirse());
 
             }
         }
-        
+        timeGame -= Time.deltaTime;
+        if (timeGame > 0)
+        {
+            text.text = ((int)timeGame).ToString();
+        }
+        else
+        {
+            Photon.Pun.PhotonNetwork.Disconnect();
+            Time.timeScale = 0;
+            UIManager.Instance.GetExistScreen<ScreenPlayGame>().Hide();
+            UIManager.Instance.GetExistNotify<NotifyVictory>().Show(this.gameObject);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+
     }
     Vector3 RamdomPostion()
     {
@@ -58,4 +76,5 @@ public class InstantitePrefab : MonoBehaviour
         Instantite();
         isdead = false;
     }
+
 }

@@ -36,6 +36,10 @@ public class PopupHome : BasePopup
         popupPause.Hide();
         screenHome.Show(this.gameObject);
         Time.timeScale = 1;
+        if(SceneManager.GetActiveScene().name != "UI")
+        {
+            UIManager.Instance.GetExistNotify<NotifyVictory>().Hide();
+        }
     }
 
     public void OnClickNo()

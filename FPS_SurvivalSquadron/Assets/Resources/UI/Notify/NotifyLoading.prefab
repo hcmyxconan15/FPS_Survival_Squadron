@@ -240,7 +240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4494081594508183138
 RectTransform:
   m_ObjectHideFlags: 0
@@ -913,7 +913,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GAME NAME
+  m_Text: Survial Squadron
 --- !u!1 &6364080209335397359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,7 +1047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6730861903863141131
 RectTransform:
   m_ObjectHideFlags: 0
