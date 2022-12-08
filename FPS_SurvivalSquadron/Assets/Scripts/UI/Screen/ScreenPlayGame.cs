@@ -7,7 +7,6 @@ public class ScreenPlayGame : BaseScreen
 {
     PopupPause popupPause;
     public PopupPause PopupPause => popupPause;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +17,7 @@ public class ScreenPlayGame : BaseScreen
     // Update is called once per frame
     void Update()
     {
-
+        OnButtonSetting();
     }
 
     public override void Hide()
@@ -55,10 +54,20 @@ public class ScreenPlayGame : BaseScreen
     public void OnClickPopupPause()
     {
         Time.timeScale = 0;
-
         popupPause.Show(this.gameObject);
         this.Hide();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    private void OnButtonSetting()
+    {
+        if (SceneManager.GetActiveScene().name != "UI")
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                OnClickPopupPause();
+            }
+        }
     }
 }

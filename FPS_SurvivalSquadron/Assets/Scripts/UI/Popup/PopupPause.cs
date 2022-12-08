@@ -11,7 +11,6 @@ public class PopupPause : BasePopup
     PopupExit popupExit;
     PopupHome popupHome;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +41,8 @@ public class PopupPause : BasePopup
     {
         Time.timeScale = 1;
         this.Hide();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         screenPlayGame.Show(this.gameObject);
     }
 
