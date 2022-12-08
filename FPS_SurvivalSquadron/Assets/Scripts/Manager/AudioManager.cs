@@ -33,7 +33,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         }
         effect.source.volume = effect.volume;
         effect.source.Play();
-    }
+    }                                                                                                                                                                                       
 
     public void PlaySoundMusic(string soundName)
     {
