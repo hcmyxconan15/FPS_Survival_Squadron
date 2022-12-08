@@ -818,7 +818,6 @@ namespace Invector.vCharacterController
                 else
                     shooterManager.Shoot(AimPosition, !isAimingByInput);
                     if (CurrentActiveWeapon.chargeWeapon) CurrentActiveWeapon.powerCharge = 0;
-                    Debug.Log("Hello");
                     shootCountA--;
 
                 } 

@@ -26,6 +26,11 @@ TagManager:
   - WayPoints01_00
   - WayPoints01_01
   - WayPoints01_02
+  - WayPoints02_00
+  - WayPoints02_01
+  - WayPoints02_02
+  - WayPoints02_03
+  - WayPoints02_04
   layers:
   - Default
   - TransparentFX
