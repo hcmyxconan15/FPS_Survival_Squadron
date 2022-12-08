@@ -28,7 +28,7 @@ namespace Invector.vShooter
         public bool canUseMeleeAiming = false;
         [vEditorToolbar("Damage Layers")]
         [Tooltip("Layer to aim and apply damage")]
-        public LayerMask damageLayer = 1 << 0;
+        public LayerMask damageLayer = 1 << 5;
         [Tooltip("Tags to ignore (auto add this gameObject tag to avoid damage your self)")]
         public vTagMask ignoreTags = new vTagMask("Player");
         [Tooltip("Layer to block aim")]
@@ -224,6 +224,7 @@ namespace Invector.vShooter
                 }
             }
             UpdateTotalAmmo();
+            
         }
         public bool AllAmmoInfinity
         {
@@ -304,7 +305,7 @@ namespace Invector.vShooter
                 rWeapon = null;
             }
         }
-
+       
         protected virtual void SetRightWeapon(vShooterWeapon weapon)
         {
             rWeapon = weapon;
@@ -313,6 +314,11 @@ namespace Invector.vShooter
                 rWeapon.inHolder = false;
                 rWeapon.ignoreTags = ignoreTags;
                 rWeapon.hitLayer = damageLayer;
+                if (Photon.Pun.PhotonNetwork.IsConnected)
+                {
+                    rWeapon.ignoreTags.RemoveAll( p => p !="");
+                    rWeapon.hitLayer = LayerMask.GetMask("Enemy") | LayerMask.GetMask("Default");
+                }
                 rWeapon.root = transform;
                 rWeapon.onDisable.RemoveListener(HideRightAmmoDisplay);
                 rWeapon.onDisable.AddListener(HideRightAmmoDisplay);

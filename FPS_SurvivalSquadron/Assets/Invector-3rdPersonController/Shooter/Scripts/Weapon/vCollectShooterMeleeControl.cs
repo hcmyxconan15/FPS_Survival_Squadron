@@ -13,6 +13,8 @@ namespace Invector.vMelee
         [vEditorToolbar("Shooter Events")]
         public UnityEngine.Events.UnityEvent onEquipShooterWeapon, onUnequipShooterWeapon;
         PhotonView photonView => GetComponent<PhotonView>();
+        public vCollectableStandalone collectableStandAlone;
+
 
         internal bool wasUsingShooterWeapon;
         protected override void Start()
@@ -29,9 +31,9 @@ namespace Invector.vMelee
             {
                 EquipShooterWeapon(collectableStandAlone);
             }
-            //base.HandleCollectableInput(collectableStandAlone);
+            base.HandleCollectableInput(collectableStandAlone);
         }
-       
+
         protected virtual void EquipShooterWeapon(vCollectableStandalone collectable)
         {
             var weapon = collectable.weapon.GetComponent<vShooterWeapon>();
