@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -383,6 +383,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -757679779095850613, guid: ee8106d3329444d7cb2e5240f03c71f4, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8606971018843132645, guid: ee8106d3329444d7cb2e5240f03c71f4, type: 3}
       propertyPath: m_Name
       value: HandGun
@@ -2185,6 +2189,7 @@ MonoBehaviour:
   onUnequipShooterWeapon:
     m_PersistentCalls:
       m_Calls: []
+  collectableStandAlone: {fileID: 0}
 --- !u!4 &906892980548028472
 Transform:
   m_ObjectHideFlags: 0
