@@ -875,7 +875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformParrent: {fileID: 273758033}
-  transforms: []
+  time: 5
 --- !u!4 &1087991010
 Transform:
   m_ObjectHideFlags: 0
