@@ -27,6 +27,10 @@ public class PopupHome : BasePopup
     public void OnClickYes(string name)
     {
         SceneManager.LoadScene(name);
+        if(Photon.Pun.PhotonNetwork.IsConnected)
+        {
+            Photon.Pun.PhotonNetwork.Disconnect();
+        }
         this.Hide();
         screenPlayGame.Hide();
         popupPause.Hide();

@@ -10,6 +10,8 @@ public class ScreenPlayGame : BaseScreen
     public static int countEnemy = 0;
     public bool isDone = false;
     // Start is called before the first frame update
+    public GameObject go;
+    public GameObject go1;
     void Start()
     {
         InstancePopupPause();
@@ -20,6 +22,7 @@ public class ScreenPlayGame : BaseScreen
     void Update()
     {
         OnButtonSetting();
+        OnActiveSetting();
     }
 
     public override void Hide()
@@ -72,4 +75,20 @@ public class ScreenPlayGame : BaseScreen
             }
         }
     }
+
+    private void OnActiveSetting()
+    {
+        if (SceneManager.GetActiveScene().name == "Room1" || SceneManager.GetActiveScene().name == "Room2")
+        {
+            go.SetActive(false);
+            go1.SetActive(false);
+        }
+        else
+        {
+            go.SetActive(true);
+            go1.SetActive(true);
+        }
+    }
+
+
 }
