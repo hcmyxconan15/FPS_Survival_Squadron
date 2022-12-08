@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 namespace Invector.vShooter
 {
     using UnityEngine.Events;
@@ -224,6 +225,7 @@ namespace Invector.vShooter
                 }
             }
             UpdateTotalAmmo();
+            photonView = GetComponent<PhotonView>();
             
         }
         public bool AllAmmoInfinity
@@ -839,7 +841,12 @@ namespace Invector.vShooter
                 ammoDisplay.UpdateDisplay(textA, textB, weapon.ammoID);
             }
         }
-
+        PhotonView photonView;
+        public void ShootPunRPC(Vector3 aimPosition, bool applyHipfirePrecision = false)
+        {
+            photonView.RPC("Shoot", RpcTarget.All, aimPosition, applyHipfirePrecision);
+        }
+        [PunRPC]
         public virtual void Shoot(Vector3 aimPosition, bool applyHipfirePrecision = false)
         {
             if (isShooting)

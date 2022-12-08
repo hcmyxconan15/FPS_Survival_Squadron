@@ -812,10 +812,15 @@ namespace Invector.vCharacterController
         {                         
                 if (CanDoShots())
                 {
-                    animator.SetFloat(vAnimatorParameters.Shot_ID, shooterManager.GetShotID());                   
+                    animator.SetFloat(vAnimatorParameters.Shot_ID, shooterManager.GetShotID());
+                if (Photon.Pun.PhotonNetwork.IsConnected)
+                    shooterManager.ShootPunRPC(AimPosition, !isAimingByInput);
+                else
                     shooterManager.Shoot(AimPosition, !isAimingByInput);
                     if (CurrentActiveWeapon.chargeWeapon) CurrentActiveWeapon.powerCharge = 0;
+                    Debug.Log("Hello");
                     shootCountA--;
+
                 } 
         }
 

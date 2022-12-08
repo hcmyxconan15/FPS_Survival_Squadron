@@ -15,17 +15,21 @@ namespace Invector.vCharacterController
         {
             MoveToPosition(targetPosition.position);
         }
-        
+        PhotonView photonView;
         public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
         {
             //if (stream.IsWriting)
             //{
-            //    stream.SendNext(currentHealth);
-                
+            //    if (!photonView.IsMine)
+            //        stream.SendNext(currentHealth);
+
             //}
             //else
             //{
-            //    currentHealth = (float)stream.ReceiveNext();
+            //    if (photonView.IsMine)
+            //    {
+            //        currentHealth = (float)stream.ReceiveNext();
+            //    }
             //}
         }
 
@@ -367,6 +371,7 @@ namespace Invector.vCharacterController
         {
             PlayerPrefs.SetFloat(CONSTANT.PP_MAXHPPLAYER, maxHealth);
             Debug.Log(maxHealth);
+            photonView = GetComponent<PhotonView>();
         }
         public void CheckDie()
         {

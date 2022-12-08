@@ -55,6 +55,7 @@ namespace Invector.vShooter
 
         protected virtual void Update()
         {
+            
             RaycastHit hitInfo;
             if (_rigidBody.velocity.magnitude > 1)
             {

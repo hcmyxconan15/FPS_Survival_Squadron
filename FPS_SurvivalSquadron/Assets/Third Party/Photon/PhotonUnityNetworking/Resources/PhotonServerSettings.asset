@@ -42,6 +42,7 @@ MonoBehaviour:
   - RPC_TakeDamg
   - EquipMeleeWeapon
   - EquipShooterWeapon
+  - Shoot
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
