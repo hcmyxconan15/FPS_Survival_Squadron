@@ -5,7 +5,7 @@ using Photon.Pun;
 namespace Invector.vCharacterController
 {
     [vClassHeader("THIRD PERSON CONTROLLER", iconName = "controllerIcon")]
-    public class vThirdPersonController : vThirdPersonAnimator, IPunObservable
+    public class vThirdPersonController : vThirdPersonAnimator
     {
         /// <summary>
         /// Move the controller to a specific Position, you must Lock the Input first 
@@ -16,22 +16,6 @@ namespace Invector.vCharacterController
             MoveToPosition(targetPosition.position);
         }
         PhotonView photonView;
-        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-        {
-            //if (stream.IsWriting)
-            //{
-            //    if (!photonView.IsMine)
-            //        stream.SendNext(currentHealth);
-
-            //}
-            //else
-            //{
-            //    if (photonView.IsMine)
-            //    {
-            //        currentHealth = (float)stream.ReceiveNext();
-            //    }
-            //}
-        }
 
         /// <summary>
         /// Move the controller to a specific Position, you must Lock the Input first 

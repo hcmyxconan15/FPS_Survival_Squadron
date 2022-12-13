@@ -319,7 +319,7 @@ namespace Invector.vShooter
                 if (Photon.Pun.PhotonNetwork.IsConnected)
                 {
                     rWeapon.ignoreTags = new List<string>();
-                    rWeapon.hitLayer = LayerMask.GetMask("Enemy") | LayerMask.GetMask("Default");
+                    rWeapon.hitLayer = LayerMask.GetMask("Enemy")| LayerMask.GetMask("Default");
                 }
                 rWeapon.root = transform;
                 rWeapon.onDisable.RemoveListener(HideRightAmmoDisplay);
@@ -844,7 +844,8 @@ namespace Invector.vShooter
         PhotonView photonView;
         public void ShootPunRPC(Vector3 aimPosition, bool applyHipfirePrecision = false)
         {
-            photonView.RPC("Shoot", RpcTarget.All, aimPosition, applyHipfirePrecision);
+            Shoot(aimPosition, applyHipfirePrecision);
+            photonView.RPC("Shoot", RpcTarget.Others, aimPosition, applyHipfirePrecision);
         }
         [PunRPC]
         public virtual void Shoot(Vector3 aimPosition, bool applyHipfirePrecision = false)

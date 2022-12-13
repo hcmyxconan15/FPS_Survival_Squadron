@@ -185,7 +185,7 @@ namespace Invector.vCharacterController
                 tpCamera = tpCameras[0];
             }
 
-            if (tpCamera && tpCamera.mainTarget != transform && pv.IsMine ==true)
+            if (tpCamera && tpCamera.mainTarget != transform && pv.IsMine == true)
             {
                 tpCamera.SetMainTarget(this.transform);
             }

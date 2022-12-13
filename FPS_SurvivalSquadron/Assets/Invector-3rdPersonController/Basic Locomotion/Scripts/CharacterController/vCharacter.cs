@@ -23,6 +23,7 @@ namespace Invector.vCharacterController
         [vEditorToolbar("Health")]
         public DeathBy deathBy = DeathBy.Animation;
         public bool removeComponentsAfterDie;
+        
 
         [vEditorToolbar("Debug", order = 9)]
         [HideInInspector]
@@ -34,6 +35,7 @@ namespace Invector.vCharacterController
 
         public UnityEvent OnCrouch;
         public UnityEvent OnStandUp;
+        public vDamage damg;
 
         [SerializeField] protected OnActiveRagdoll _onActiveRagdoll = new OnActiveRagdoll();
         public OnActiveRagdoll onActiveRagdoll { get { return _onActiveRagdoll; } protected set { _onActiveRagdoll = value; } }
@@ -118,7 +120,7 @@ namespace Invector.vCharacterController
         {
             onActionExit.Invoke(other);
         }
-
+       
         public override void TakeDamage(vDamage damage)
         {
             base.TakeDamage(damage);

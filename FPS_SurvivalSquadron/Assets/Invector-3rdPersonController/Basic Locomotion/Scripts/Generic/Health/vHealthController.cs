@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Photon.Pun;
 
 namespace Invector
 {
@@ -13,6 +14,7 @@ namespace Invector
 
         [vEditorToolbar("Health", order = 0)]
         [SerializeField][vReadOnly] protected bool _isDead;
+        
         [vBarDisplay("maxHealth")][SerializeField] protected float _currentHealth;
         public bool isImmortal = false;
         [vHelpBox("If you want to start with different value, uncheck this and make sure that the current health has a value greater zero")]
@@ -92,6 +94,7 @@ namespace Invector
             if (fillHealthOnStart)
                 currentHealth = maxHealth;
             currentHealthRecoveryDelay = healthRecoveryDelay;
+            pv = GetComponent<PhotonView>();
         }
 
         protected virtual bool canRecoverHealth
@@ -189,24 +192,34 @@ namespace Invector
         /// Apply Damage to Current Health
         /// </summary>
         /// <param name="damage">damage</param>
+        public  vDamage _damage;
         public virtual void TakeDamage(vDamage damage)
         {
+            _damage = damage;
             if (damage != null)
             {
-                onStartReceiveDamage.Invoke(damage);
+                onStartReceiveDamage.Invoke(_damage);
                 currentHealthRecoveryDelay = currentHealth <= 0 ? 0 : healthRecoveryDelay;
 
                 if (currentHealth > 0 && !isImmortal)
                 {
-                    currentHealth -= damage.damageValue;
+                    pv.RPC("Test", RpcTarget.All, damage.damageValue);
                 }
 
                 if (damage.damageValue > 0)
-                    onReceiveDamage.Invoke(damage);
+                {
+                    onReceiveDamage.Invoke(_damage);
+                }
+                    
 
             }
         }
-
+        PhotonView pv;  
+        [PunRPC]
+        public void Test(float value)
+        {
+            currentHealth -= value;
+        }
         protected virtual void HandleCheckHealthEvents()
         {
             var events = checkHealthEvents.FindAll(e => (e.healthCompare == CheckHealthEvent.HealthCompare.Equals && currentHealth.Equals(e.healthToCheck)) ||

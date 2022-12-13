@@ -45,6 +45,7 @@ namespace Invector.vEventSystems
             var attackReceiver = receiver.GetComponent<vIAttackReceiver>();
             if (attackReceiver != null)
             {
+                // Receive damge When is shooted
                 attackReceiver.OnReceiveAttack(damage, attacker);
             }
             else

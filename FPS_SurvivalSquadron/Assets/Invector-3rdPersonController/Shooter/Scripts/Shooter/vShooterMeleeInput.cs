@@ -1103,7 +1103,7 @@ namespace Invector.vCharacterController
                     return;
                 }
 
-                if (tpCamera && pv.IsMine == true)
+                if (tpCamera && pv.IsMine == true)//
                 {
                     tpCamera.SetMainTarget(this.transform);
                     tpCamera.Init();

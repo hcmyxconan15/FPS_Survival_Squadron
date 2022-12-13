@@ -132,6 +132,7 @@ namespace Invector.vCharacterController
             {
                 var sensorObj = new GameObject("HeadTrackSensor");
                 sensor = sensorObj.AddComponent<vHeadTrackSensor>();
+                sensorObj.layer = LayerMask.GetMask("Player");
             }
 
             // updates the headtrack using the late update of the tpinput so we don't need to create another one

@@ -21,7 +21,6 @@ public class InstantitePrefab : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log("Hello");
         Instantite();
         bool isdead = false;
     }
