@@ -40,6 +40,10 @@ public class PopupHome : BasePopup
         {
             UIManager.Instance.GetExistNotify<NotifyVictory>().Hide();
         }
+        ScreenPlayGame.countEnemy = 0;
+        ListenerManager.Instance.BroadCast(ListenType.UPDATE_COUNT_ENEMY, ScreenPlayGame.countEnemy);
+        ListenerManager.Instance.BroadCast(ListenType.UPDATE_HP_PLAYER, PlayerPrefs.GetFloat(CONSTANT.PP_MAXHPPLAYER));
+
     }
 
     public void OnClickNo()
