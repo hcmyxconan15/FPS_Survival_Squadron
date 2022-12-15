@@ -31,6 +31,8 @@ TagManager:
   - WayPoints02_02
   - WayPoints02_03
   - WayPoints02_04
+  - TeamA
+  - TeamB
   layers:
   - Default
   - TransparentFX

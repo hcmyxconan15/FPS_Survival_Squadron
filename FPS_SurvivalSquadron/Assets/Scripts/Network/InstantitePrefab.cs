@@ -18,6 +18,9 @@ public class InstantitePrefab : MonoBehaviour
     public GameObject gos;
     public Text textTime;
 
+    public Text TeamA;
+    public Text TeamB;
+
     private void Awake()
     {
         transforms = transformParrent.GetComponentsInChildren<Transform>().ToListPooled();
@@ -33,7 +36,9 @@ public class InstantitePrefab : MonoBehaviour
     private void Instantite()
     {
         GameObject go = PhotonNetwork.Instantiate("Prefab/Player", RamdomPostion(), Quaternion.identity);
-        go.tag = "Enemy";
+        if (PhotonNetwork.IsMasterClient)
+            go.tag = "TeamA";
+        else go.tag = "TeamB";
         if (go.GetComponent<PhotonView>().IsMine)
         {
             goMine = go;
@@ -41,12 +46,16 @@ public class InstantitePrefab : MonoBehaviour
 
     }
     bool isdead;
+    
     private void Update()
     {
+        TeamA.text = CheckPoints.PointTeamA.ToString();
+        TeamB.text = CheckPoints.PointTeamB.ToString();
         if (goMine != null)
         {
             if (goMine.GetComponent<vThirdPersonController>().isDead && !isdead)
             {
+                
                 isdead = true;
                 gos.SetActive(true);
                 StartCoroutine(Revirse());
@@ -65,6 +74,8 @@ public class InstantitePrefab : MonoBehaviour
         }
         else
         {
+            CheckPoints.PointTeamA = 0;
+            CheckPoints.PointTeamB = 0;
             Photon.Pun.PhotonNetwork.Disconnect();
             Time.timeScale = 0;
             UIManager.Instance.GetExistScreen<ScreenPlayGame>().Hide();

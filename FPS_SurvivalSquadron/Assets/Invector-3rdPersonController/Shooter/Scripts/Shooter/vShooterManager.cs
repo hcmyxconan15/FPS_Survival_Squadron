@@ -844,8 +844,7 @@ namespace Invector.vShooter
         PhotonView photonView;
         public void ShootPunRPC(Vector3 aimPosition, bool applyHipfirePrecision = false)
         {
-            Shoot(aimPosition, applyHipfirePrecision);
-            photonView.RPC("Shoot", RpcTarget.Others, aimPosition, applyHipfirePrecision);
+            photonView.RPC("Shoot", RpcTarget.All, aimPosition, applyHipfirePrecision);
         }
         [PunRPC]
         public virtual void Shoot(Vector3 aimPosition, bool applyHipfirePrecision = false)
