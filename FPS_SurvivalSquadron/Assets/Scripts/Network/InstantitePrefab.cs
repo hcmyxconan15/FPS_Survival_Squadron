@@ -12,8 +12,11 @@ public class InstantitePrefab : MonoBehaviour
     private List<Transform> transforms;
     private GameObject goMine;
     public float time;
+    private float timeReviese;
     public float timeGame = 300f;
     public Text text;
+    public GameObject gos;
+    public Text textTime;
 
     private void Awake()
     {
@@ -23,6 +26,8 @@ public class InstantitePrefab : MonoBehaviour
     {
         Instantite();
         bool isdead = false;
+        timeReviese = time;
+        gos.SetActive(false);
     }
 
     private void Instantite()
@@ -43,9 +48,15 @@ public class InstantitePrefab : MonoBehaviour
             if (goMine.GetComponent<vThirdPersonController>().isDead && !isdead)
             {
                 isdead = true;
+                gos.SetActive(true);
                 StartCoroutine(Revirse());
 
             }
+        }
+        if(isdead == true)
+        {
+            timeReviese -= Time.deltaTime;
+            textTime.text = ((int)timeReviese).ToString();
         }
         timeGame -= Time.deltaTime;
         if (timeGame > 0)
@@ -74,6 +85,8 @@ public class InstantitePrefab : MonoBehaviour
         PhotonNetwork.Destroy(goMine);
         Instantite();
         isdead = false;
+        timeReviese = time;
+        gos.SetActive(false);
     }
 
 }
