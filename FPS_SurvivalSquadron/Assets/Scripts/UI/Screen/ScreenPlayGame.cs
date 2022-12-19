@@ -58,7 +58,8 @@ public class ScreenPlayGame : BaseScreen
 
     public void OnClickPopupPause()
     {
-        Time.timeScale = 0;
+        if (SceneManager.GetActiveScene().name != "Room2")
+            Time.timeScale = 0;
         popupPause.Show(this.gameObject);
         this.Hide();
         Cursor.visible = true;

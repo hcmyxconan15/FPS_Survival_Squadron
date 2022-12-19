@@ -38,6 +38,7 @@ public class PopupPause : BasePopup
 
     public void OnClickResume()
     {
+        
         Time.timeScale = 1;
         this.Hide();
         Cursor.visible = false;

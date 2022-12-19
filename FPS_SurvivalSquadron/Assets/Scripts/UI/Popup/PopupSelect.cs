@@ -35,7 +35,7 @@ public class PopupSelect : BasePopup
         
     }
 
-    private void LoadGame()
+    public void LoadGame()
     {
         UIManager.Instance.ShowNotify<NotifyLoadingPlayGame>();
         NotifyLoadingPlayGame scr = UIManager.Instance.GetExistNotify<NotifyLoadingPlayGame>();
@@ -69,9 +69,12 @@ public class PopupSelect : BasePopup
 
     public void OnClickLoadScreenMultiPlayer(string name)
     {
-        this.Hide();
-        LoadGame();
-        SceneManager.LoadScene(name);
+        //this.Hide();
+        //LoadGame();
+        //SceneManager.LoadScene(name);
+        UIManager.Instance.ShowPopup<PopupNetwork>();
+        var popup = UIManager.Instance.GetExistPopup<PopupNetwork>();
+        popup.transform.localPosition = new Vector3(-980, -520, 0);
     }
 
     public void OnClickBack()

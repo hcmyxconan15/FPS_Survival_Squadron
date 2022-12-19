@@ -13,13 +13,14 @@ namespace Com.MyGame
         string gameVersion = "1";
         [SerializeField]
         private byte maxPlayersPerRoom = 4;
-        void Awake()
+        public GameObject UIJoin;
+        private void Awake()
+        {
+            ConnectGame();
+        }
+        public void ConnectGame()
         {
             StartCoroutine(Connect());
-        }
-        private void Start()
-        {
-            
         }
         #region Connect and disconnect
         public IEnumerator Connect()
@@ -59,7 +60,7 @@ namespace Com.MyGame
         }
         public override void OnJoinedLobby()
         {
-            Debug.Log("Join lobby");
+            
         }
     }
 }
