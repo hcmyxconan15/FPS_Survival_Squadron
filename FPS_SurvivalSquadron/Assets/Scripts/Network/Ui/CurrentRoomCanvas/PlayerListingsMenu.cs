@@ -89,16 +89,16 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            for (int i = 0; i < playerListings.Count; i++)
-            {
-                if (playerListings[i].player != PhotonNetwork.LocalPlayer)
-                {
-                    if (!playerListings[i].Ready)
-                    {
-                        return;
-                    }
-                }
-            }
+            //for (int i = 0; i < playerListings.Count; i++)
+            //{
+            //    if (playerListings[i].player != PhotonNetwork.LocalPlayer)
+            //    {
+            //        if (!playerListings[i].Ready)
+            //        {
+            //            return;
+            //        }
+            //    }
+            //}
             PhotonNetwork.CurrentRoom.IsOpen = false;
             PhotonNetwork.CurrentRoom.IsVisible = false;
             popupSelect.LoadGame();
