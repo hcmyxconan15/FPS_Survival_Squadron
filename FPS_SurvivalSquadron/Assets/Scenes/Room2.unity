@@ -13408,7 +13408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transformParrent: {fileID: 273758033}
   time: 5
-  timeGame: 130
+  timeGame: 210
   text: {fileID: 361827370}
   gos: {fileID: 873583521}
   textTime: {fileID: 898298130}
