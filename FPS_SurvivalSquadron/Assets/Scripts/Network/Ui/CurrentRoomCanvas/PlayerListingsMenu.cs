@@ -17,7 +17,6 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     List<PlayerListing> playerListings = new List<PlayerListing>();
     private bool _ready;
 
-    private PopupSelect popupSelect => UIManager.Instance.GetExistPopup<PopupSelect>();
 
 
     public override void OnEnable()
@@ -99,14 +98,10 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
             //        }
             //    }
             //}
-            PhotonNetwork.CurrentRoom.IsOpen = false;
-            PhotonNetwork.CurrentRoom.IsVisible = false;
-            popupSelect.LoadGame();
-            UIManager.Instance.GetExistPopup<PopupNetwork>().Hide();
             PhotonNetwork.LoadLevel(1);
         }
     }
-
+   
     public void Onlick_ReadyUp()
     {
         if(!PhotonNetwork.IsMasterClient)

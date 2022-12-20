@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Room2.unity
     guid: 4d38dec0fbb2e99499a212c9d3418a27
   - enabled: 1
-    path: Assets/Scenes/Room1.unity
-    guid: 10cbf8a5fb0f67145979fd413c180617
-  - enabled: 1
     path: Assets/Scenes/AI.unity
     guid: f6d412246a453bc4088f2399400cbd2b
   - enabled: 1

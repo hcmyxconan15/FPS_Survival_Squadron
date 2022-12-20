@@ -24,6 +24,7 @@ public class InstantitePrefab : MonoBehaviour
     private void Awake()
     {
         transforms = transformParrent.GetComponentsInChildren<Transform>().ToListPooled();
+        LoadSence();
     }
     private void Start()
     {
@@ -32,7 +33,14 @@ public class InstantitePrefab : MonoBehaviour
         timeReviese = time;
         gos.SetActive(false);
     }
-
+    public void LoadSence()
+    {
+        PhotonNetwork.CurrentRoom.IsOpen = false;
+        PhotonNetwork.CurrentRoom.IsVisible = false;
+        PopupSelect popupSelect = UIManager.Instance.GetExistPopup<PopupSelect>();
+        popupSelect.LoadGame();
+        UIManager.Instance.GetExistPopup<PopupNetwork>().Hide();
+    }
     private void Instantite()
     {
         GameObject go = PhotonNetwork.Instantiate("Prefab/Player", RamdomPostion(), Quaternion.identity);
