@@ -17,12 +17,7 @@ public class PlayerListing : MonoBehaviourPunCallbacks
     public void SetPlayerInfo(Player _player)
     {
         this.player = _player;
-        int? result = -1;
-        if (_player.CustomProperties.ContainsKey("Random"))
-        {
-            result = (int)_player.CustomProperties["Random"];
-        }
-        text.text = result.ToString()  + ", "+  _player.NickName;
+        text.text = _player.NickName;
     }
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
     {

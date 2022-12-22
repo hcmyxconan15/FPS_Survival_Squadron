@@ -414,7 +414,7 @@ namespace Invector.vCharacterController
         /// </summary>
         protected override void InputHandle()
         {
-            //if (!pv.IsMine) return;
+            if (!pv.IsMine) return;
             if (cc == null || cc.isDead)
             {
                 AimInput();

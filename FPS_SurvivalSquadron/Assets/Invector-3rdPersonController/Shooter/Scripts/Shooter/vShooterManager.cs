@@ -226,8 +226,10 @@ namespace Invector.vShooter
             }
             UpdateTotalAmmo();
             photonView = GetComponent<PhotonView>();
+            isMine = photonView.IsMine ? true : false;
             
         }
+        bool isMine;
         public bool AllAmmoInfinity
         {
             get
@@ -525,6 +527,7 @@ namespace Invector.vShooter
 
         public virtual void ReloadWeapon()
         {
+
             var weapon = rWeapon ? rWeapon : lWeapon;
 
             if (!weapon || !weapon.gameObject.activeInHierarchy || isReloading)
@@ -821,7 +824,7 @@ namespace Invector.vShooter
 
         protected virtual void UpdateAmmoDisplay(int displayId)
         {
-            if (!useAmmoDisplay)
+            if (!useAmmoDisplay || !isMine)
             {
                 return;
             }
@@ -879,7 +882,7 @@ namespace Invector.vShooter
                 var recoilUp = Random.Range(0, weapon.recoilUp);
                 StartCoroutine(Recoil(recoilHorizontal, recoilUp));
             }
-
+            
             UpdateAmmoDisplay(rWeapon ? 1 : -1);
 
             if (weapon.dontUseReload)
